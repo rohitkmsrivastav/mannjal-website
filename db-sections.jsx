@@ -18,15 +18,15 @@ function Nav({ onCta }) {
         <div className="nav-left">
           <a href="#top" aria-label="Mannjal home"><Wordmark size={26} /></a>
           <div className="nav-links">
-            <a className="nav-link" href="#platform">Platform</a>
-            <a className="nav-link" href="#how">How it works</a>
-            <a className="nav-link" href="#banks">For banks</a>
-            <a className="nav-link" href="#originators">For originators</a>
-            <a className="nav-link" href="#rbi">RBI 2025</a>
+            <a className="nav-link" href="platform-security.html">Platform & Security</a>
+            <a className="nav-link" href="how-it-works.html">How It Works</a>
+            <a className="nav-link" href="for-banks.html">For Banks</a>
+            <a className="nav-link" href="for-originators.html">For Originators</a>
+            <a className="nav-link" href="our-story.html">Our Story</a>
           </div>
         </div>
         <div className="nav-right">
-          <a className="nav-link" href="#contact">Sign in</a>
+          <a className="nav-link" href="contact.html">Sign in</a>
           <button className="btn btn-primary btn-sm" onClick={onCta}>Talk to us</button>
         </div>
       </div>
@@ -41,7 +41,7 @@ function Hero({ onCta }) {
         <div>
           <div className="hero-eyebrow"><span className="pip"></span><span className="eyebrow">Co-lending · BC · LSP</span></div>
           <h1>Partnership lending <span className="accent">infrastructure</span> for banks that want to scale.</h1>
-          <p className="hero-sub">Mannjal manages co-lending, BC, and LSP programs end to end. Each partner gets their own secure instance — no data leakage, no credit decisions, no borrower data on our side.</p>
+          <p className="hero-sub">Mannjal manages co-lending, BC, and LSP programs end to end. Each partner gets their own secure instance. No data leakage, no credit decisions, no borrower data on our side.</p>
           <div className="hero-cta">
             <button className="btn btn-primary" onClick={onCta}>Talk to us</button>
             <a className="btn btn-dark" href="#how">See how it works</a>
@@ -95,10 +95,10 @@ function RbiBanner() {
 }
 
 const PLATFORM_TABS = [
-  { id: "coLending", label: "Co-lending", ico: "branch", h: "Run blended co-lending programs", p: "Set the risk split, enforce a single blended interest rate, and let Mannjal route every application against the rules you defined — with escrow reconciliation built in." },
-  { id: "bc", label: "Business Correspondent", ico: "users", h: "Manage BC networks in the field", p: "Onboard agents, enforce KYC and document checklists, and support phygital journeys — with full visibility into capture and submission across every cluster." },
+  { id: "coLending", label: "Co-lending", ico: "branch", h: "Run blended co-lending programs", p: "Set the risk split, enforce a single blended interest rate, and let Mannjal route every application against the rules you defined, with escrow reconciliation built in." },
+  { id: "bc", label: "Business Correspondent", ico: "users", h: "Manage BC networks in the field", p: "Onboard agents, enforce KYC and document checklists, and support phygital journeys, with full visibility into capture and submission across every cluster." },
   { id: "reporting", label: "LSP & reporting", ico: "doc", h: "LSP programs, fully reported", p: "Run Lending Service Provider programs with compliant documentation, audit trails at every step, and partner-level reporting that maps straight to RBI returns." },
-  { id: "escrow", label: "Escrow", ico: "wallet", h: "Escrow that reconciles itself", p: "Funds flow through escrow while Mannjal automates reconciliation, posting, and ongoing program monitoring across all active partnerships — no spreadsheets." },
+  { id: "escrow", label: "Escrow", ico: "wallet", h: "Escrow that reconciles itself", p: "Funds flow through escrow while Mannjal automates reconciliation, posting, and ongoing program monitoring across all active partnerships. No spreadsheets." },
 ];
 
 function PlatformShowcase() {
@@ -110,7 +110,7 @@ function PlatformShowcase() {
         <div className="sec-head center">
           <span className="eyebrow">The Mannjal platform</span>
           <h2>One platform for every lending partnership.</h2>
-          <p>Co-lending, BC, and LSP — each program runs on its own secure instance, orchestrated through one neutral layer.</p>
+          <p>Co-lending, BC, and LSP: each program runs on its own secure instance, orchestrated through one neutral layer.</p>
         </div>
         <div className="tabs">
           {PLATFORM_TABS.map((x) => (
@@ -149,7 +149,7 @@ function Audience({ onCta }) {
               <div className="tag">For banks</div>
             </div>
             <h3>Run 20 programs where you ran 4.</h3>
-            <p>Mannjal handles eligibility rules, audit trails, escrow reconciliation, and regulatory reporting — so your team focuses on credit, not coordination.</p>
+            <p>Mannjal handles eligibility rules, audit trails, escrow reconciliation, and regulatory reporting, so your team focuses on credit, not coordination.</p>
             <div className="aud-cta"><a className="link-arrow" href="#contact">For banks <Ic k="arrow" s={16} /></a></div>
           </div>
           <div className="aud-card" id="originators">
