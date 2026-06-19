@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mannjal — Partnership lending infrastructure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/system.css">
+<meta name="description" content="Partnership lending infrastructure for banks. Mannjal runs co-lending, BC, and LSP programs end to end — each partner on its own secure instance, with no borrower data in the middle.">
+<meta name="theme-color" content="#FCFCFD">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mannjal">
+<meta property="og:title" content="Mannjal — Partnership lending infrastructure">
+<meta property="og:description" content="Partnership lending infrastructure for banks. Mannjal runs co-lending, BC, and LSP programs end to end — each partner on its own secure instance, with no borrower data in the middle.">
+</head>
+<body id="top">
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <div class="nav-left">
+      <a href="index.html" aria-label="Mannjal home"><img class="logo-img" src="assets/mannjal-logo.png" alt="mannjal"></a>
+      <div class="nav-links" id="navLinks">
+        <a class="nav-link" href="for-banks.html">For banks</a>
+        <a class="nav-link" href="for-originators.html">For originators</a>
+        <a class="nav-link" href="how-it-works.html">How it works</a>
+        <a class="nav-link" href="platform-security.html">Platform &amp; security</a>
+        <a class="btn btn-primary nav-menu-cta" href="contact.html">Schedule a walkthrough</a>
+      </div>
+    </div>
+    <div class="nav-right">
+      <a class="btn btn-primary btn-sm nav-cta" href="contact.html">Schedule a walkthrough</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero wrap-wide">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow"><span class="pip"></span><span class="eyebrow">Co-lending · BC · LSP</span></div>
+      <h1>Partnership lending <span class="accent">infrastructure</span> for banks that want to scale.</h1>
+      <p class="hero-sub">Mannjal manages co-lending, BC, and LSP programs end to end. Each partner gets their own secure instance — no data leakage, no credit decisions, no borrower data on our side.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="contact.html">Schedule a walkthrough</a>
+        <a class="btn btn-dark" href="how-it-works.html">See how it works</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-dots" aria-hidden="true"></div>
+      <div class="hero-frame-wrap" id="heroApp"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOGO BAND ============ -->
+<section class="logoband">
+  <div class="wrap logoband-inner">
+    <div class="lab">Trusted by banks, SFBs &amp; NBFCs</div>
+    <div class="logos" id="logoStrip"></div>
+  </div>
+</section>
+
+<!-- ============ RBI BANNER ============ -->
+<section class="rbiband sec" id="rbi">
+  <div class="wrap">
+    <div class="rbi-grid">
+      <div class="rbi-banner">
+        <span class="lab">Built for RBI</span>
+        <span class="yr">2025</span>
+      </div>
+      <div class="rbi-body">
+        <h3>Built for the new RBI Co-Lending Arrangements Directions.</h3>
+        <div class="rbi-chips" id="rbiChips"></div>
+        <div class="rbi-live"><span class="ld"></span>Already live on the platform.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PLATFORM SHOWCASE ============ -->
+<section class="surface sec" id="platform">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">The Mannjal platform</span>
+      <h2>One platform for every lending partnership.</h2>
+      <p>Co-lending, BC, and LSP — each program runs on its own secure instance, orchestrated through one neutral layer.</p>
+    </div>
+    <div class="tabs" id="tabs"></div>
+    <div class="showcase">
+      <div class="showcase-l" id="showLeft"></div>
+      <div class="showcase-r" id="showRight"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AUDIENCE ============ -->
+<section class="sec" id="banks">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:clamp(32px,4vw,52px);">
+      <span class="eyebrow">Two sides, served</span>
+      <h2>Built for both sides of every partnership.</h2>
+    </div>
+    <div class="aud-grid">
+      <div class="aud-card">
+        <span class="aud-idx" aria-hidden="true">01</span>
+        <div class="aud-head"><div class="aud-ico" data-ic="bank"></div><div class="tag">For banks</div></div>
+        <h3>Run 20 programs where you ran 4.</h3>
+        <p>Mannjal handles eligibility rules, audit trails, escrow reconciliation, and regulatory reporting — so your team focuses on credit, not coordination.</p>
+        <div class="aud-cta"><a class="link-arrow" href="for-banks.html">For banks <span data-ic="arrow" data-s="16"></span></a></div>
+      </div>
+      <div class="aud-card" id="originators">
+        <span class="aud-idx" aria-hidden="true">02</span>
+        <div class="aud-head"><div class="aud-ico" data-ic="users"></div><div class="tag">For originators</div></div>
+        <h3>Access bank capital without months of setup.</h3>
+        <p>Get live on a new lending program in 1–2 weeks, with real-time sync, compliant documentation, and clear visibility into your pipeline.</p>
+        <div class="aud-cta"><a class="link-arrow" href="for-originators.html">For originators <span data-ic="arrow" data-s="16"></span></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS (signature flow map) ============ -->
+<section class="band sec" id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">How it works</span>
+      <h2>Two sides, one workflow.<br>No data in the middle.</h2>
+      <p>Each partner runs its own contained instance. Mannjal is the thin layer between them — inputs flow in from both sides, decisions and funds flow back out, and nothing borrower-identifying ever rests in the center.</p>
+    </div>
+    <div class="flowmap">
+      <div class="fm-canvas">
+        <div class="fm-env" style="left:2%;top:7%;width:30%;height:86%;"><span class="lab">Bank · own instance</span></div>
+        <div class="fm-env" style="left:68%;top:7%;width:30%;height:86%;"><span class="lab">Originator · own instance</span></div>
+
+        <svg class="fm-svg" viewBox="0 0 1120 600" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <marker id="fmar" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+              <path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"></path>
+            </marker>
+          </defs>
+          <g fill="none" stroke="var(--accent)" stroke-opacity="0.5" stroke-width="2" marker-end="url(#fmar)">
+            <path d="M330.4,177 H383 V250 H436.8"></path>
+            <path d="M789.6,177 H737 V250 H683.2"></path>
+            <path d="M436.8,350 H383 V423 H330.4"></path>
+            <path d="M683.2,350 H737 V423 H789.6"></path>
+          </g>
+          <g>
+            <path class="fm-pulse" style="animation-delay:0s" d="M330.4,177 H383 V250 H436.8"></path>
+            <path class="fm-pulse" style="animation-delay:0.25s" d="M789.6,177 H737 V250 H683.2"></path>
+            <path class="fm-pulse" style="animation-delay:1.2s" d="M436.8,350 H383 V423 H330.4"></path>
+            <path class="fm-pulse" style="animation-delay:1.45s" d="M683.2,350 H737 V423 H789.6"></path>
+          </g>
+          <circle cx="330.4" cy="177" r="3.5" fill="var(--accent)"></circle>
+          <circle cx="789.6" cy="177" r="3.5" fill="var(--accent)"></circle>
+          <circle cx="330.4" cy="423" r="3.5" fill="var(--accent)"></circle>
+          <circle cx="789.6" cy="423" r="3.5" fill="var(--accent)"></circle>
+        </svg>
+
+        <span class="fm-clab" style="left:34.2%;top:35.5%;">Rules <span class="ar">→</span></span>
+        <span class="fm-clab" style="left:65.8%;top:35.5%;"><span class="ar">←</span> Application</span>
+        <span class="fm-clab" style="left:34.2%;top:64.3%;"><span class="ar">←</span> Decision</span>
+        <span class="fm-clab" style="left:65.8%;top:64.3%;">Reconciled <span class="ar">→</span></span>
+
+        <div class="fm-card" style="left:4.5%;top:17%;width:25%;height:25%;"><span class="n">01</span><h4>Defines the program</h4><p>Sets eligibility rules, product parameters &amp; compliance thresholds.</p></div>
+        <div class="fm-card" style="left:4.5%;top:58%;width:25%;height:25%;"><span class="n">04</span><h4>Reviews &amp; sanctions</h4><p>Makes the credit decision. Full audit trail logged at every step.</p></div>
+        <div class="fm-card" style="left:70.5%;top:17%;width:25%;height:25%;"><span class="n">02</span><h4>Sources &amp; captures</h4><p>Finds borrowers, collects documents. Phygital journeys supported.</p></div>
+        <div class="fm-card" style="left:70.5%;top:58%;width:25%;height:25%;"><span class="n">05</span><h4>Disbursed &amp; reconciled</h4><p>Funds flow through escrow; Mannjal reconciles across partnerships.</p></div>
+
+        <div class="fm-brain" style="left:39%;top:50%;width:22%;transform:translateY(-50%);">
+          <span class="n">03</span>
+          <div class="bh"><span class="tag">MANNJAL</span><span class="sub">Orchestration layer</span></div>
+          <div class="fm-chips"><span class="fm-chip">Eligibility checks</span><span class="fm-chip">Doc validation</span><span class="fm-chip">Deviation flags</span><span class="fm-chip">Routing</span></div>
+          <div class="note">Validates against the bank's rules. <b>Never sees or stores borrower data.</b></div>
+        </div>
+      </div>
+
+      <div class="fm-stack">
+        <div class="fm-srow"><div class="fm-srail"><span class="dot"></span><span class="ln"></span></div><div class="fm-scard"><span class="who">Bank · own instance</span><h4>Defines the program</h4><p>Sets eligibility rules, product parameters &amp; compliance thresholds.</p></div></div>
+        <div class="fm-srow"><div class="fm-srail"><span class="dot"></span><span class="ln"></span></div><div class="fm-scard"><span class="who">Originator · own instance</span><h4>Sources &amp; captures</h4><p>Finds borrowers, collects documents. Phygital journeys supported.</p></div></div>
+        <div class="fm-srow is-brain"><div class="fm-srail"><span class="dot"></span><span class="ln"></span></div><div class="fm-scard"><span class="who">Mannjal · orchestration layer</span><h4>Orchestrates &amp; routes</h4><div class="fm-chips"><span class="fm-chip">Eligibility checks</span><span class="fm-chip">Doc validation</span><span class="fm-chip">Deviation flags</span><span class="fm-chip">Routing</span></div><p>Validates against the bank's rules. Never sees or stores borrower data.</p></div></div>
+        <div class="fm-srow"><div class="fm-srail"><span class="dot"></span><span class="ln"></span></div><div class="fm-scard"><span class="who">Bank · own instance</span><h4>Reviews &amp; sanctions</h4><p>Makes the credit decision. Full audit trail logged at every step.</p></div></div>
+        <div class="fm-srow"><div class="fm-srail"><span class="dot"></span><span class="ln"></span></div><div class="fm-scard"><span class="who">Originator · own instance</span><h4>Disbursed &amp; reconciled</h4><p>Funds flow through escrow; Mannjal reconciles across partnerships.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST ============ -->
+<section class="sec" id="product">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Why Mannjal</span>
+      <h2 class="trust-heading">Partnership lending runs on <span class="accent">trust</span>.</h2>
+      <p>We engineer it into every layer — across entities, systems and processes — so partners run on confidence they can prove, not just promise.</p>
+    </div>
+    <div class="trust-acc" id="trustAcc"></div>
+  </div>
+</section>
+
+<!-- ============ RECOGNITION ============ -->
+<section class="band sec" id="traction">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:clamp(32px,4vw,52px);">
+      <span class="eyebrow">Traction &amp; backing</span>
+      <h2>Built on real volume, backed by real investors.</h2>
+    </div>
+    <div class="recog-stats">
+      <div class="recog-stat"><div class="sv">70+</div><div class="sd"><b>Originators</b> live across MSME, agri &amp; affordable housing</div></div>
+      <div class="recog-stat"><div class="sv">20+</div><div class="sd"><b>Lenders</b> — banks, SFBs and NBFCs on the platform</div></div>
+      <div class="recog-stat"><div class="sv">₹1,000 Cr+</div><div class="sd"><b>Disbursed</b> through partnership programs to date</div></div>
+    </div>
+    <div class="backed-island">
+      <span class="bk-lab">Backed by</span>
+      <div class="bk-names">
+        <span class="bk-name">Arali Ventures</span><span class="bk-sep">·</span>
+        <span class="bk-name">B Capital</span><span class="bk-sep">·</span>
+        <span class="bk-name">Sparrow Capital</span><span class="bk-sep">·</span>
+        <span class="bk-name">Gemba Capital</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSE: CTA + FAQ ============ -->
+<section class="sec" id="contact">
+  <div class="wrap">
+    <div class="close-grid">
+      <div class="cta-card">
+        <h2>Infrastructure that makes <span class="accent">multi-party lending</span> work.</h2>
+        <p>Each partner gets their own secure instance. No data leakage. No credit decisions. Let's talk about your programs.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="contact.html">Schedule a walkthrough</a>
+          <a class="btn btn-ghost" href="how-it-works.html">See how it works</a>
+        </div>
+      </div>
+      <div class="faq">
+        <div class="faq-h"><h3>Get to know Mannjal</h3></div>
+        <div id="faqList"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img class="logo-img" src="assets/mannjal-logo.png" alt="mannjal">
+        <p class="tagline">Partnership lending infrastructure for banks that want to scale.</p>
+        <div class="socials">
+          <a class="soc" href="contact.html" aria-label="LinkedIn" data-ic="users" data-s="15"></a>
+          <a class="soc" href="contact.html" aria-label="Email" data-ic="doc" data-s="15"></a>
+          <a class="soc" href="contact.html" aria-label="Link" data-ic="link" data-s="15"></a>
+        </div>
+      </div>
+      <div class="foot-col"><h5>Platform</h5><a href="how-it-works.html">How it works</a><a href="platform-security.html">Platform &amp; security</a><a href="for-banks.html">Co-lending</a><a href="for-banks.html">Business Correspondent</a><a href="for-banks.html">LSP programs</a></div>
+      <div class="foot-col"><h5>Use cases</h5><a href="for-banks.html">For banks</a><a href="for-originators.html">For originators</a><a href="for-banks.html">MSME</a><a href="for-banks.html">Agriculture</a><a href="for-banks.html">Affordable housing</a></div>
+      <div class="foot-col"><h5>Company</h5><a href="our-story.html">Our story</a><a href="platform-security.html">Security</a><a href="contact.html">Careers</a><a href="contact.html">Contact</a></div>
+      <div class="foot-col"><h5>Resources</h5><a href="how-it-works.html">How it works</a><a href="platform-security.html">Compliance</a><a href="platform-security.html">Documentation</a><a href="contact.html">FAQ</a></div>
+    </div>
+    <div class="foot-bottom">
+      <div class="fine">© 2026 Mannjal · Partnership lending infrastructure</div>
+      <div class="legal"><a href="platform-security.html">Privacy</a><a href="platform-security.html">Terms</a><a href="platform-security.html">Security</a><a href="our-story.html">Our story</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+<script>
+/* ---- Homepage-specific data + wiring (shared helpers live in assets/app.js) ---- */
+const TABS = [
+  {id:'coLending',label:'Co-lending',ico:'branch',h:'Run blended co-lending programs',p:'Set the risk split, enforce a single blended interest rate, and let Mannjal route every application against the rules you defined — with escrow reconciliation built in.'},
+  {id:'bc',label:'Business Correspondent',ico:'users',h:'Manage BC networks in the field',p:'Onboard agents, enforce KYC and document checklists, and support phygital journeys — with full visibility into capture and submission across every cluster.'},
+  {id:'reporting',label:'LSP & reporting',ico:'doc',h:'LSP programs, fully reported',p:'Run Lending Service Provider programs with compliant documentation, audit trails at every step, and partner-level reporting that maps straight to RBI returns.'},
+  {id:'escrow',label:'Escrow',ico:'wallet',h:'Escrow that reconciles itself',p:'Funds flow through escrow while Mannjal automates reconciliation, posting, and ongoing program monitoring across all active partnerships — no spreadsheets.'}
+];
+function renderTab(id){
+  const t = TABS.find(x => x.id === id);
+  document.getElementById('showLeft').innerHTML = `<div class="sc-ico">${ic(t.ico,26,'var(--accent)')}</div><h3>${t.h}</h3><p>${t.p}</p><div class="sc-cta"><a class="link-arrow" href="contact.html">Talk to us about ${t.label.toLowerCase()} ${ic('arrow',16)}</a></div>`;
+  document.getElementById('showRight').innerHTML = appFrame(id);
+  document.querySelectorAll('#tabs .tab').forEach(b => b.classList.toggle('active', b.dataset.id === id));
+}
+
+const PILLARS = [
+  {ico:'users',h:'Collaborative application management',pts:['Program-level workflow and task management to measure TATs & effectiveness','Simple messaging interface for query resolution, tagged to applications and tasks','Large file handling (200 MB+) with unified navigation across documents and data']},
+  {ico:'doc',h:'Simplified data processing',pts:['Data ingestion from feet-on-street mobile apps, multi-format files or APIs','Data validation via third-party data providers and human / AI agents','Data conversion into lender-specific formats for decisioning & reporting']},
+  {ico:'chart',h:'Transparent decision support',pts:['Auditable business rules engine acting as a co-pilot for credit and operations teams','Real-time deviation flags and workflow actions based on policy and process rules','Configurable MIS and dashboards with scheduled reporting and escalation triggers']},
+  {ico:'lock',h:'Robust access management',pts:['Role-based access at program, stage, section and data-field levels','Ring-fenced access for human and AI agents, aligned with compliant workflows','Audit-ready by default — every action tracked and time-stamped']},
+  {ico:'grid',h:'Scalable architecture',pts:['Decentralised network protocols that support multi-entity collaboration on the go','Low-code configuration to adapt products and workflows quickly','AI-ready, LLM/SLM-agnostic architecture that plugs into your chosen AI stack']},
+  {ico:'shield',h:'Compliance & security',pts:['Network-segregated deployments with dedicated private environments per client','Data-localisation compliant, with clear data-residency controls','Encryption at rest and in transit, with strict key management']}
+];
+document.getElementById('trustAcc').innerHTML = PILLARS.map((p,i) => `
+  <div class="trust-row ${i===0?'open':''}" data-i="${i}">
+    <button class="trust-q" aria-expanded="${i===0}"><span class="num">${String(i+1).padStart(2,'0')}</span><span class="tt">${p.h}</span><span class="ico">${ic(p.ico,22,'var(--accent)')}</span><span class="pm" aria-hidden="true"></span></button>
+    <div class="trust-a"><div class="inner"><div class="trust-pts">${p.pts.map(pt => `<div class="trust-pt"><span class="ck">${ic('check',14,'var(--accent)')}</span>${pt}</div>`).join('')}</div></div></div>
+  </div>`).join('');
+
+const FAQS = [
+  {q:'What is Mannjal?',a:'Mannjal is partnership lending infrastructure. It manages co-lending, BC, and LSP programs end to end, giving each partner their own secure instance and orchestrating the workflow between them.'},
+  {q:'How does borrower data stay separate?',a:'Mannjal never holds borrower data and never makes credit decisions. Each partner runs their own instance; Mannjal validates applications against the rules a bank set — it connects the two sides without absorbing anything in the middle.'},
+  {q:'How fast can a program go live?',a:'Originators can be live on a new lending program in 1–2 weeks, with real-time sync, compliant documentation, and pipeline visibility from day one.'},
+  {q:'Is it ready for the RBI 2025 directions?',a:'Yes. Escrow reconciliation, a single blended interest rate, audit trails, and partner-level reporting for the new RBI Co-Lending Arrangements Directions are already live on the platform.'},
+  {q:'What do co-lending, BC, and LSP mean here?',a:'They are the three partnership structures Mannjal supports: co-lending (shared risk between a bank and an NBFC), Business Correspondent networks, and Lending Service Provider arrangements — all on one platform.'}
+];
+document.getElementById('faqList').innerHTML = FAQS.map((f,i) => `
+  <div class="faq-item ${i===0?'open':''}"><button class="faq-q" aria-expanded="${i===0}">${f.q}<span class="pm" aria-hidden="true"></span></button><div class="faq-a"><div class="inner">${f.a}</div></div></div>`).join('');
+
+/* hydrate */
+document.getElementById('heroApp').innerHTML = appFrame('dashboard');
+document.getElementById('logoStrip').innerHTML = '<span style="font-family:var(--font-head);font-weight:600;font-size:clamp(15px,1.5vw,18px);letter-spacing:-0.01em;color:var(--text-2);">20+ lenders <span style="color:var(--text-3);margin:0 4px;">·</span> 70+ originators <span style="color:var(--text-3);margin:0 4px;">·</span> ₹1,000 Cr+ disbursed <span style="color:var(--text-3);margin:0 4px;">·</span> live on RBI 2025 co-lending rails</span>';
+document.getElementById('rbiChips').innerHTML = ['Escrow reconciliation','Single blended interest rate','Audit trails','Partner-level reporting'].map(c => `<span class="chip"><span class="ck">✓</span>${c}</span>`).join('');
+document.getElementById('tabs').innerHTML = TABS.map(x => `<button class="tab" data-id="${x.id}">${x.label}</button>`).join('');
+document.querySelectorAll('#tabs .tab').forEach(b => b.addEventListener('click', () => renderTab(b.dataset.id)));
+renderTab('coLending');
+wireAccordion('#trustAcc', '.trust-row', '.trust-q');
+wireAccordion('#faqList', '.faq-item', '.faq-q');
+hydrateIcons();
+initNav();
+</script>
+</body>
+</html>

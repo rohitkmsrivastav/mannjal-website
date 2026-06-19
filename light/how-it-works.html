@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mannjal — How it works</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/system.css">
+<meta name="description" content="Follow one loan from application to reconciliation on a single rail. Mannjal sits between originator and lender, runs the checks, and leaves the credit decision with the lender.">
+<meta name="theme-color" content="#FCFCFD">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mannjal">
+<meta property="og:title" content="Mannjal — How it works">
+<meta property="og:description" content="Follow one loan from application to reconciliation on a single rail. Mannjal sits between originator and lender, runs the checks, and leaves the credit decision with the lender.">
+</head>
+<body id="top">
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <div class="nav-left">
+      <a href="index.html" aria-label="Mannjal home"><img class="logo-img" src="assets/mannjal-logo.png" alt="mannjal"></a>
+      <div class="nav-links" id="navLinks">
+        <a class="nav-link" href="for-banks.html">For banks</a>
+        <a class="nav-link" href="for-originators.html">For originators</a>
+        <a class="nav-link active" href="how-it-works.html" aria-current="page">How it works</a>
+        <a class="nav-link" href="platform-security.html">Platform &amp; security</a>
+        <a class="btn btn-primary nav-menu-cta" href="contact.html">Schedule a walkthrough</a>
+      </div>
+    </div>
+    <div class="nav-right">
+      <a class="btn btn-primary btn-sm nav-cta" href="contact.html">Schedule a walkthrough</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero wrap-wide">
+  <div style="max-width:780px;">
+    <div class="hero-eyebrow"><span class="pip"></span><span class="eyebrow">How it works</span></div>
+    <h1>One loan, from application to reconciliation, <span class="accent">on a single rail.</span></h1>
+    <p class="hero-sub">Follow a single loan through the system. The originator and the lender each work in their own environment. Mannjal sits between them, moving the file and keeping both sides in sync.</p>
+    <div class="hero-cta">
+      <a class="btn btn-dark" href="contact.html">Schedule a walkthrough</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STAT STRIP ============ -->
+<section class="statstrip">
+  <div class="wrap statstrip-inner">
+    <div class="cell"><div class="big">85–90%</div><div class="cap">Login-to-sanction</div></div>
+    <div class="cell"><div class="big">98%</div><div class="cap">First-time-right</div></div>
+    <div class="cell"><div class="big">50–75%</div><div class="cap">Faster TAT</div></div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS (signature flow map) ============ -->
+<section class="band sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The flow</span>
+      <h2>Where each step happens, and who owns it.</h2>
+      <p>Each partner runs its own contained instance. Mannjal moves the file between them, runs the checks in the middle, and leaves the credit decision with the lender.</p>
+    </div>
+    <div class="flowmap">
+      <div class="fm-canvas">
+        <div class="fm-env" style="left:2%;top:7%;width:30%;height:86%;"><span class="lab">Bank · own instance</span></div>
+        <div class="fm-env" style="left:68%;top:7%;width:30%;height:86%;"><span class="lab">Originator · own instance</span></div>
+
+        <svg class="fm-svg" viewBox="0 0 1120 600" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <marker id="fmar" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+              <path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"></path>
+            </marker>
+          </defs>
+          <g fill="none" stroke="var(--accent)" stroke-opacity="0.5" stroke-width="2" marker-end="url(#fmar)">
+            <path d="M330.4,177 H383 V250 H436.8"></path>
+            <path d="M789.6,177 H737 V250 H683.2"></path>
+            <path d="M436.8,350 H383 V423 H330.4"></path>
+            <path d="M683.2,350 H737 V423 H789.6"></path>
+          </g>
+          <g>
+            <path class="fm-pulse" style="animation-delay:0s" d="M330.4,177 H383 V250 H436.8"></path>
+            <path class="fm-pulse" style="animation-delay:0.25s" d="M789.6,177 H737 V250 H683.2"></path>
+            <path class="fm-pulse" style="animation-delay:1.2s" d="M436.8,350 H383 V423 H330.4"></path>
+            <path class="fm-pulse" style="animation-delay:1.45s" d="M683.2,350 H737 V423 H789.6"></path>
+          </g>
+          <circle cx="330.4" cy="177" r="3.5" fill="var(--accent)"></circle>
+          <circle cx="789.6" cy="177" r="3.5" fill="var(--accent)"></circle>
+          <circle cx="330.4" cy="423" r="3.5" fill="var(--accent)"></circle>
+          <circle cx="789.6" cy="423" r="3.5" fill="var(--accent)"></circle>
+        </svg>
+
+        <span class="fm-clab" style="left:34.2%;top:35.5%;">Rules <span class="ar">→</span></span>
+        <span class="fm-clab" style="left:65.8%;top:35.5%;"><span class="ar">←</span> Application</span>
+        <span class="fm-clab" style="left:34.2%;top:64.3%;"><span class="ar">←</span> Decision</span>
+        <span class="fm-clab" style="left:65.8%;top:64.3%;">Reconciled <span class="ar">→</span></span>
+
+        <div class="fm-card" style="left:4.5%;top:17%;width:25%;height:25%;"><span class="n">01</span><h4>Defines the program</h4><p>Sets eligibility rules, product parameters &amp; compliance thresholds.</p></div>
+        <div class="fm-card" style="left:4.5%;top:58%;width:25%;height:25%;"><span class="n">04</span><h4>Reviews &amp; sanctions</h4><p>Makes the credit decision. Full audit trail logged at every step.</p></div>
+        <div class="fm-card" style="left:70.5%;top:17%;width:25%;height:25%;"><span class="n">02</span><h4>Sources &amp; captures</h4><p>Finds borrowers, collects documents. Phygital journeys supported.</p></div>
+        <div class="fm-card" style="left:70.5%;top:58%;width:25%;height:25%;"><span class="n">05</span><h4>Disbursed &amp; reconciled</h4><p>Funds flow through escrow; Mannjal reconciles across partnerships.</p></div>
+
+        <div class="fm-brain" style="left:39%;top:50%;width:22%;transform:translateY(-50%);">
+          <span class="n">03</span>
+          <div class="bh"><span class="tag">MANNJAL</span><span class="sub">Orchestration layer</span></div>
+          <div class="fm-chips"><span class="fm-chip">Eligibility checks</span><span class="fm-chip">Doc validation</span><span class="fm-chip">Deviation flags</span><span class="fm-chip">Routing</span></div>
+          <div class="note">Validates against the bank's rules. <b>Never sees or stores borrower data.</b></div>
+        </div>
+      </div>
+
+      <div class="fm-stack">
+        <div class="fm-srow"><div class="fm-srail"><span class="dot"></span><span class="ln"></span></div><div class="fm-scard"><span class="who">Bank · own instance</span><h4>Defines the program</h4><p>Sets eligibility rules, product parameters &amp; compliance thresholds.</p></div></div>
+        <div class="fm-srow"><div class="fm-srail"><span class="dot"></span><span class="ln"></span></div><div class="fm-scard"><span class="who">Originator · own instance</span><h4>Sources &amp; captures</h4><p>Finds borrowers, collects documents. Phygital journeys supported.</p></div></div>
+        <div class="fm-srow is-brain"><div class="fm-srail"><span class="dot"></span><span class="ln"></span></div><div class="fm-scard"><span class="who">Mannjal · orchestration layer</span><h4>Orchestrates &amp; routes</h4><div class="fm-chips"><span class="fm-chip">Eligibility checks</span><span class="fm-chip">Doc validation</span><span class="fm-chip">Deviation flags</span><span class="fm-chip">Routing</span></div><p>Validates against the bank's rules. Never sees or stores borrower data.</p></div></div>
+        <div class="fm-srow"><div class="fm-srail"><span class="dot"></span><span class="ln"></span></div><div class="fm-scard"><span class="who">Bank · own instance</span><h4>Reviews &amp; sanctions</h4><p>Makes the credit decision. Full audit trail logged at every step.</p></div></div>
+        <div class="fm-srow"><div class="fm-srail"><span class="dot"></span><span class="ln"></span></div><div class="fm-scard"><span class="who">Originator · own instance</span><h4>Disbursed &amp; reconciled</h4><p>Funds flow through escrow; Mannjal reconciles across partnerships.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RECONCILIATION + AUDIT BAND ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="reassure">
+      <div class="seal" data-ic="lock" data-s="30"></div>
+      <div>
+        <span class="eyebrow">Underneath all five steps</span>
+        <h2>Reconciliation and audit run the <span class="accent">whole length of the file.</span></h2>
+        <p>Reconciliation isn't a final step. Each lender's position updates as the loan moves, and asset classification stays in sync on both sides if a borrower misses a payment. Every action, API call, and document event is timestamped, attributed, and exportable on demand.</p>
+        <div class="cro-chips">
+          <span class="chip"><span class="ck">✓</span>Continuous reconciliation</span>
+          <span class="chip"><span class="ck">✓</span>Timestamped audit trail</span>
+          <span class="chip"><span class="ck">✓</span>Exportable on demand</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY THIS REPLACES A DEMO ============ -->
+<section class="band sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Why this is usually enough to start</span>
+      <p style="font-size:clamp(18px,2vw,22px);color:var(--text-2);max-width:760px;">A bank's partnership team can see the full shape of an engagement from this page: where files enter, where the lender's policy is enforced, where the decision stays with the lender, and what the audit position looks like. The live walkthrough then goes deep on one program, instead of explaining the basics.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="cta-band">
+      <span class="eyebrow">Schedule a walkthrough</span>
+      <h2>See it run on one of <span class="accent">your</span> programs.</h2>
+      <p>A 30-minute walkthrough. No slides.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="contact.html">Schedule a walkthrough</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img class="logo-img" src="assets/mannjal-logo.png" alt="mannjal">
+        <p class="tagline">Partnership lending infrastructure for banks that want to scale.</p>
+        <div class="socials">
+          <a class="soc" href="contact.html" aria-label="LinkedIn" data-ic="users" data-s="15"></a>
+          <a class="soc" href="contact.html" aria-label="Email" data-ic="doc" data-s="15"></a>
+          <a class="soc" href="contact.html" aria-label="Link" data-ic="link" data-s="15"></a>
+        </div>
+      </div>
+      <div class="foot-col"><h5>Platform</h5><a href="how-it-works.html">How it works</a><a href="platform-security.html">Platform &amp; security</a><a href="for-banks.html">Co-lending</a><a href="for-banks.html">Business Correspondent</a><a href="for-banks.html">LSP programs</a></div>
+      <div class="foot-col"><h5>Use cases</h5><a href="for-banks.html">For banks</a><a href="for-originators.html">For originators</a><a href="for-banks.html">MSME</a><a href="for-banks.html">Agriculture</a><a href="for-banks.html">Affordable housing</a></div>
+      <div class="foot-col"><h5>Company</h5><a href="our-story.html">Our story</a><a href="platform-security.html">Security</a><a href="contact.html">Careers</a><a href="contact.html">Contact</a></div>
+      <div class="foot-col"><h5>Resources</h5><a href="how-it-works.html">How it works</a><a href="platform-security.html">Compliance</a><a href="platform-security.html">Documentation</a><a href="contact.html">FAQ</a></div>
+    </div>
+    <div class="foot-bottom">
+      <div class="fine">© 2026 Mannjal · Partnership lending infrastructure</div>
+      <div class="legal"><a href="platform-security.html">Privacy</a><a href="platform-security.html">Terms</a><a href="platform-security.html">Security</a><a href="our-story.html">Our story</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+<script>
+hydrateIcons();
+initNav();
+</script>
+</body>
+</html>

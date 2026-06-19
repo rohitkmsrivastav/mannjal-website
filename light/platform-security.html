@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mannjal — Platform &amp; security</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/system.css">
+<meta name="description" content="Mannjal runs as a dedicated instance inside your own cloud or data centre. Borrower data never leaves it, and it has cleared an external IT audit with zero observations.">
+<meta name="theme-color" content="#FCFCFD">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mannjal">
+<meta property="og:title" content="Mannjal — Platform & security">
+<meta property="og:description" content="Mannjal runs as a dedicated instance inside your own cloud or data centre. Borrower data never leaves it, and it has cleared an external IT audit with zero observations.">
+</head>
+<body id="top">
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <div class="nav-left">
+      <a href="index.html" aria-label="Mannjal home"><img class="logo-img" src="assets/mannjal-logo.png" alt="mannjal"></a>
+      <div class="nav-links" id="navLinks">
+        <a class="nav-link" href="for-banks.html">For banks</a>
+        <a class="nav-link" href="for-originators.html">For originators</a>
+        <a class="nav-link" href="how-it-works.html">How it works</a>
+        <a class="nav-link" href="platform-security.html">Platform &amp; security</a>
+        <a class="btn btn-primary nav-menu-cta" href="contact.html">Schedule a walkthrough</a>
+      </div>
+    </div>
+    <div class="nav-right">
+      <a class="btn btn-primary btn-sm nav-cta" href="contact.html">Schedule a walkthrough</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero wrap-wide">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow"><span class="pip"></span><span class="eyebrow">Platform &amp; security</span></div>
+      <h1>Runs in your environment. <span class="accent">Holds none of your data.</span></h1>
+      <p class="hero-sub">Mannjal deploys as a dedicated instance inside your own cloud or data centre. Borrower data never leaves it, and never sits on a Mannjal server.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="contact.html">Request security documentation</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-dots" aria-hidden="true"></div>
+      <div class="hero-frame-wrap" id="heroApp"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STAT STRIP ============ -->
+<section class="statstrip">
+  <div class="wrap statstrip-inner">
+    <div class="cell"><div class="big">0</div><div class="cap">Observations in IT audit</div></div>
+    <div class="cell"><div class="big">Your AWS / on-prem</div><div class="cap">Where it deploys</div></div>
+    <div class="cell"><div class="big">0</div><div class="cap">Borrower records Mannjal holds</div></div>
+  </div>
+</section>
+
+<!-- ============ FOUR CONCERNS ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">What your IT committee will check</span>
+      <h2>Four things, answered plainly.</h2>
+    </div>
+    <div class="aud-grid" style="margin-top:clamp(32px,4vw,52px);">
+      <div class="aud-card">
+        <span class="aud-idx" aria-hidden="true">01</span>
+        <div class="aud-head"><div class="aud-ico" data-ic="bank"></div><div class="tag">Deployment</div></div>
+        <h3>Your cloud, your tenancy</h3>
+        <p>Each engagement runs as its own instance inside the bank's AWS account or on-premise environment. There is no shared tenancy and no Mannjal-hosted copy of the data.</p>
+      </div>
+      <div class="aud-card">
+        <span class="aud-idx" aria-hidden="true">02</span>
+        <div class="aud-head"><div class="aud-ico" data-ic="shield"></div><div class="tag">Data isolation</div></div>
+        <h3>No central store of borrower data</h3>
+        <p>Mannjal never stores or interprets borrower data. Sync between an originator and a lender is bilateral and follows the program's rules, so data moves between the two parties' instances and not through a Mannjal store.</p>
+      </div>
+      <div class="aud-card">
+        <span class="aud-idx" aria-hidden="true">03</span>
+        <div class="aud-head"><div class="aud-ico" data-ic="lock"></div><div class="tag">Credentials &amp; access</div></div>
+        <h3>Your keys stay yours</h3>
+        <p>Every integration uses the bank's own API credentials with the providers it already contracts. Mannjal routes and logs the calls; it does not hold or proxy your keys. Access within an instance is role-based with maker-checker controls.</p>
+      </div>
+      <div class="aud-card">
+        <span class="aud-idx" aria-hidden="true">04</span>
+        <div class="aud-head"><div class="aud-ico" data-ic="doc"></div><div class="tag">Audit logs</div></div>
+        <h3>One export, not a search</h3>
+        <p>Every action, API call, and document event is timestamped, attributed to a user, immutable, and exportable on demand. An audit of any single loan is one export, not a search across systems.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTEGRATIONS ============ -->
+<section class="band sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Integrations</span>
+      <h2>Works with the providers you already use.</h2>
+      <p>KYC, bureau, bank-statement, and e-sign checks run through the service providers the bank already contracts, under the bank's own agreements and credentials. New providers onboard without a system redesign.</p>
+    </div>
+    <div class="intg-grid" style="margin-top:clamp(28px,3.5vw,40px);">
+      <div class="intg"><div class="nm">Decentro</div><div class="fn">eNACH · KYC · KYB</div></div>
+      <div class="intg"><div class="nm">AuthBridge</div><div class="fn">KYC · KYB</div></div>
+      <div class="intg"><div class="nm">Signzy</div><div class="fn">Soft pull · e-sign</div></div>
+      <div class="intg"><div class="nm">CRIF High Mark</div><div class="fn">Bureau</div></div>
+      <div class="intg"><div class="nm">CIBIL</div><div class="fn">Hard pulls</div></div>
+      <div class="intg"><div class="nm">Perfios</div><div class="fn">Statement analyser</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AUDIT-PASS BAND ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="reassure">
+      <div class="seal" data-ic="shield" data-s="30"></div>
+      <div>
+        <span class="eyebrow">Independent review</span>
+        <h2>Cleared an IT audit with <span class="accent">no observations.</span></h2>
+        <p>Mannjal has been through an external IT audit and came out with zero observations. The deployment, data-isolation, and logging model described above is what that audit examined.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="band sec">
+  <div class="wrap">
+    <div class="cta-band">
+      <span class="eyebrow">Security &amp; deployment docs</span>
+      <h2>Get the full security and deployment documentation.</h2>
+      <p>Architecture, data-flow, and audit detail your committee needs to sign off.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="contact.html">Request security documentation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img class="logo-img" src="assets/mannjal-logo.png" alt="mannjal">
+        <p class="tagline">Partnership lending infrastructure for banks that want to scale.</p>
+        <div class="socials">
+          <a class="soc" href="contact.html" aria-label="LinkedIn" data-ic="users" data-s="15"></a>
+          <a class="soc" href="contact.html" aria-label="Email" data-ic="doc" data-s="15"></a>
+          <a class="soc" href="contact.html" aria-label="Link" data-ic="link" data-s="15"></a>
+        </div>
+      </div>
+      <div class="foot-col"><h5>Platform</h5><a href="how-it-works.html">How it works</a><a href="platform-security.html">Platform &amp; security</a><a href="for-banks.html">Co-lending</a><a href="for-banks.html">Business Correspondent</a><a href="for-banks.html">LSP programs</a></div>
+      <div class="foot-col"><h5>Use cases</h5><a href="for-banks.html">For banks</a><a href="for-originators.html">For originators</a><a href="for-banks.html">MSME</a><a href="for-banks.html">Agriculture</a><a href="for-banks.html">Affordable housing</a></div>
+      <div class="foot-col"><h5>Company</h5><a href="our-story.html">Our story</a><a href="platform-security.html">Security</a><a href="contact.html">Careers</a><a href="contact.html">Contact</a></div>
+      <div class="foot-col"><h5>Resources</h5><a href="how-it-works.html">How it works</a><a href="platform-security.html">Compliance</a><a href="platform-security.html">Documentation</a><a href="contact.html">FAQ</a></div>
+    </div>
+    <div class="foot-bottom">
+      <div class="fine">© 2026 Mannjal · Partnership lending infrastructure</div>
+      <div class="legal"><a href="platform-security.html">Privacy</a><a href="platform-security.html">Terms</a><a href="platform-security.html">Security</a><a href="our-story.html">Our story</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+<script>
+/* Platform & security: partner-level reporting view in the hero mock. */
+document.getElementById('heroApp').innerHTML = appFrame('reporting');
+hydrateIcons();
+initNav();
+</script>
+</body>
+</html>
