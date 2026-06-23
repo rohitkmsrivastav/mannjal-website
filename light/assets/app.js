@@ -26,7 +26,7 @@ function ic(k, s = 16, c = 'currentColor', sw = 1.6) {
 /* Fill any <span data-ic="bank" data-s="22"> with an icon (amber by default). */
 function hydrateIcons(root = document) {
   root.querySelectorAll('[data-ic]').forEach(el => {
-    el.innerHTML = ic(el.dataset.ic, Number(el.dataset.s) || 22, el.dataset.c || 'var(--accent)');
+    el.innerHTML = ic(el.dataset.ic, Number(el.dataset.s) || 22, el.dataset.c || 'var(--accent-ink)');
   });
 }
 
@@ -34,7 +34,16 @@ function hydrateIcons(root = document) {
 function initNav() {
   const nav = document.getElementById('nav');
   if (!nav) return;
-  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);
+  let lastY = window.scrollY;
+  const onScroll = () => {
+    const y = window.scrollY;
+    nav.classList.toggle('scrolled', y > 12);
+    if (!nav.classList.contains('nav-open')) {
+      if (y > 80 && y > lastY + 4) nav.classList.add('nav-hidden');
+      else if (y < lastY - 4 || y <= 80) nav.classList.remove('nav-hidden');
+    }
+    lastY = y;
+  };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
   // mobile menu toggle
@@ -76,9 +85,9 @@ function miniChart(h = 86) {
   const grid = [0.25, 0.5, 0.75].map(g => `<line x1="0" y1="${(h*g).toFixed(1)}" x2="${w}" y2="${(h*g).toFixed(1)}" stroke="rgba(31,35,40,0.05)" stroke-width="1"/>`).join('');
   const last = coords[coords.length - 1];
   return `<svg width="100%" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" style="display:block">
-    <defs><linearGradient id="afg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--accent)" stop-opacity="0.22"/><stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/></linearGradient></defs>
-    ${grid}<path d="${area}" fill="url(#afg)"/><path d="${line}" fill="none" stroke="var(--accent)" stroke-width="2"/>
-    <circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="3" fill="var(--accent)"/></svg>`;
+    <defs><linearGradient id="afg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--accent-ink)" stop-opacity="0.22"/><stop offset="100%" stop-color="var(--accent-ink)" stop-opacity="0"/></linearGradient></defs>
+    ${grid}<path d="${area}" fill="url(#afg)"/><path d="${line}" fill="none" stroke="var(--accent-ink)" stroke-width="2"/>
+    <circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="3" fill="var(--accent-ink)"/></svg>`;
 }
 const VIEWS = {
   dashboard:{active:'Dashboard',title:'Program overview',
@@ -90,9 +99,6 @@ const VIEWS = {
   bc:{active:'Programs',title:'Business Correspondent',
     tiles:[['Field agents','340'],['Capture SLA','<b>1.2</b>d'],['Phygital','On']],block:'rules',
     rules:[['Agent KYC & geo-tagging verified','auto'],['Document checklist enforced','rule'],['Cash-flow limits monitored','live']]},
-  escrow:{active:'Escrow',title:'Escrow reconciliation',
-    tiles:[['Reconciled','<b>100</b>%'],['Open items','0'],['Cycle','T+0']],block:'chart',
-    rows:[['Tranche','Amount','Status'],['Disbursement · 13 Jun','₹2.4 Cr',['live','Settled']],['Collection · 12 Jun','₹1.1 Cr',['live','Matched']],['Fees · 12 Jun','₹3.2 L',['ok','Posted']]]},
   reporting:{active:'Reporting',title:'Partner-level reporting',
     tiles:[['Reports','24'],['RBI returns','Auto'],['Audit trail','Full']],block:'chart',
     rows:[['Report','Period','Status'],['Co-lending MIS','Jun 2026',['live','Filed']],['Portfolio cut','Q1 FY27',['ok','Ready']],['Deviation log','Jun 2026',['live','Synced']]]}
@@ -100,11 +106,11 @@ const VIEWS = {
 const SIDE = [{grp:'Partner instance'},{name:'Dashboard',icon:'grid'},{name:'Programs',icon:'branch'},{name:'Eligibility',icon:'shield'},{name:'Escrow',icon:'wallet'},{name:'Reporting',icon:'chart'},{grp:'Account'},{name:'Partners',icon:'users'},{name:'Settings',icon:'settings'}];
 function appFrame(view = 'dashboard') {
   const v = VIEWS[view] || VIEWS.dashboard;
-  const side = SIDE.map(it => it.grp ? `<div class="grp">${it.grp}</div>` : `<div class="app-nav ${it.name === v.active ? 'active' : ''}"><span class="ic">${ic(it.icon, 14, it.name === v.active ? 'var(--accent)' : 'var(--text-3)')}</span>${it.name}</div>`).join('');
+  const side = SIDE.map(it => it.grp ? `<div class="grp">${it.grp}</div>` : `<div class="app-nav ${it.name === v.active ? 'active' : ''}"><span class="ic">${ic(it.icon, 14, it.name === v.active ? 'var(--accent-ink)' : 'var(--text-3)')}</span>${it.name}</div>`).join('');
   const tiles = v.tiles.map(t => `<div class="app-tile"><div class="lab">${t[0]}</div><div class="val">${t[1]}</div></div>`).join('');
   let block = '';
   if (v.block === 'chart') block = `<div class="app-chart"><div class="ch-h"><span class="ct">Reconciliation · last 14 days</span><span class="cl">+ on track</span></div>${miniChart()}</div>`;
-  if (v.block === 'rules') block = `<div class="app-chart" style="padding-bottom:12px"><div class="ch-h"><span class="ct">Active rules</span><span class="cl">enforced</span></div><div class="app-rules">${v.rules.map(r => `<div class="app-rule"><span class="chk">${ic('check',11,'var(--accent)')}</span>${r[0]}<span class="meta">${r[1]}</span></div>`).join('')}</div></div>`;
+  if (v.block === 'rules') block = `<div class="app-chart" style="padding-bottom:12px"><div class="ch-h"><span class="ct">Active rules</span><span class="cl">enforced</span></div><div class="app-rules">${v.rules.map(r => `<div class="app-rule"><span class="chk">${ic('check',11,'var(--accent-ink)')}</span>${r[0]}<span class="meta">${r[1]}</span></div>`).join('')}</div></div>`;
   let table = '';
   if (v.rows) table = `<div class="app-table">${v.rows.map((r, i) => `<div class="app-row"><span class="nm">${r[0]}</span><span class="amt">${r[1]}</span>${i === 0 ? `<span>${r[2]}</span>` : `<span class="pill ${r[2][0]}">${r[2][1]}</span>`}</div>`).join('')}</div>`;
   return `<div class="app"><div class="app-top"><div class="left"><div class="dot-row"><i></i><i></i><i></i></div><span class="inst"><span class="wm">mannjal</span><span class="badge">secure instance</span></span></div><div class="right">${ic('search',14,'var(--text-3)')}${ic('plus',14,'var(--text-3)')}<div class="avatar"></div></div></div><div class="app-body"><div class="app-side">${side}</div><div class="app-main"><div class="app-h"><div class="t">${v.title}</div><div class="mini-btn">+ New</div></div><div class="app-tiles">${tiles}</div>${block}${table}</div></div></div>`;
