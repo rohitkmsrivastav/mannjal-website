@@ -495,3 +495,34 @@
   .reassure p { color: var(--text-2); font-size: clamp(16px,1.7vw,18px); margin-top:16px; max-width:680px; line-height:1.6; }
   .reassure .cro-chips { display:flex; flex-wrap:wrap; gap:9px; margin-top:20px; }
   @media (max-width:680px){ .reassure { grid-template-columns:1fr; } }
+
+  /* ════════════════════════════════════════════════════════════════════
+     LEGAL / POLICY PAGES + footer legal block + form consent (E + G)
+     ════════════════════════════════════════════════════════════════════ */
+  .legal-doc { max-width: 800px; }
+  .legal-doc h1 { font-size: clamp(30px,4vw,46px); margin-bottom: 10px; }
+  .legal-doc .updated { display:block; color: var(--text-3); font-size: 13px; font-family: var(--font-mono); letter-spacing:0.02em; margin-bottom: 26px; }
+  .legal-doc h2 { font-size: clamp(19px,2.2vw,25px); margin: 38px 0 12px; }
+  .legal-doc h3 { font-size: 16px; margin: 22px 0 8px; }
+  .legal-doc p, .legal-doc li { color: var(--text-2); font-size: 15.5px; line-height: 1.7; }
+  .legal-doc p { margin-bottom: 14px; }
+  .legal-doc ul { margin: 0 0 16px; padding-left: 22px; }
+  .legal-doc li { margin-bottom: 7px; }
+  .legal-doc a { color: var(--accent-ink); font-weight: 600; }
+  .legal-doc a:hover { text-decoration: underline; }
+  .draft-note { background: var(--accent-soft); border:1px solid var(--accent-line); border-radius:11px; padding:13px 17px; font-size:13.5px; color: var(--ink); line-height:1.55; margin-bottom: 30px; }
+  .draft-note b { color: var(--accent-ink); }
+
+  /* footer registered-entity + compliance fine print */
+  .foot-legal { margin-top: clamp(34px,4.5vw,52px); padding-top: 24px; border-top:1px solid var(--line); }
+  .foot-legal p { color: var(--text-3); font-size: 12.5px; line-height: 1.65; max-width: 940px; }
+  .foot-legal .foot-entity { margin-bottom: 9px; }
+  .foot-legal a { color: var(--text-2); }
+  .foot-legal a:hover { color: var(--accent-ink); }
+  footer.site .foot-bottom { margin-top: 22px; }
+
+  /* contact-form DPDP consent */
+  .field-consent { display:flex; gap:10px; align-items:flex-start; margin: 2px 0 18px; }
+  .field-consent input { margin-top:3px; flex:none; width:16px; height:16px; accent-color: var(--accent); cursor:pointer; }
+  .field-consent label { font-size:13px; color: var(--text-2); line-height:1.5; }
+  .field-consent a { color: var(--accent-ink); font-weight:600; }

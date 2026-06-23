@@ -187,7 +187,7 @@
       <div class="aud-card"><div class="aud-head"><div class="aud-ico" data-ic="users"></div></div><h3>Business correspondent</h3><p>Onboard BC agents, enforce KYC and document checklists, and run phygital journeys in the field.</p></div>
       <div class="aud-card"><div class="aud-head"><div class="aud-ico" data-ic="doc"></div></div><h3>DA</h3><p>Direct-assignment pools kept structured from origination, so reporting exports on demand.</p></div>
       <div class="aud-card"><div class="aud-head"><div class="aud-ico" data-ic="chart"></div></div><h3>Securitization</h3><p>Loan-level data ready for PTC structures and investor requests, without rebuilding it each time.</p></div>
-      <div class="aud-card"><div class="aud-head"><div class="aud-ico" data-ic="grid"></div></div><h3>Digital lending</h3><p>Run digital-lending programs with compliant documentation, audit trails, and partner-level reporting.</p></div>
+      <div class="aud-card"><div class="aud-head"><div class="aud-ico" data-ic="grid"></div></div><h3>Digital lending</h3><p>Run digital-lending (LSP) programs aligned to the RBI Digital Lending Guidelines, with KFS, FLDG handling, audit trails, and partner-level reporting.</p></div>
     </div>
   </div>
 </section>
@@ -242,9 +242,14 @@
       <div class="foot-col"><h5>Company</h5><a href="our-story.html">Our story</a><a href="platform-security.html">Security</a><a href="contact.html">Careers</a><a href="contact.html">Contact</a></div>
       <div class="foot-col"><h5>Resources</h5><a href="how-it-works.html">How it works</a><a href="platform-security.html">Compliance</a><a href="platform-security.html">Documentation</a><a href="contact.html">FAQ</a></div>
     </div>
+    <!-- TODO: replace bracketed placeholders with the registered legal-entity details before launch -->
+    <div class="foot-legal">
+      <p class="foot-entity"><b>[Mannjal Technologies Pvt. Ltd.]</b> · CIN [U00000KA2023PTC000000] · Registered office: [Address line, Bengaluru, Karnataka 5600XX] · Grievance Officer: [Name] · <a href="mailto:grievance@mannjal.com">grievance@mannjal.com</a></p>
+      <p class="foot-compliance">Built for the RBI Co-Lending Arrangements Directions and the RBI Digital Lending Guidelines. Personal data is handled under India's DPDP Act, 2023, with data-localization controls. Mannjal provides technology infrastructure; it does not make credit decisions or lend on its own account.</p>
+    </div>
     <div class="foot-bottom">
       <div class="fine">© 2026 Mannjal · Partnership lending infrastructure</div>
-      <div class="legal"><a href="platform-security.html">Privacy</a><a href="platform-security.html">Terms</a><a href="platform-security.html">Security</a><a href="our-story.html">Our story</a></div>
+      <div class="legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="platform-security.html">Security</a><a href="our-story.html">Our story</a></div>
     </div>
   </div>
 </footer>
@@ -270,8 +275,9 @@ const FAQS = [
   {q:'What is Mannjal?',a:'Mannjal is partnership lending infrastructure. It runs co-lending, business correspondent, DA, securitization, and digital-lending programs end to end, giving each partner their own secure instance and orchestrating the workflow between them.'},
   {q:'Where does the data live?',a:'Mannjal runs as a dedicated instance in your own environment. We don\'t hold your data centrally; it stays inside your instance, with role-based access and maker-checker controls.'},
   {q:'Who makes the credit decision?',a:'The lender, always. Mannjal validates each application against the lender\'s own rules and routes it to their desk. The credit decision stays with the lender.'},
+  {q:'Is Mannjal built for the RBI co-lending and digital-lending rules?',a:'Yes. Mannjal supports the documentation and controls the RBI Co-Lending Arrangements Directions and Digital Lending Guidelines call for (KFS, a single blended rate, FLDG handling, audit trails, and partner-level reporting), and personal data is handled under the DPDP Act, 2023, with data-localization controls. Mannjal provides the infrastructure; your team holds the data and makes every credit decision.'},
   {q:'How fast can a program go live?',a:'A new program can be live in 1–2 weeks, with real-time sync, compliant documentation, and pipeline visibility from day one.'},
-  {q:'What do co-lending, BC, DA and digital lending mean here?',a:'They are the partnership structures Mannjal supports: co-lending (shared risk between a senior and junior lender), Business Correspondent networks, DA and securitization, and digital lending — all on one platform.'}
+  {q:'What do co-lending, BC, DA and digital lending mean here?',a:'They are the partnership structures Mannjal supports: co-lending (shared risk between a senior and junior lender), Business Correspondent networks, DA and securitization, and digital lending, all on one platform.'}
 ];
 document.getElementById('faqList').innerHTML = FAQS.map((f,i) => `
   <div class="faq-item ${i===0?'open':''}"><button class="faq-q" aria-expanded="${i===0}">${f.q}<span class="pm" aria-hidden="true"></span></button><div class="faq-a"><div class="inner">${f.a}</div></div></div>`).join('');
