@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mannjal — How It Works (Wireframe)</title>
+<style>
+  :root{
+    --ink:#1f2328;
+    --mute:#6b7280;
+    --line:#c7ccd1;
+    --fill:#e9ebee;
+    --fill2:#f4f5f6;
+    --page:#fcfcfd;
+    --note:#b8651f;       /* annotation accent */
+    --noteBg:#fdf3e8;
+    --cta:#9aa0a6;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:#dfe2e6;
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5;
+    padding:32px 16px 80px;
+  }
+  .frame{
+    max-width:960px;
+    margin:0 auto;
+    background:var(--page);
+    border:1px solid var(--line);
+    border-radius:6px;
+    overflow:hidden;
+    box-shadow:0 6px 24px rgba(0,0,0,.10);
+  }
+
+  /* annotation system */
+  .anno{
+    font-size:11.5px;
+    color:var(--note);
+    background:var(--noteBg);
+    border:1px dashed var(--note);
+    border-radius:4px;
+    padding:5px 9px;
+    display:inline-block;
+    letter-spacing:.2px;
+  }
+  .anno-row{padding:10px 28px 0;}
+  .label{
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:1.4px;
+    color:var(--mute);
+    font-weight:600;
+  }
+
+  /* wireframe primitives */
+  .box{background:var(--fill);border:1px solid var(--line);border-radius:4px;}
+  .btn{
+    display:inline-block;
+    background:var(--cta);
+    color:#fff;
+    font-weight:600;
+    font-size:13px;
+    padding:11px 22px;
+    border-radius:4px;
+  }
+
+  section{padding:34px 28px;border-top:1px solid var(--line);}
+  section:first-of-type{border-top:none;}
+  h1.wf{font-size:30px;line-height:1.2;margin:6px 0 12px;max-width:20ch;}
+  h2.wf{font-size:20px;margin:0 0 8px;}
+  h3.wf{font-size:15px;margin:0 0 6px;}
+  p.wf{margin:0 0 12px;max-width:62ch;color:#33383d;}
+  .sub{color:var(--mute);font-size:15px;max-width:54ch;}
+
+  /* nav */
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 28px;background:#fff;border-bottom:1px solid var(--line);
+  }
+  .nav .logo{width:108px;height:26px;}
+  .nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;font-size:13px;color:var(--mute);}
+  .nav .active{color:var(--ink);font-weight:600;border-bottom:2px solid var(--ink);padding-bottom:2px;}
+
+  /* trust strip */
+  .strip{display:flex;gap:0;background:var(--fill2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .strip div{flex:1;text-align:center;padding:18px 8px;border-right:1px solid var(--line);}
+  .strip div:last-child{border-right:none;}
+  .strip .big{font-size:22px;font-weight:700;}
+  .strip .cap{font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.8px;}
+
+  /* flow diagram */
+  .flowhead{display:grid;grid-template-columns:1fr 150px 1fr;gap:0;margin-bottom:2px;}
+  .flowhead .col{padding:9px 12px;text-align:center;font-size:10.5px;text-transform:uppercase;letter-spacing:1px;font-weight:700;color:var(--mute);}
+  .flowhead .col.mj{color:var(--note);}
+
+  .flow{display:grid;grid-template-columns:1fr 150px 1fr;position:relative;}
+  /* the amber spine */
+  .flow::before{
+    content:"";position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);
+    width:150px;background:var(--noteBg);border-left:1px solid var(--note);border-right:1px solid var(--note);
+    z-index:0;
+  }
+  .row{display:contents;}
+  .step{
+    position:relative;z-index:1;
+    border:1px solid var(--line);border-radius:4px;background:#fff;
+    padding:13px 15px;margin:6px 8px;
+  }
+  .step .n{font-size:10.5px;font-weight:700;color:var(--note);letter-spacing:.5px;}
+  .step h3{font-size:13.5px;margin:3px 0 4px;}
+  .step p{font-size:12.5px;color:#33383d;margin:0;}
+  /* placement helpers */
+  .left{grid-column:1;}
+  .mid{grid-column:2;text-align:center;margin:6px 6px;background:transparent;border:none;padding:6px 4px;}
+  .mid .pill{display:inline-block;background:#fff;border:1px solid var(--note);border-radius:4px;padding:9px 8px;width:100%;}
+  .mid .pill h3{color:var(--note);}
+  .right{grid-column:3;}
+  .spacer{min-height:1px;}
+
+  /* throughout band note */
+  .band{background:var(--fill2);}
+  .audit{display:flex;align-items:center;gap:14px;border:1px solid var(--line);border-radius:4px;background:#fff;padding:16px;margin-top:6px;}
+  .audit .tag{flex:0 0 auto;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--note);border:1px solid var(--note);border-radius:4px;padding:6px 10px;background:var(--noteBg);}
+
+  /* cta */
+  .ctaWrap{text-align:center;background:var(--fill2);}
+
+  /* footer */
+  footer{background:#23272b;color:#c7ccd1;padding:26px 28px;font-size:12px;}
+  footer .frow{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+
+  @media(max-width:620px){
+    .nav ul{display:none;}
+    .strip{flex-wrap:wrap;}
+    .strip div{flex:1 1 50%;border-bottom:1px solid var(--line);}
+    h1.wf{font-size:24px;}
+    .flowhead{display:none;}
+    .flow{grid-template-columns:1fr;}
+    .flow::before{left:0;width:6px;transform:none;}
+    .left,.mid,.right{grid-column:1;}
+    .step{margin:6px 0 6px 16px;}
+    .mid{margin:6px 0 6px 16px;text-align:left;}
+    .step .n::after{}
+    .left .step::before{content:"Originator side — ";}
+    .right .step::before{content:"Lender side — ";}
+    .left .step .n::before,.right .step .n::before{}
+  }
+</style>
+</head>
+<body>
+
+<div class="frame">
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="box logo"></div>
+    <ul>
+      <li>For Banks</li>
+      <li>For Originators</li>
+      <li class="active">How It Works</li>
+    </ul>
+    <span class="btn">Schedule a walkthrough</span>
+  </div>
+  <div class="anno-row"><span class="anno">NAV — persistent. "How It Works" active. CTA stays "Schedule a walkthrough" — this page is read by the person who recommends Mannjal internally, so it routes to the same bank-side action.</span></div>
+
+  <!-- HERO -->
+  <section>
+    <span class="label">Hero</span>
+    <h1 class="wf">One loan, from application to reconciliation, on a single rail.</h1>
+    <p class="sub">Follow a single loan through the system. The originator and the lender each work in their own environment. Mannjal sits between them, moving the file and keeping both sides in sync.</p>
+    <div style="margin-top:14px;"><span class="anno">Frames the page as a walkthrough, not a pitch. The reader is here to understand it well enough to recommend it. Sets up the three-lane diagram below.</span></div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="strip">
+    <div><div class="big">85–90%</div><div class="cap">Login-to-sanction</div></div>
+    <div><div class="big">98%</div><div class="cap">First-time-right</div></div>
+    <div><div class="big">50–75%</div><div class="cap">Faster TAT</div></div>
+  </div>
+  <div class="anno-row"><span class="anno">Different proof set from For Banks: these three are process-quality numbers, so they belong on the page that explains the process. Same three-cell format.</span></div>
+
+  <!-- FLOW DIAGRAM -->
+  <section>
+    <span class="label">The flow</span>
+    <h2 class="wf" style="margin-top:6px;">Where each step happens, and who owns it</h2>
+    <div style="margin:6px 0 18px;"><span class="anno">The core of the page. Three lanes: originator's environment, Mannjal in the centre, lender's environment. The amber spine is Mannjal — narrow, neutral, between two parties. This is the same positioning as the homepage SVG, kept consistent here.</span></div>
+
+    <div class="flowhead">
+      <div class="col">Originator environment</div>
+      <div class="col mj">Mannjal</div>
+      <div class="col">Lender environment</div>
+    </div>
+
+    <div class="flow">
+
+      <!-- 1 -->
+      <div class="row">
+        <div class="left">
+          <div class="step">
+            <div class="n">01 · ORIGINATE</div>
+            <h3 class="wf">Application comes in</h3>
+            <p>Field app, API, CSV, or Excel — in whatever format the originator already uses.</p>
+          </div>
+        </div>
+        <div class="mid"><div class="pill"><h3 class="wf">Intake</h3></div></div>
+        <div class="right spacer"></div>
+      </div>
+
+      <!-- 2 -->
+      <div class="row">
+        <div class="left spacer"></div>
+        <div class="mid"><div class="pill"><h3 class="wf">Rules run</h3></div></div>
+        <div class="right">
+          <div class="step">
+            <div class="n">02 · APPRAISE</div>
+            <h3 class="wf">Eligibility runs automatically</h3>
+            <p>The lender's own policy is enforced as the file is built. Deviations are flagged and explained up front, not at the credit desk.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="row">
+        <div class="left">
+          <div class="step">
+            <div class="n">03 · DOCUMENT</div>
+            <h3 class="wf">Documentation generates</h3>
+            <p>Credit memo, Key Fact Statement, and repayment schedule produced in the lender's format — no manual rebuild per partner.</p>
+          </div>
+        </div>
+        <div class="mid"><div class="pill"><h3 class="wf">Generate</h3></div></div>
+        <div class="right spacer"></div>
+      </div>
+
+      <!-- 4 -->
+      <div class="row">
+        <div class="left spacer"></div>
+        <div class="mid"><div class="pill"><h3 class="wf">Route</h3></div></div>
+        <div class="right">
+          <div class="step">
+            <div class="n">04 · DECIDE</div>
+            <h3 class="wf">Lender makes the call</h3>
+            <p>A complete, validated file reaches the lender. Their team reviews exceptions and sanctions, rather than chasing gaps.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="row">
+        <div class="left spacer"></div>
+        <div class="mid"><div class="pill"><h3 class="wf">Track shares</h3></div></div>
+        <div class="right">
+          <div class="step">
+            <div class="n">05 · DISBURSE</div>
+            <h3 class="wf">Disbursement happens</h3>
+            <p>Each lender's share is tracked against a common loan reference. Escrow instructions follow the program's rules.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:16px;"><span class="anno">Five steps, alternating sides to show the handoffs. Mannjal does the work in the middle (intake, rules, docs, routing) but never makes the credit call — that stays in the lender lane. Reinforces the neutral-orchestration position without saying it as a claim.</span></div>
+  </section>
+
+  <!-- RUNS THROUGHOUT BAND -->
+  <section class="band">
+    <span class="label">Underneath all five steps</span>
+    <h2 class="wf" style="margin-top:6px;">Reconciliation and audit run the whole length of the file</h2>
+    <p class="wf">Reconciliation isn't a final step — it's continuous. Each lender's position updates as the loan moves, and asset classification stays in sync on both sides if a borrower misses a payment.</p>
+    <div class="audit">
+      <span class="tag">Audit trail</span>
+      <p class="wf" style="margin:0;">Every action, API call, and document event is timestamped, attributed, and exportable on demand. This is the spine the diagram sits on.</p>
+    </div>
+    <div style="margin-top:12px;"><span class="anno">The brief calls for recon + audit "maintained throughout." Pulling them out as a band under the diagram says that better than a sixth step would — they run in parallel, not after.</span></div>
+  </section>
+
+  <!-- WHY THIS REPLACES A DEMO -->
+  <section>
+    <span class="label">Why this is usually enough to start</span>
+    <p class="wf">A bank's partnership team can see the full shape of an engagement from this page: where files enter, where the lender's policy is enforced, where the decision stays with the lender, and what the audit position looks like. The live walkthrough then goes deep on one program, instead of explaining the basics.</p>
+    <div><span class="anno">Brief goal: make a demo unnecessary for early conversations. Stated plainly so the page earns its place in the sales flow — it qualifies, the demo closes.</span></div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="ctaWrap">
+    <h2 class="wf" style="margin:0 auto 6px;">See it run on one of your programs.</h2>
+    <p class="sub" style="margin:0 auto 18px;">A 30-minute walkthrough, no slides.</p>
+    <span class="btn">Schedule a walkthrough</span>
+    <div style="margin-top:14px;"><span class="anno">Same closing CTA and wording as For Banks — consistent across the bank-facing path.</span></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="frow">
+      <div class="box logo" style="background:#3a3f44;border-color:#4a4f54;"></div>
+      <div style="display:flex;gap:24px;">
+        <span>For Banks</span><span>For Originators</span><span>How It Works</span><span>Contact</span>
+      </div>
+    </div>
+    <div style="margin-top:16px;opacity:.6;">Investor logos · © Mannjal 2026</div>
+  </footer>
+
+</div>
+
+</body>
+</html>

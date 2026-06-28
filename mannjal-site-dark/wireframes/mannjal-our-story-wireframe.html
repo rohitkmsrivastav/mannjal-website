@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mannjal — Our Story (Wireframe)</title>
+<style>
+  :root{
+    --ink:#1f2328;
+    --mute:#6b7280;
+    --line:#c7ccd1;
+    --fill:#e9ebee;
+    --fill2:#f4f5f6;
+    --page:#fcfcfd;
+    --note:#b8651f;       /* annotation accent */
+    --noteBg:#fdf3e8;
+    --cta:#9aa0a6;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:#dfe2e6;
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5;
+    padding:32px 16px 80px;
+  }
+  .frame{
+    max-width:960px;
+    margin:0 auto;
+    background:var(--page);
+    border:1px solid var(--line);
+    border-radius:6px;
+    overflow:hidden;
+    box-shadow:0 6px 24px rgba(0,0,0,.10);
+  }
+
+  /* annotation system */
+  .anno{
+    font-size:11.5px;
+    color:var(--note);
+    background:var(--noteBg);
+    border:1px dashed var(--note);
+    border-radius:4px;
+    padding:5px 9px;
+    display:inline-block;
+    letter-spacing:.2px;
+  }
+  .anno-row{padding:10px 28px 0;}
+  .label{
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:1.4px;
+    color:var(--mute);
+    font-weight:600;
+  }
+
+  /* wireframe primitives */
+  .box{background:var(--fill);border:1px solid var(--line);border-radius:4px;}
+  .btn{
+    display:inline-block;
+    background:var(--cta);
+    color:#fff;
+    font-weight:600;
+    font-size:13px;
+    padding:11px 22px;
+    border-radius:4px;
+  }
+
+  section{padding:34px 28px;border-top:1px solid var(--line);}
+  section:first-of-type{border-top:none;}
+  h1.wf{font-size:30px;line-height:1.2;margin:6px 0 12px;max-width:20ch;}
+  h2.wf{font-size:20px;margin:0 0 8px;}
+  h3.wf{font-size:15px;margin:0 0 6px;}
+  p.wf{margin:0 0 12px;max-width:62ch;color:#33383d;}
+  .sub{color:var(--mute);font-size:15px;max-width:54ch;}
+
+  /* nav */
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 28px;background:#fff;border-bottom:1px solid var(--line);
+  }
+  .nav .logo{width:108px;height:26px;}
+  .nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;font-size:13px;color:var(--mute);}
+  .nav .active{color:var(--ink);font-weight:600;border-bottom:2px solid var(--ink);padding-bottom:2px;}
+
+  /* founder cards */
+  .founders{display:flex;gap:16px;flex-wrap:wrap;margin-top:6px;}
+  .founder{flex:1;min-width:230px;border:1px solid var(--line);border-radius:4px;background:#fff;padding:18px;}
+  .founder .ph{
+    width:56px;height:56px;border-radius:50%;
+    background:
+      linear-gradient(45deg,transparent 47%,var(--line) 48%,var(--line) 52%,transparent 53%),
+      linear-gradient(-45deg,transparent 47%,var(--line) 48%,var(--line) 52%,transparent 53%),
+      var(--fill2);
+    border:1px solid var(--line);margin-bottom:12px;
+  }
+  .founder .nm{font-size:15px;font-weight:700;}
+  .founder .ro{font-size:12px;color:var(--note);font-weight:600;text-transform:uppercase;letter-spacing:.6px;margin:2px 0 10px;}
+  .founder p{font-size:13px;color:#33383d;margin:0;}
+
+  /* timeline */
+  .tl{border-left:2px solid var(--line);margin:6px 0 0 6px;padding-left:0;}
+  .tl .mile{position:relative;padding:0 0 22px 26px;}
+  .tl .mile:last-child{padding-bottom:0;}
+  .tl .mile::before{
+    content:"";position:absolute;left:-7px;top:3px;
+    width:12px;height:12px;border-radius:50%;
+    background:#fff;border:2px solid var(--note);
+  }
+  .tl .yr{font-size:11px;font-weight:700;color:var(--note);letter-spacing:.5px;}
+  .tl .mile p{margin:3px 0 0;font-size:13.5px;color:#33383d;max-width:60ch;}
+
+  /* investors */
+  .invs{display:flex;gap:16px;flex-wrap:wrap;margin-top:6px;}
+  .inv{flex:1;min-width:230px;border:1px solid var(--line);border-radius:4px;background:#fff;padding:18px;}
+  .inv .logo{height:24px;width:96px;margin-bottom:12px;}
+  .inv .nm{font-size:14px;font-weight:700;}
+  .inv p{font-size:13px;color:#33383d;margin:6px 0 0;}
+  .inv-also{margin-top:14px;font-size:13px;color:var(--mute);}
+
+  /* band */
+  .band{background:var(--fill2);}
+
+  /* cta */
+  .ctaWrap{text-align:center;background:var(--fill2);}
+
+  /* footer */
+  footer{background:#23272b;color:#c7ccd1;padding:26px 28px;font-size:12px;}
+  footer .frow{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+
+  @media(max-width:620px){
+    .nav ul{display:none;}
+    h1.wf{font-size:24px;}
+    .founder,.inv{flex:1 1 100%;}
+  }
+</style>
+</head>
+<body>
+
+<div class="frame">
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="box logo"></div>
+    <ul>
+      <li>For Banks</li>
+      <li>For Originators</li>
+      <li>How It Works</li>
+    </ul>
+    <span class="btn">Schedule a walkthrough</span>
+  </div>
+  <div class="anno-row"><span class="anno">NAV — persistent, same three top-level paths. No item active: Our Story sits in the footer/secondary nav, reached when a senior sponsor is doing diligence, not in the primary buying path.</span></div>
+
+  <!-- HERO -->
+  <section>
+    <span class="label">Hero</span>
+    <h1 class="wf">Built by the people who built India's co-lending playbook.</h1>
+    <p class="sub">Mannjal exists because its founders ran partnership lending from the inside and saw exactly where it broke. The page that follows is the record, not the pitch.</p>
+    <div style="margin-top:14px;"><span class="anno">One factual line that earns the read. The reader is deciding whether to bet on the people — lead with pedigree as fact, not adjective. No "platform" language anywhere on this page.</span></div>
+  </section>
+
+  <!-- FOUNDERS -->
+  <section>
+    <span class="label">The founders</span>
+    <h2 class="wf" style="margin-top:6px;">Three people who ran this before they built it</h2>
+    <div style="margin:6px 0 18px;"><span class="anno">Founders up front, as the brief asks. Each card is name, role, and one factual line of background. No hero bios — the Capital Float and smallcase lines do the work cleanly.</span></div>
+
+    <div class="founders">
+      <div class="founder">
+        <div class="ph"></div>
+        <div class="nm">Prashant Adurty</div>
+        <div class="ro">Co-founder &amp; CEO</div>
+        <p>Built and scaled co-lending at Capital Float, one of the first firms to run partnership lending at scale in India.</p>
+      </div>
+      <div class="founder">
+        <div class="ph"></div>
+        <div class="nm">Aman Bhargava</div>
+        <div class="ro">Co-founder &amp; CBO</div>
+        <p>Led capital markets, treasury, and risk at Capital Float, on the institutional side of the same lending partnerships.</p>
+      </div>
+      <div class="founder">
+        <div class="ph"></div>
+        <div class="nm">Harshit Lingamneni</div>
+        <div class="ro">Co-founder &amp; CTO</div>
+        <p>Built fintech architecture and product at smallcase, with a decade of work on systems that financial teams rely on daily.</p>
+      </div>
+    </div>
+    <div style="margin-top:16px;"><span class="anno">Prashant and Aman from the originator/markets side, Harshit from the systems side — the same split the product solves for. Stated as background, the reader connects it without being told.</span></div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section>
+    <span class="label">The short version</span>
+    <h2 class="wf" style="margin-top:6px;">Where we are, and how we got here</h2>
+    <div style="margin:6px 0 18px;"><span class="anno">Four milestones, no more. A sponsor wants the shape of the trajectory, not a changelog. Each line is a fact with a date.</span></div>
+
+    <div class="tl">
+      <div class="mile">
+        <div class="yr">2023</div>
+        <p>Founded in Bengaluru to run partnership lending — co-lending, BC, and LSP programs — on shared infrastructure.</p>
+      </div>
+      <div class="mile">
+        <div class="yr">2023–24</div>
+        <p>Built and deployed the product alongside live lending partners, moving from manual operations to a working system.</p>
+      </div>
+      <div class="mile">
+        <div class="yr">2025</div>
+        <p>Crossed ₹1,000 Cr in disbursements across a network of originators and lenders.</p>
+      </div>
+      <div class="mile">
+        <div class="yr">Dec 2025</div>
+        <p>Raised a seed round led by B Capital and Arali Ventures to widen the lender network and deepen the product.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVESTORS -->
+  <section>
+    <span class="label">Backed by</span>
+    <h2 class="wf" style="margin-top:6px;">Who's behind us, and why it matters</h2>
+    <div style="margin:6px 0 18px;"><span class="anno">Brief: a line on each lead investor that signals why they matter. Two cards for the leads, a quieter line for participating funds. Investor names carry institutional weight with a board reader.</span></div>
+
+    <div class="invs">
+      <div class="inv">
+        <div class="box logo"></div>
+        <div class="nm">B Capital</div>
+        <p>A global firm with a deep fintech portfolio across markets, bringing a view of how lending infrastructure scales beyond India.</p>
+      </div>
+      <div class="inv">
+        <div class="box logo"></div>
+        <div class="nm">Arali Ventures</div>
+        <p>An early-stage India fund focused on enterprise and B2B software, with a thesis built around founders solving hard domain problems.</p>
+      </div>
+    </div>
+    <p class="inv-also">With participation from Sparrow Capital and Gemba Capital.</p>
+    <div style="margin-top:14px;"><span class="anno">Lines stay factual and verifiable — no "marquee" or "visionary." Sparrow and Gemba get a single line rather than full cards, matching the brief's emphasis on the two leads.</span></div>
+  </section>
+
+  <!-- POSITION BAND -->
+  <section class="band">
+    <span class="label">Why we stay in the middle</span>
+    <h2 class="wf" style="margin-top:6px;">A neutral party, by design</h2>
+    <p class="wf">Mannjal never makes a credit decision and never holds borrower data. Each lender and originator runs their own instance, and the firm's only role is to move work between them cleanly. That neutrality is what lets two parties who would otherwise not share a system work on the same one.</p>
+    <div><span class="anno">Closes on the one principle a board sponsor needs to trust before a bank commits: Mannjal isn't a competitor to either side. Mirrors the reassurance bands on For Banks and Platform &amp; Security — same role on the diligence page.</span></div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="ctaWrap">
+    <h2 class="wf" style="margin:0 auto 6px;">Meet the team behind it.</h2>
+    <p class="sub" style="margin:0 auto 18px;">A 30-minute walkthrough with a founder, no slides.</p>
+    <span class="btn">Schedule a walkthrough</span>
+    <div style="margin-top:14px;"><span class="anno">Same closing action as the bank path — this reader can convene the meeting. Adds "with a founder" because, on this page, the people are the point.</span></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="frow">
+      <div class="box logo" style="background:#3a3f44;border-color:#4a4f54;"></div>
+      <div style="display:flex;gap:24px;">
+        <span>For Banks</span><span>For Originators</span><span>How It Works</span><span>Contact</span>
+      </div>
+    </div>
+    <div style="margin-top:16px;opacity:.6;">Investor logos · © Mannjal 2026</div>
+  </footer>
+
+</div>
+
+</body>
+</html>

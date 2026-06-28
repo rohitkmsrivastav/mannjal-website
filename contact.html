@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mannjal — Schedule a walkthrough</title>
+<meta name="ext-resource-dependency" content="mannjal-logo.png" data-resource-id="logo" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700;800&family=Newsreader:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --accent: #F5A623;
+    --accent-soft: rgba(245, 166, 35, 0.14);
+    --accent-line: rgba(245, 166, 35, 0.30);
+    --bg: #111111;
+    --band: #0B0B0B;
+    --surface: #1A1A1A;
+    --surface-2: #212121;
+    --text: #FFFFFF;
+    --text-2: #9A9A9A;
+    --text-3: #6A6A6A;
+    --border: rgba(255, 255, 255, 0.10);
+    --border-strong: rgba(255, 255, 255, 0.18);
+    --font-head: 'Roboto', system-ui, sans-serif;
+    --font-body: 'Hanken Grotesk', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --maxw: 1240px;
+    --pad: clamp(20px, 5vw, 64px);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: var(--font-body); font-size: 18px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: hidden;
+  }
+  ::selection { background: var(--accent); color: #111; }
+  h1,h2,h3,h4 { font-family: var(--font-head); font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; margin: 0; }
+  p { margin: 0; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding-left: var(--pad); padding-right: var(--pad); }
+  .wrap-wide { max-width: 1440px; margin: 0 auto; padding-left: var(--pad); padding-right: var(--pad); }
+  .wordmark-img { display:block; }
+  .eyebrow { font-family: var(--font-mono); font-weight: 500; font-size: 12.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+
+  /* buttons */
+  .btn { display:inline-flex; align-items:center; gap:0.5em; cursor:pointer; font-family: var(--font-body); font-weight:700; font-size:15.5px; letter-spacing:-0.01em; border-radius:8px; padding:13px 22px; border:1px solid transparent; transition: transform .14s ease, background .2s, border-color .2s, color .2s; white-space:nowrap; }
+  .btn-primary { background: var(--accent); color:#14110a; }
+  .btn-primary:hover { transform: translateY(-1px); filter: brightness(1.05); }
+  .btn-sm { padding:10px 17px; font-size:14px; }
+
+  /* section rhythm */
+  .sec { padding-top: clamp(64px, 9vw, 128px); padding-bottom: clamp(64px, 9vw, 128px); }
+  .band { background: var(--band); }
+
+  /* ============ NAV ============ */
+  .nav { position: sticky; top:0; z-index:60; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); background: color-mix(in srgb, var(--bg) 80%, transparent); border-bottom: 1px solid transparent; transition: border-color .3s, background .3s; }
+  .nav.scrolled { border-bottom: 1px solid var(--border); }
+  .nav-inner { display:flex; align-items:center; justify-content:space-between; height: 74px; }
+  .nav-left { display:flex; align-items:center; gap: 40px; }
+  .nav-links { display:flex; align-items:center; gap: 30px; }
+  .nav-link { font-size:15px; color: var(--text-2); font-weight:500; transition: color .18s; white-space:nowrap; }
+  .nav-link:hover { color: var(--text); }
+  .nav-link.active { color: var(--text); font-weight:600; border-bottom: 2px solid var(--accent); padding-bottom: 3px; }
+  .nav-right { display:flex; align-items:center; gap: 14px; }
+  @media (max-width: 920px){ .nav-links { display:none; } }
+
+  /* ============ HERO ============ */
+  .hero { position: relative; padding-top: clamp(40px, 6vw, 80px); padding-bottom: clamp(40px, 5vw, 64px); }
+  .hero h1 { font-size: clamp(38px, 5.6vw, 72px); }
+  .hero h1 .accent { color: var(--accent); }
+  .hero-sub { color: var(--text-2); font-size: clamp(17px, 2vw, 20px); line-height:1.6; margin-top: 26px; max-width: 600px; }
+
+  /* ============ FORM + WHO YOU'LL MEET ============ */
+  .contact-grid { display:grid; grid-template-columns: 1.2fr 1fr; gap: clamp(32px,5vw,64px); align-items:start; }
+  @media (max-width:860px){ .contact-grid { grid-template-columns:1fr; } }
+
+  /* form */
+  .form-col .eyebrow { display:block; margin-bottom:24px; }
+  .field { margin-bottom:20px; }
+  .field label { display:block; font-size:14px; font-weight:600; color: var(--text); margin-bottom:8px; letter-spacing:-0.01em; }
+  .field label .opt { color: var(--text-3); font-weight:400; }
+  .field input, .field select, .field textarea {
+    width:100%; background: var(--surface); border:1px solid var(--border); border-radius:10px;
+    color: var(--text); font-family: var(--font-body); font-size:15px; padding:13px 16px;
+    outline:none; transition: border-color .2s;
+  }
+  .field input::placeholder, .field textarea::placeholder { color: var(--text-3); }
+  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--accent-line); }
+  .field select { appearance:none; cursor:pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1.5l5 5 5-5' stroke='%236A6A6A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 16px center; padding-right:40px; }
+  .field select option { background: var(--surface); color: var(--text); }
+  .field textarea { min-height:110px; resize:vertical; line-height:1.5; }
+  .form-submit { margin-top:28px; }
+  .form-submit .btn { width:100%; justify-content:center; padding:15px 22px; font-size:16px; }
+
+  /* who you'll meet */
+  .meet-col .eyebrow { display:block; margin-bottom:20px; }
+  .meet-card { background: var(--surface); border:1px solid var(--border); border-radius:18px; padding: clamp(22px,3vw,28px); }
+  .person { display:flex; gap:16px; align-items:flex-start; padding:18px 0; border-bottom:1px solid var(--border); }
+  .person:first-child { padding-top:0; }
+  .person:last-child { padding-bottom:0; border-bottom:none; }
+  .person-photo { flex:0 0 auto; width:56px; height:56px; border-radius:50%; overflow:hidden; background:#0a0a0a; }
+  .person-photo img { display:block; width:100%; height:100%; object-fit:cover; }
+  .person-info .nm { font-family: var(--font-head); font-weight:800; font-size:16px; letter-spacing:-0.01em; }
+  .person-info .ro { font-family: var(--font-mono); font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; color: var(--accent); margin:4px 0 8px; }
+  .person-info .em { font-size:14px; color: var(--text-2); }
+  .person-info .em a { color: var(--text-2); transition: color .18s; }
+  .person-info .em a:hover { color: var(--accent); }
+  .meet-note { margin-top:18px; color: var(--text-3); font-size:14px; }
+
+  /* ============ FOOTER ============ */
+  footer.site { background: var(--band); border-top:1px solid var(--border); padding: clamp(48px,6vw,80px) 0 40px; }
+  .foot-grid { display:grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; }
+  @media (max-width: 860px){ .foot-grid { grid-template-columns: 1fr 1fr; gap:28px; } }
+  .foot-brand .tagline { color: var(--text-2); font-size:14.5px; margin-top:16px; max-width:240px; line-height:1.55; }
+  .foot-brand .socials { display:flex; gap:10px; margin-top:20px; }
+  .foot-brand .soc { width:32px; height:32px; border:1px solid var(--border); border-radius:8px; display:flex; align-items:center; justify-content:center; color: var(--text-2); transition: all .18s; }
+  .foot-brand .soc:hover { color: var(--accent); border-color: var(--accent-line); }
+  .foot-col h5 { font-family: var(--font-mono); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color: var(--accent); margin:0 0 16px; }
+  .foot-col a { display:block; color: var(--text-2); font-size:14.5px; padding:6px 0; transition: color .18s; }
+  .foot-col a:hover { color: var(--text); }
+  .foot-bottom { display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap; margin-top: clamp(40px,5vw,64px); padding-top: 26px; border-top:1px solid var(--border); }
+  .foot-bottom .fine { color: var(--text-3); font-size:13px; }
+  .foot-bottom .legal { display:flex; gap:22px; flex-wrap:wrap; }
+  .foot-bottom .legal a { color: var(--text-3); font-size:13px; transition: color .18s; }
+  .foot-bottom .legal a:hover { color: var(--text-2); }
+
+  #root { min-height: 100vh; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel">
+const { useState, useEffect } = React;
+const LOGO = (window.__resources && window.__resources.logo) || "mannjal-logo.png";
+
+function Ic({ k, s = 16, c = "currentColor", sw = 1.6 }) {
+  const p = { width: s, height: s, viewBox: "0 0 24 24", fill: "none", stroke: c, strokeWidth: sw, strokeLinecap: "round", strokeLinejoin: "round" };
+  const paths = {
+    users: <><circle cx="9" cy="8" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="M16 6.5a3 3 0 0 1 0 5.5M21 19a5.5 5.5 0 0 0-4-5.3"/></>,
+    doc: <><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M10 13h6M10 16h6"/></>,
+    link: <><rect x="3" y="9" width="7" height="6" rx="2"/><rect x="14" y="9" width="7" height="6" rx="2"/><path d="M10 12h4"/></>,
+    check: <><path d="M5 12l4 4L19 7"/></>,
+  };
+  return <svg {...p}>{paths[k] || paths.users}</svg>;
+}
+
+function Wordmark({ size = 26, style }) {
+  return <img src={LOGO} alt="Mannjal" className="wordmark-img" style={{ height: size, width: "auto", ...style }} />;
+}
+
+/* ============ NAV ============ */
+function Nav() {
+  const [sc, setSc] = useState(false);
+  useEffect(() => {
+    const f = () => setSc(window.scrollY > 12);
+    window.addEventListener("scroll", f, { passive: true }); f();
+    return () => window.removeEventListener("scroll", f);
+  }, []);
+  return (
+    <nav className={`nav ${sc ? "scrolled" : ""}`}>
+      <div className="wrap nav-inner">
+        <div className="nav-left">
+          <a href="index.html" aria-label="Mannjal home"><Wordmark size={26} /></a>
+          <div className="nav-links">
+            <a className="nav-link" href="for-banks.html">For banks</a>
+            <a className="nav-link" href="for-originators.html">For originators</a>
+            <a className="nav-link" href="how-it-works.html">How it works</a>
+            <a className="nav-link" href="platform-security.html">Platform &amp; security</a>
+          </div>
+        </div>
+        <div className="nav-right">
+          <a className="btn btn-primary btn-sm" href="contact.html">Schedule a walkthrough</a>
+        </div>
+      </div>
+    </nav>
+  );
+}
+
+/* ============ HERO ============ */
+function Hero() {
+  return (
+    <section className="hero wrap">
+      <div className="hero-eyebrow" style={{ display:"flex", alignItems:"center", gap:11, marginBottom:26 }}>
+        <span style={{ width:7, height:7, borderRadius:"50%", background:"var(--accent)", flex:"none" }}></span>
+        <span className="eyebrow">Contact</span>
+      </div>
+      <h1>Schedule a <span className="accent">walkthrough.</span></h1>
+      <p className="hero-sub">Tell us how your partnership lending runs today, and we'll show you what it looks like on Mannjal. No slides. A founder walks you through it.</p>
+    </section>
+  );
+}
+
+/* ============ FORM + WHO YOU'LL MEET ============ */
+const PEOPLE = [
+  { img: "prashant.png", pos: "50% 48%", nm: "Prashant Adurty", ro: "Co-founder & CEO", em: "prashant@mannjal.com" },
+  { img: "aman.png", pos: "50% 36%", nm: "Aman Bhargava", ro: "Co-founder & CBO", em: "aman@mannjal.com" },
+];
+
+function ContactForm() {
+  const [submitted, setSubmitted] = useState(false);
+  const [form, setForm] = useState({ role: "", name: "", email: "", org: "", note: "" });
+  const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
+  if (submitted) {
+    return (
+      <section className="sec">
+        <div className="wrap">
+          <div style={{ textAlign:"center", maxWidth:560, margin:"0 auto" }}>
+            <div style={{ width:64, height:64, borderRadius:16, background:"var(--accent-soft)", display:"flex", alignItems:"center", justifyContent:"center", margin:"0 auto 24px" }}>
+              <Ic k="check" s={32} c="var(--accent)" sw={2} />
+            </div>
+            <h2 style={{ fontSize:"clamp(26px,3.6vw,42px)", marginBottom:16 }}>We'll be in touch.</h2>
+            <p style={{ color:"var(--text-2)", fontSize:"clamp(17px,2vw,20px)", lineHeight:1.6 }}>One of us will reach out within a working day to set up your walkthrough.</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section className="sec">
+      <div className="wrap">
+        <div className="contact-grid">
+          <div className="form-col">
+            <span className="eyebrow">Request a walkthrough</span>
+            <form onSubmit={handleSubmit}>
+              <div className="field">
+                <label>I'm a…</label>
+                <select value={form.role} onChange={set("role")} required>
+                  <option value="" disabled>Select one</option>
+                  <option value="bank">I'm a bank or lender</option>
+                  <option value="originator">I'm an originator</option>
+                </select>
+              </div>
+              <div className="field">
+                <label>Name</label>
+                <input type="text" placeholder="Full name" value={form.name} onChange={set("name")} required />
+              </div>
+              <div className="field">
+                <label>Work email</label>
+                <input type="email" placeholder="name@company.com" value={form.email} onChange={set("email")} required />
+              </div>
+              <div className="field">
+                <label>Organisation</label>
+                <input type="text" placeholder="Bank, NBFC, or originator name" value={form.org} onChange={set("org")} required />
+              </div>
+              <div className="field">
+                <label>What would you like to cover? <span className="opt">(optional)</span></label>
+                <textarea placeholder="A line on your partnership lending setup helps us prepare." value={form.note} onChange={set("note")}></textarea>
+              </div>
+              <div className="form-submit">
+                <button type="submit" className="btn btn-primary">Schedule a walkthrough</button>
+              </div>
+            </form>
+          </div>
+
+          <div className="meet-col">
+            <span className="eyebrow">Who you'll meet</span>
+            <div className="meet-card">
+              {PEOPLE.map((p) => (
+                <div className="person" key={p.nm}>
+                  <div className="person-photo">
+                    <img src={p.img} alt={p.nm} style={{ objectPosition: p.pos }} />
+                  </div>
+                  <div className="person-info">
+                    <div className="nm">{p.nm}</div>
+                    <div className="ro">{p.ro}</div>
+                    <div className="em"><a href={`mailto:${p.em}`}>{p.em}</a></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="meet-note">Prefer email? Write to either of us directly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ FOOTER ============ */
+function MegaFooter() {
+  const cols = [
+    { h: "Platform", links: [["Co-lending","#"],["Business Correspondent","#"],["LSP programs","#"],["Escrow","#"],["Reporting","#"]] },
+    { h: "Use cases", links: [["For banks","for-banks.html"],["For originators","for-originators.html"],["MSME","#"],["Agriculture","#"],["Affordable housing","#"]] },
+    { h: "Company", links: [["Our story","our-story.html"],["RBI 2025","#"],["Security","platform-security.html"],["Careers","#"],["Contact","contact.html"]] },
+    { h: "Resources", links: [["How it works","how-it-works.html"],["Compliance","#"],["Documentation","#"],["FAQ","#"]] },
+  ];
+  return (
+    <footer className="site">
+      <div className="wrap">
+        <div className="foot-grid">
+          <div className="foot-brand">
+            <Wordmark size={24} />
+            <p className="tagline">Partnership lending infrastructure for banks that want to scale.</p>
+            <div className="socials">
+              <a className="soc" href="#" aria-label="LinkedIn"><Ic k="users" s={15} /></a>
+              <a className="soc" href="#" aria-label="Email"><Ic k="doc" s={15} /></a>
+              <a className="soc" href="#" aria-label="Link"><Ic k="link" s={15} /></a>
+            </div>
+          </div>
+          {cols.map((c) => (
+            <div className="foot-col" key={c.h}>
+              <h5>{c.h}</h5>
+              {c.links.map((l) => <a href={l[1]} key={l[0]}>{l[0]}</a>)}
+            </div>
+          ))}
+        </div>
+        <div className="foot-bottom">
+          <div className="fine">&copy; 2026 Mannjal &middot; Partnership lending infrastructure</div>
+          <div className="legal">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Security</a>
+            <a href="#">RBI 2025</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+/* ============ APP ============ */
+function App() {
+  return (
+    <React.Fragment>
+      <Nav />
+      <Hero />
+      <ContactForm />
+      <MegaFooter />
+    </React.Fragment>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

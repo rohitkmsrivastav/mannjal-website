@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mannjal — For Banks (Wireframe)</title>
+<style>
+  :root{
+    --ink:#1f2328;
+    --mute:#6b7280;
+    --line:#c7ccd1;
+    --fill:#e9ebee;
+    --fill2:#f4f5f6;
+    --page:#fcfcfd;
+    --note:#b8651f;       /* annotation accent */
+    --noteBg:#fdf3e8;
+    --cta:#9aa0a6;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:#dfe2e6;
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5;
+    padding:32px 16px 80px;
+  }
+  .frame{
+    max-width:960px;
+    margin:0 auto;
+    background:var(--page);
+    border:1px solid var(--line);
+    border-radius:6px;
+    overflow:hidden;
+    box-shadow:0 6px 24px rgba(0,0,0,.10);
+  }
+
+  /* annotation system */
+  .anno{
+    font-size:11.5px;
+    color:var(--note);
+    background:var(--noteBg);
+    border:1px dashed var(--note);
+    border-radius:4px;
+    padding:5px 9px;
+    display:inline-block;
+    letter-spacing:.2px;
+  }
+  .anno-row{padding:10px 28px 0;}
+  .label{
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:1.4px;
+    color:var(--mute);
+    font-weight:600;
+  }
+
+  /* wireframe primitives */
+  .box{background:var(--fill);border:1px solid var(--line);border-radius:4px;}
+  .ph{ /* placeholder image */
+    background:
+      linear-gradient(45deg,transparent 47%,var(--line) 48%,var(--line) 52%,transparent 53%),
+      linear-gradient(-45deg,transparent 47%,var(--line) 48%,var(--line) 52%,transparent 53%),
+      var(--fill2);
+    border:1px solid var(--line);
+    border-radius:4px;
+  }
+  .btn{
+    display:inline-block;
+    background:var(--cta);
+    color:#fff;
+    font-weight:600;
+    font-size:13px;
+    padding:11px 22px;
+    border-radius:4px;
+  }
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line);}
+
+  section{padding:34px 28px;border-top:1px solid var(--line);}
+  section:first-of-type{border-top:none;}
+  h1.wf{font-size:30px;line-height:1.2;margin:6px 0 12px;max-width:18ch;}
+  h2.wf{font-size:20px;margin:0 0 8px;}
+  h3.wf{font-size:15px;margin:0 0 6px;}
+  p.wf{margin:0 0 12px;max-width:62ch;color:#33383d;}
+  .sub{color:var(--mute);font-size:15px;max-width:52ch;}
+
+  /* nav */
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 28px;background:#fff;border-bottom:1px solid var(--line);
+  }
+  .nav .logo{width:108px;height:26px;}
+  .nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;font-size:13px;color:var(--mute);}
+  .nav .active{color:var(--ink);font-weight:600;border-bottom:2px solid var(--ink);padding-bottom:2px;}
+
+  /* trust strip */
+  .strip{display:flex;gap:0;background:var(--fill2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .strip div{flex:1;text-align:center;padding:18px 8px;border-right:1px solid var(--line);}
+  .strip div:last-child{border-right:none;}
+  .strip .big{font-size:22px;font-weight:700;}
+  .strip .cap{font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.8px;}
+
+  /* programs */
+  .prog{border-left:3px solid var(--line);padding-left:16px;margin-bottom:22px;}
+  .prog:last-child{margin-bottom:0;}
+
+  /* metrics */
+  .metrics{display:flex;gap:16px;flex-wrap:wrap;}
+  .metric{flex:1;min-width:200px;border:1px solid var(--line);border-radius:4px;padding:18px;background:#fff;}
+  .metric .num{font-size:26px;font-weight:700;}
+  .metric .exp{font-size:13px;color:#33383d;margin-top:6px;}
+
+  /* cro band */
+  .band{background:var(--fill2);}
+
+  /* cta */
+  .ctaWrap{text-align:center;background:var(--fill2);}
+
+  /* footer */
+  footer{background:#23272b;color:#c7ccd1;padding:26px 28px;font-size:12px;}
+  footer .frow{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+
+  @media(max-width:620px){
+    .nav ul{display:none;}
+    .strip{flex-wrap:wrap;}
+    .strip div{flex:1 1 50%;border-bottom:1px solid var(--line);}
+    h1.wf{font-size:24px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="frame">
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="box logo"></div>
+    <ul>
+      <li class="active">For Banks</li>
+      <li>For Originators</li>
+      <li>How It Works</li>
+    </ul>
+    <span class="btn">Schedule a walkthrough</span>
+  </div>
+  <div class="anno-row"><span class="anno">NAV — persistent. CTA lives top-right on every page. "For Banks" shown active.</span></div>
+
+  <!-- HERO -->
+  <section>
+    <span class="label">Hero</span>
+    <h1 class="wf">Run more partnership lending programs without growing your ops team.</h1>
+    <p class="sub">Most banks stop at three or four partnerships because each new one adds operational load. Mannjal removes that ceiling.</p>
+    <div style="margin-top:18px;"><span class="btn">Schedule a walkthrough</span></div>
+    <div style="margin-top:14px;"><span class="anno">Lead with the outcome, not the product. One CTA only — no competing buttons.</span></div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="strip">
+    <div><div class="big">70+</div><div class="cap">Originators</div></div>
+    <div><div class="big">20+</div><div class="cap">Lenders</div></div>
+    <div><div class="big">₹1,000 Cr</div><div class="cap">Disbursed</div></div>
+  </div>
+  <div class="anno-row"><span class="anno">Thin credibility anchor. CRO won't read further without proof of scale. Keep it one line.</span></div>
+
+  <!-- PROGRAMS -->
+  <section>
+    <span class="label">What changes for you</span>
+    <h2 class="wf" style="margin-top:6px;">Three ways banks run partnerships on Mannjal</h2>
+    <div style="margin:6px 0 20px;"><span class="anno">One paragraph each. No feature bullets, no "platform" language. Bank's words, not SKUs.</span></div>
+
+    <div class="prog">
+      <h3 class="wf">BC lending</h3>
+      <p class="wf">Banks are signing up BC partners right now. The work is in standing each one up: eligibility logic, documentation formats, reconciliation, audit trails. Mannjal sets this up once and clones it for every new partner, so your team handles the tenth program at the same effort as the first.</p>
+    </div>
+
+    <div class="prog">
+      <h3 class="wf">Co-lending</h3>
+      <p class="wf">Across multiple co-lending partners, files come in different formats from different systems. Your team burns time on coordination instead of credit. Mannjal standardizes intake, runs eligibility automatically, generates the RBI documentation, and keeps the audit trail clean. Your team reviews exceptions, not every file.</p>
+    </div>
+
+    <div class="prog">
+      <h3 class="wf">DA and securitization</h3>
+      <p class="wf">Pool tapes, tranche documents, and investor data requests usually mean pulling from several systems. Mannjal keeps loan-level data structured from origination, so reports export on demand instead of getting rebuilt each time.</p>
+    </div>
+  </section>
+
+  <!-- METRICS -->
+  <section>
+    <span class="label">What your ops team actually feels</span>
+    <div style="margin:6px 0 18px;"><span class="anno">Metrics framed as lived ops experience, not a spec sheet. Number + plain-English consequence.</span></div>
+    <div class="metrics">
+      <div class="metric">
+        <div class="num">50–75%</div>
+        <div class="exp">TAT down. Same team clears double the volume, or the same volume in half the time.</div>
+      </div>
+      <div class="metric">
+        <div class="num">98%</div>
+        <div class="exp">First-time-right. Files come in complete. The credit committee stops bouncing them back.</div>
+      </div>
+      <div class="metric">
+        <div class="num">1–2 wks</div>
+        <div class="exp">To launch a program. Not the three to four months it usually takes to configure and go live.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CRO REASSURANCE BAND -->
+  <section class="band">
+    <span class="label">Built for the way your risk team works</span>
+    <h2 class="wf" style="margin-top:6px;">Auditable, ring-fenced, enterprise-ready</h2>
+    <p class="wf">Every action is logged and timestamped. Deviations are tracked, access is role-based, and lender data stays ring-fenced. The platform has cleared an IT audit with no observations.</p>
+    <div><span class="anno">Added item — the brief targets CBO <b>and</b> CRO. The CRO needs a compliance/security signal or they block the deal. Short band, not a full section.</span></div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="ctaWrap">
+    <h2 class="wf" style="margin:0 auto 6px;">See it run on one of your programs.</h2>
+    <p class="sub" style="margin:0 auto 18px;">A 30-minute walkthrough, no slides.</p>
+    <span class="btn">Schedule a walkthrough</span>
+    <div style="margin-top:14px;"><span class="anno">Closing CTA repeats the same label as the nav and hero. Same words the whole way down.</span></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="frow">
+      <div class="box logo" style="background:#3a3f44;border-color:#4a4f54;"></div>
+      <div style="display:flex;gap:24px;">
+        <span>For Banks</span><span>For Originators</span><span>How It Works</span><span>Contact</span>
+      </div>
+    </div>
+    <div style="margin-top:16px;opacity:.6;">Investor logos · © Mannjal 2026</div>
+  </footer>
+
+</div>
+
+</body>
+</html>

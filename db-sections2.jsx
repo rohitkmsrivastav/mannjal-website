@@ -31,7 +31,7 @@ function HowItWorks() {
         <div className="sec-head">
           <span className="eyebrow">How it works</span>
           <h2>Two sides, one workflow.<br/>No data in the middle.</h2>
-          <p>Each partner runs its own contained instance. Mannjal is the thin layer between them — inputs flow in from both sides, decisions and funds flow back out, and nothing borrower-identifying ever rests in the center.</p>
+          <p>Each partner runs its own contained instance. Mannjal is the thin layer between them. Inputs flow in from both sides, decisions and funds flow back out, and nothing borrower-identifying ever rests in the center.</p>
         </div>
 
         <div className="flowmap">
@@ -119,7 +119,7 @@ function TrustSection() {
     { ico: "lock", h: "Robust access management", pts: [
       "Role-based access at program, stage, section and data-field levels",
       "Ring-fenced access for human and AI agents, aligned with compliant workflows",
-      "Audit-ready by default — every action tracked and time-stamped",
+      "Audit-ready by default. Every action tracked and time-stamped",
     ]},
     { ico: "grid", h: "Scalable architecture", pts: [
       "Decentralised network protocols that support multi-entity collaboration on the go",
@@ -139,7 +139,7 @@ function TrustSection() {
         <div className="sec-head">
           <span className="eyebrow">Why Mannjal</span>
           <h2 className="trust-heading">Partnership lending runs on <span className="accent">trust</span>.</h2>
-          <p>We engineer it into every layer — across entities, systems and processes — so partners run on confidence they can prove, not just promise.</p>
+          <p>We engineer it into every layer, across entities, systems and processes, so partners run on confidence they can prove, not just promise.</p>
         </div>
         <div className="trust-acc">
           {pillars.map((p, i) => (
@@ -169,7 +169,7 @@ function TrustSection() {
 function Recognition() {
   const stats = [
     { v: "70+", d: <><b>Originators</b> live across MSME, agri & affordable housing</> },
-    { v: "20+", d: <><b>Lenders</b> — banks, SFBs and NBFCs on the platform</> },
+    { v: "20+", d: <><b>Lenders</b>: banks, SFBs and NBFCs on the platform</> },
     { v: "₹1,000 Cr+", d: <><b>Disbursed</b> through partnership programs to date</> },
   ];
   return (
@@ -201,10 +201,10 @@ function Recognition() {
 // ---- Close: final CTA + FAQ ----
 const FAQS = [
   { q: "What is Mannjal?", a: "Mannjal is partnership lending infrastructure. It manages co-lending, BC, and LSP programs end to end, giving each partner their own secure instance and orchestrating the workflow between them." },
-  { q: "How does borrower data stay separate?", a: "Mannjal never holds borrower data and never makes credit decisions. Each partner runs their own instance; Mannjal validates applications against the rules a bank set — it connects the two sides without absorbing anything in the middle." },
+  { q: "How does borrower data stay separate?", a: "Mannjal never holds borrower data and never makes credit decisions. Each partner runs their own instance; Mannjal validates applications against the rules a bank set. It connects the two sides without absorbing anything in the middle." },
   { q: "How fast can a program go live?", a: "Originators can be live on a new lending program in 1–2 weeks, with real-time sync, compliant documentation, and pipeline visibility from day one." },
   { q: "Is it ready for the RBI 2025 directions?", a: "Yes. Escrow reconciliation, a single blended interest rate, audit trails, and partner-level reporting for the new RBI Co-Lending Arrangements Directions are already live on the platform." },
-  { q: "What do co-lending, BC, and LSP mean here?", a: "They are the three partnership structures Mannjal supports: co-lending (shared risk between a bank and an NBFC), Business Correspondent networks, and Lending Service Provider arrangements — all on one platform." },
+  { q: "What do co-lending, BC, and LSP mean here?", a: "They are the three partnership structures Mannjal supports: co-lending (shared risk between a bank and an NBFC), Business Correspondent networks, and Lending Service Provider arrangements, all on one platform." },
 ];
 
 function Close({ onCta }) {
