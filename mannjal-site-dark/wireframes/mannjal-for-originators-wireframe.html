@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mannjal — For Originators (Wireframe)</title>
+<style>
+  :root{
+    --ink:#1f2328;
+    --mute:#6b7280;
+    --line:#c7ccd1;
+    --fill:#e9ebee;
+    --fill2:#f4f5f6;
+    --page:#fcfcfd;
+    --note:#b8651f;       /* annotation accent */
+    --noteBg:#fdf3e8;
+    --cta:#9aa0a6;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:#dfe2e6;
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5;
+    padding:32px 16px 80px;
+  }
+  .frame{
+    max-width:960px;
+    margin:0 auto;
+    background:var(--page);
+    border:1px solid var(--line);
+    border-radius:6px;
+    overflow:hidden;
+    box-shadow:0 6px 24px rgba(0,0,0,.10);
+  }
+
+  /* annotation system */
+  .anno{
+    font-size:11.5px;
+    color:var(--note);
+    background:var(--noteBg);
+    border:1px dashed var(--note);
+    border-radius:4px;
+    padding:5px 9px;
+    display:inline-block;
+    letter-spacing:.2px;
+  }
+  .anno-row{padding:10px 28px 0;}
+  .label{
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:1.4px;
+    color:var(--mute);
+    font-weight:600;
+  }
+
+  /* wireframe primitives */
+  .box{background:var(--fill);border:1px solid var(--line);border-radius:4px;}
+  .ph{ /* placeholder image */
+    background:
+      linear-gradient(45deg,transparent 47%,var(--line) 48%,var(--line) 52%,transparent 53%),
+      linear-gradient(-45deg,transparent 47%,var(--line) 48%,var(--line) 52%,transparent 53%),
+      var(--fill2);
+    border:1px solid var(--line);
+    border-radius:4px;
+  }
+  .btn{
+    display:inline-block;
+    background:var(--cta);
+    color:#fff;
+    font-weight:600;
+    font-size:13px;
+    padding:11px 22px;
+    border-radius:4px;
+  }
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line);}
+
+  section{padding:34px 28px;border-top:1px solid var(--line);}
+  section:first-of-type{border-top:none;}
+  h1.wf{font-size:30px;line-height:1.2;margin:6px 0 12px;max-width:18ch;}
+  h2.wf{font-size:20px;margin:0 0 8px;}
+  h3.wf{font-size:15px;margin:0 0 6px;}
+  p.wf{margin:0 0 12px;max-width:62ch;color:#33383d;}
+  .sub{color:var(--mute);font-size:15px;max-width:52ch;}
+
+  /* nav */
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 28px;background:#fff;border-bottom:1px solid var(--line);
+  }
+  .nav .logo{width:108px;height:26px;}
+  .nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;font-size:13px;color:var(--mute);}
+  .nav .active{color:var(--ink);font-weight:600;border-bottom:2px solid var(--ink);padding-bottom:2px;}
+
+  /* trust strip */
+  .strip{display:flex;gap:0;background:var(--fill2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .strip div{flex:1;text-align:center;padding:18px 8px;border-right:1px solid var(--line);}
+  .strip div:last-child{border-right:none;}
+  .strip .big{font-size:22px;font-weight:700;}
+  .strip .cap{font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.8px;}
+
+  /* programs */
+  .prog{border-left:3px solid var(--line);padding-left:16px;margin-bottom:22px;}
+  .prog:last-child{margin-bottom:0;}
+
+  /* today vs mannjal matrix */
+  .matrix{display:grid;grid-template-columns:128px 1fr 1fr;border:1px solid var(--line);border-radius:4px;overflow:hidden;font-size:13px;}
+  .matrix .h{background:var(--fill2);font-size:10.5px;text-transform:uppercase;letter-spacing:1px;font-weight:700;color:var(--mute);padding:11px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);}
+  .matrix .h.mj{color:var(--note);border-right:none;}
+  .matrix .st{padding:14px;font-weight:600;color:var(--ink);background:#fff;border-bottom:1px solid var(--line);border-right:1px solid var(--line);}
+  .matrix .cell{padding:14px;color:#33383d;border-bottom:1px solid var(--line);border-right:1px solid var(--line);}
+  .matrix .cell.mj{background:var(--noteBg);border-right:none;}
+  .matrix .st.last,.matrix .cell.last{border-bottom:none;}
+  @media(max-width:620px){
+    .matrix{grid-template-columns:1fr;}
+    .matrix .h{display:none;}
+    .matrix .st{border-right:none;background:var(--fill2);}
+    .matrix .cell{border-right:none;}
+    .matrix .cell.today::before{content:"Today — ";font-weight:600;color:var(--mute);}
+    .matrix .cell.mj::before{content:"On Mannjal — ";font-weight:600;color:var(--note);}
+  }
+
+  /* metrics */
+  .metrics{display:flex;gap:16px;flex-wrap:wrap;}
+  .metric{flex:1;min-width:200px;border:1px solid var(--line);border-radius:4px;padding:18px;background:#fff;}
+  .metric .num{font-size:26px;font-weight:700;}
+  .metric .exp{font-size:13px;color:#33383d;margin-top:6px;}
+
+  /* band */
+  .band{background:var(--fill2);}
+
+  /* cta */
+  .ctaWrap{text-align:center;background:var(--fill2);}
+
+  /* footer */
+  footer{background:#23272b;color:#c7ccd1;padding:26px 28px;font-size:12px;}
+  footer .frow{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+
+  @media(max-width:620px){
+    .nav ul{display:none;}
+    .strip{flex-wrap:wrap;}
+    .strip div{flex:1 1 50%;border-bottom:1px solid var(--line);}
+    h1.wf{font-size:24px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="frame">
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="box logo"></div>
+    <ul>
+      <li>For Banks</li>
+      <li class="active">For Originators</li>
+      <li>How It Works</li>
+    </ul>
+    <span class="btn">Join the network</span>
+  </div>
+  <div class="anno-row"><span class="anno">NAV — persistent. CTA label is page-specific: "Join the network" for originators, repeated top to bottom (For Banks repeats "Schedule a walkthrough").</span></div>
+
+  <!-- HERO -->
+  <section>
+    <span class="label">Hero</span>
+    <h1 class="wf">Reach the right lenders without the months of back-and-forth.</h1>
+    <p class="sub">Mannjal connects you to lenders actively building partnership programs and gives you one structured way to work with each of them. Onboarding that once took months begins in days.</p>
+    <div style="margin-top:18px;"><span class="btn">Join the network</span></div>
+    <div style="margin-top:14px;"><span class="anno">The one thing an originator MD wants: reach. Lead with it. One CTA only.</span></div>
+  </section>
+
+  <!-- NETWORK STRIP -->
+  <div class="strip">
+    <div><div class="big">20+</div><div class="cap">Active lenders</div></div>
+    <div><div class="big">Banks &amp; SFBs</div><div class="cap">On the network</div></div>
+    <div><div class="big">₹1,000 Cr</div><div class="cap">Disbursed</div></div>
+  </div>
+  <div class="anno-row"><span class="anno">Strip leads with the lender side — that's the originator's flex, not originator count. Same three-cell format as For Banks.</span></div>
+
+  <!-- PROBLEM -->
+  <section>
+    <span class="label">The problem we solve</span>
+    <h2 class="wf" style="margin-top:6px;">Onboarding a bank shouldn't take months</h2>
+    <div style="margin:6px 0 18px;"><span class="anno">Restructured from a text wall into a stage-by-stage contrast — same detail, scannable. The eye reads down "Today," then across to Mannjal.</span></div>
+
+    <p class="wf" style="margin-bottom:14px;">For most originators the hard part isn't the lending. It's getting a file accepted, and that work runs across the whole life of an application.</p>
+
+    <div class="matrix">
+      <div class="h"></div>
+      <div class="h">Today</div>
+      <div class="h mj">On Mannjal</div>
+
+      <div class="st">Preparing a file</div>
+      <div class="cell today">Each lender's formats and templates reconciled by hand, with credit memos, Key Fact Statements, and repayment schedules rebuilt for every partner.</div>
+      <div class="cell mj">Applications come in via field app, API, CSV, or Excel. Each lender's eligibility and credit rules run up front, with deviations flagged and explained.</div>
+
+      <div class="st">Submitting it</div>
+      <div class="cell today">Documentation gaps surface only at the bank's credit desk, so files come back for rework.</div>
+      <div class="cell mj">Bureau and KYC checks route through the providers the lender already works with, so a file reaches the bank complete.</div>
+
+      <div class="st last">After it's in</div>
+      <div class="cell today last">No clear view of status. Progress chased over email and phone instead of sourcing the next loan.</div>
+      <div class="cell mj last">Documents generate in each lender's format, queries are tracked, and every action is timestamped and exportable for audit.</div>
+    </div>
+  </section>
+
+  <!-- AUDIT-READY BAND -->
+  <section class="band">
+    <span class="label">Show up audit-ready</span>
+    <h2 class="wf" style="margin-top:6px;">Reach the credit committee with files already in order</h2>
+    <p class="wf">Banks decline originators whose data and processes do not meet the standards of their credit committee. Mannjal validates each application against the lender's own policy as it is built, so the file that reaches the bank already meets their requirements. The result is a partnership the bank can scale with confidence.</p>
+    <div><span class="anno">Originator validation framed as something Mannjal does actively, not a feature. Mirrors the CRO reassurance band on For Banks.</span></div>
+  </section>
+
+  <!-- METRICS -->
+  <section>
+    <span class="label">What changes for your team</span>
+    <div style="margin:6px 0 18px;"><span class="anno">Same format as For Banks: number + plain-English consequence. Originator-relevant proof points.</span></div>
+    <div class="metrics">
+      <div class="metric">
+        <div class="num">50–75%</div>
+        <div class="exp">Turnaround time reduced. Cases clear in a fraction of the time they once took.</div>
+      </div>
+      <div class="metric">
+        <div class="num">85–90%</div>
+        <div class="exp">Login-to-sanction ratio. Fewer files stall in review because they are complete and accurate at submission.</div>
+      </div>
+      <div class="metric">
+        <div class="num">1–2 wks</div>
+        <div class="exp">To launch a program with a new lender, against the three to four months typical elsewhere.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="ctaWrap">
+    <h2 class="wf" style="margin:0 auto 6px;">Start lending with the right banks sooner.</h2>
+    <p class="sub" style="margin:0 auto 18px;">A short walkthrough of how the network fits your pipeline.</p>
+    <span class="btn">Join the network</span>
+    <div style="margin-top:14px;"><span class="anno">Closing CTA repeats the nav and hero label. Same words the whole way down.</span></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="frow">
+      <div class="box logo" style="background:#3a3f44;border-color:#4a4f54;"></div>
+      <div style="display:flex;gap:24px;">
+        <span>For Banks</span><span>For Originators</span><span>How It Works</span><span>Contact</span>
+      </div>
+    </div>
+    <div style="margin-top:16px;opacity:.6;">Investor logos · © Mannjal 2026</div>
+  </footer>
+
+</div>
+
+</body>
+</html>

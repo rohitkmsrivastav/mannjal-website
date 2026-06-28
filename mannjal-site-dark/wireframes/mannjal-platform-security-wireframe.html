@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mannjal — Platform and Security (Wireframe)</title>
+<style>
+  :root{
+    --ink:#1f2328;
+    --mute:#6b7280;
+    --line:#c7ccd1;
+    --fill:#e9ebee;
+    --fill2:#f4f5f6;
+    --page:#fcfcfd;
+    --note:#b8651f;       /* annotation accent */
+    --noteBg:#fdf3e8;
+    --cta:#9aa0a6;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:#dfe2e6;
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5;
+    padding:32px 16px 80px;
+  }
+  .frame{
+    max-width:960px;
+    margin:0 auto;
+    background:var(--page);
+    border:1px solid var(--line);
+    border-radius:6px;
+    overflow:hidden;
+    box-shadow:0 6px 24px rgba(0,0,0,.10);
+  }
+
+  /* annotation system */
+  .anno{
+    font-size:11.5px;
+    color:var(--note);
+    background:var(--noteBg);
+    border:1px dashed var(--note);
+    border-radius:4px;
+    padding:5px 9px;
+    display:inline-block;
+    letter-spacing:.2px;
+  }
+  .anno-row{padding:10px 28px 0;}
+  .label{
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:1.4px;
+    color:var(--mute);
+    font-weight:600;
+  }
+
+  /* wireframe primitives */
+  .box{background:var(--fill);border:1px solid var(--line);border-radius:4px;}
+  .btn{
+    display:inline-block;
+    background:var(--cta);
+    color:#fff;
+    font-weight:600;
+    font-size:13px;
+    padding:11px 22px;
+    border-radius:4px;
+  }
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line);}
+
+  section{padding:34px 28px;border-top:1px solid var(--line);}
+  section:first-of-type{border-top:none;}
+  h1.wf{font-size:30px;line-height:1.2;margin:6px 0 12px;max-width:18ch;}
+  h2.wf{font-size:20px;margin:0 0 8px;}
+  h3.wf{font-size:15px;margin:0 0 6px;}
+  p.wf{margin:0 0 12px;max-width:62ch;color:#33383d;}
+  .sub{color:var(--mute);font-size:15px;max-width:52ch;}
+
+  /* nav */
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 28px;background:#fff;border-bottom:1px solid var(--line);
+  }
+  .nav .logo{width:108px;height:26px;}
+  .nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;font-size:13px;color:var(--mute);}
+  .nav .active{color:var(--ink);font-weight:600;border-bottom:2px solid var(--ink);padding-bottom:2px;}
+
+  /* trust strip */
+  .strip{display:flex;gap:0;background:var(--fill2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .strip div{flex:1;text-align:center;padding:18px 8px;border-right:1px solid var(--line);}
+  .strip div:last-child{border-right:none;}
+  .strip .big{font-size:22px;font-weight:700;}
+  .strip .cap{font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.8px;}
+
+  /* concern blocks (reuses For Banks program pattern) */
+  .prog{border-left:3px solid var(--line);padding-left:16px;margin-bottom:22px;}
+  .prog:last-child{margin-bottom:0;}
+
+  /* integrations row */
+  .ints{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px;}
+  .int{flex:1;min-width:120px;text-align:center;border:1px solid var(--line);border-radius:4px;background:#fff;padding:16px 10px;}
+  .int .logo{height:22px;margin-bottom:9px;}
+  .int .nm{font-size:12px;font-weight:600;color:var(--ink);}
+  .int .fn{font-size:10.5px;color:var(--mute);margin-top:2px;}
+
+  /* band */
+  .band{background:var(--fill2);}
+
+  /* cta */
+  .ctaWrap{text-align:center;background:var(--fill2);}
+
+  /* footer */
+  footer{background:#23272b;color:#c7ccd1;padding:26px 28px;font-size:12px;}
+  footer .frow{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+
+  @media(max-width:620px){
+    .nav ul{display:none;}
+    .strip{flex-wrap:wrap;}
+    .strip div{flex:1 1 50%;border-bottom:1px solid var(--line);}
+    h1.wf{font-size:24px;}
+    .int{flex:1 1 45%;}
+  }
+</style>
+</head>
+<body>
+
+<div class="frame">
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="box logo"></div>
+    <ul>
+      <li>For Banks</li>
+      <li>For Originators</li>
+      <li>How It Works</li>
+    </ul>
+    <span class="btn">Schedule a walkthrough</span>
+  </div>
+  <div class="anno-row"><span class="anno">NAV — persistent, same three top-level paths. No item active: this page sits under "For Banks" and is reached from there or the footer, not the primary nav. The IT head is sent here by the deal team.</span></div>
+
+  <!-- HERO -->
+  <section>
+    <span class="label">Hero</span>
+    <h1 class="wf">Runs in your environment. Holds none of your data.</h1>
+    <p class="sub">Mannjal deploys as a dedicated instance inside your own cloud or data centre. Borrower data never leaves it, and never sits on a Mannjal server.</p>
+    <div style="margin-top:14px;"><span class="anno">Lead with the two answers an audit committee opens with: where does it run, and who holds the data. No "platform" pitch — this reader is verifying, not buying.</span></div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="strip">
+    <div><div class="big">0</div><div class="cap">Observations in IT audit</div></div>
+    <div><div class="big">Your AWS / on-prem</div><div class="cap">Where it deploys</div></div>
+    <div><div class="big">0</div><div class="cap">Borrower records Mannjal holds</div></div>
+  </div>
+  <div class="anno-row"><span class="anno">IT-specific proof set, not the sales metrics. Two zeros do the work: a clean audit and no central data store. Same three-cell format as the other pages.</span></div>
+
+  <!-- WHAT IT CHECKS -->
+  <section>
+    <span class="label">What your IT committee will check</span>
+    <h2 class="wf" style="margin-top:6px;">Four things, answered plainly</h2>
+    <div style="margin:6px 0 20px;"><span class="anno">Structured as four labelled concerns rather than marketing prose — an audit reviewer reads for specifics. Each is the bank's question with a direct answer, no feature language.</span></div>
+
+    <div class="prog">
+      <h3 class="wf">Deployment</h3>
+      <p class="wf">Each engagement runs as its own instance inside the bank's AWS account or on-premise environment. There is no shared tenancy and no Mannjal-hosted copy of the data.</p>
+    </div>
+
+    <div class="prog">
+      <h3 class="wf">Data isolation</h3>
+      <p class="wf">Mannjal never stores or interprets borrower data. Sync between an originator and a lender is bilateral and follows the program's rules — data moves between the two parties' instances, not through a central Mannjal store.</p>
+    </div>
+
+    <div class="prog">
+      <h3 class="wf">Credentials and access</h3>
+      <p class="wf">Every integration uses the bank's own API credentials with the providers it already contracts. Mannjal routes and logs the calls; it does not hold or proxy your keys. Access within an instance is role-based with maker-checker controls.</p>
+    </div>
+
+    <div class="prog">
+      <h3 class="wf">Audit logs</h3>
+      <p class="wf">Every action, API call, and document event is timestamped, attributed to a user, immutable, and exportable on demand. An audit of any single loan is one export, not a search across systems.</p>
+    </div>
+  </section>
+
+  <!-- INTEGRATIONS -->
+  <section>
+    <span class="label">Integrations</span>
+    <h2 class="wf" style="margin-top:6px;">Works with the providers you already use</h2>
+    <p class="wf">KYC, bureau, bank-statement, and e-sign checks run through the service providers the bank already contracts, under the bank's own agreements and credentials. New providers onboard without a system redesign.</p>
+    <div class="ints">
+      <div class="int"><div class="box logo" style="margin:0 auto 9px;width:60px;"></div><div class="nm">Decentro</div><div class="fn">eNACH, KYC, KYB</div></div>
+      <div class="int"><div class="box logo" style="margin:0 auto 9px;width:60px;"></div><div class="nm">AuthBridge</div><div class="fn">KYC, KYB</div></div>
+      <div class="int"><div class="box logo" style="margin:0 auto 9px;width:60px;"></div><div class="nm">Signzy</div><div class="fn">Soft pull, e-sign</div></div>
+      <div class="int"><div class="box logo" style="margin:0 auto 9px;width:60px;"></div><div class="nm">CRIF High Mark</div><div class="fn">Bureau</div></div>
+      <div class="int"><div class="box logo" style="margin:0 auto 9px;width:60px;"></div><div class="nm">CIBIL</div><div class="fn">Hard pulls</div></div>
+      <div class="int"><div class="box logo" style="margin:0 auto 9px;width:60px;"></div><div class="nm">Perfios</div><div class="fn">Statement analyser</div></div>
+    </div>
+    <div style="margin-top:14px;"><span class="anno">Logos the bank recognises lower perceived integration risk. Function tag under each name so IT sees coverage at a glance. Mannjal "routes and logs" only — reinforces the no-data-store position from the section above.</span></div>
+  </section>
+
+  <!-- AUDIT PASS BAND -->
+  <section class="band">
+    <span class="label">Independent review</span>
+    <h2 class="wf" style="margin-top:6px;">Cleared an IT audit with no observations</h2>
+    <p class="wf">Mannjal has been through an external IT audit and came out with zero observations. The deployment, data-isolation, and logging model described above is what that audit examined.</p>
+    <div><span class="anno">Mirrors the CRO reassurance band on For Banks. Placed after the claims so it reads as third-party confirmation of them, not a standalone boast.</span></div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="ctaWrap">
+    <h2 class="wf" style="margin:0 auto 6px;">Get the full security and deployment documentation.</h2>
+    <p class="sub" style="margin:0 auto 18px;">Architecture, data-flow, and audit detail your committee needs to sign off.</p>
+    <span class="btn">Request security documentation</span>
+    <div style="margin-top:14px;"><span class="anno">Deliberate CTA break from the bank path. The IT head clears a gate; they want documents, not a sales walkthrough. Nav CTA stays "Schedule a walkthrough" — only this closing action is retargeted to what this reader actually needs.</span></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="frow">
+      <div class="box logo" style="background:#3a3f44;border-color:#4a4f54;"></div>
+      <div style="display:flex;gap:24px;">
+        <span>For Banks</span><span>For Originators</span><span>How It Works</span><span>Contact</span>
+      </div>
+    </div>
+    <div style="margin-top:16px;opacity:.6;">Investor logos · © Mannjal 2026</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
