@@ -8,14 +8,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/system.css">
-<meta name="description" content="Mannjal runs as a dedicated instance inside your own cloud or data centre, with role-based access, maker-checker controls, and independent certification.">
+<meta name="description" content="Mannjal runs as a dedicated instance inside your own cloud or data centre, with role-based access, maker-checker controls, and an independent audit.">
 <meta name="theme-color" content="#FCFCFD">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Mannjal">
 <meta property="og:title" content="Mannjal — Platform & security">
-<meta property="og:description" content="Mannjal runs as a dedicated instance inside your own cloud or data centre, with role-based access, maker-checker controls, and independent certification.">
+<meta property="og:description" content="Mannjal runs as a dedicated instance inside your own cloud or data centre, with role-based access, maker-checker controls, and an independent audit.">
 </head>
 <body id="top">
 
@@ -25,10 +25,11 @@
     <div class="nav-left">
       <a href="index.html" aria-label="Mannjal home"><img class="logo-img" src="assets/mannjal-logo.png" alt="mannjal"></a>
       <div class="nav-links" id="navLinks">
-        <a class="nav-link" href="for-banks.html">For lenders</a>
-        <a class="nav-link" href="for-originators.html">For originators</a>
-        <a class="nav-link" href="how-it-works.html">How it works</a>
-        <a class="nav-link" href="platform-security.html">Platform &amp; security</a>
+        <a class="nav-link" href="for-banks.html">For Lenders</a>
+        <a class="nav-link" href="for-originators.html">For Originators</a>
+        <a class="nav-link" href="how-it-works.html">How It Works</a>
+        <a class="nav-link active" href="platform-security.html" aria-current="page">Platform &amp; Security</a>
+        <a class="nav-link" href="our-story.html">Our Story</a>
         <a class="btn btn-primary nav-menu-cta" href="contact.html">Schedule a walkthrough</a>
       </div>
     </div>
@@ -44,8 +45,8 @@
   <div class="hero-grid">
     <div>
       <div class="hero-eyebrow"><span class="pip"></span><span class="eyebrow">Platform &amp; security</span></div>
-      <h1>Runs in your environment. <span class="accent">We don't hold your data.</span></h1>
-      <p class="hero-sub">Mannjal deploys as a dedicated instance inside your own cloud or data centre, with role-based access and maker-checker controls.</p>
+      <h1>We don't ask you to trust our security. <span class="accent">We hand your risk team the evidence.</span></h1>
+      <p class="hero-sub">Mannjal deploys inside your own infrastructure, with role-based access and maker-checker controls. The platform itself is independently audited, so your risk team can verify what we claim.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="contact.html">Request security documentation</a>
       </div>
@@ -69,7 +70,7 @@
         <span class="aud-idx" aria-hidden="true">01</span>
         <div class="aud-head"><div class="aud-ico" data-ic="bank"></div><div class="tag">Deployment</div></div>
         <h3>Your cloud, your tenancy</h3>
-        <p>Each engagement runs as its own instance inside your AWS account or on-premise environment. No shared tenancy.</p>
+        <p>Deploy Mannjal inside your own infrastructure, your cloud server or your physical servers, as a dedicated instance with no shared tenancy. Processing happens in your environment and data never leaves your perimeter.</p>
       </div>
       <div class="aud-card">
         <span class="aud-idx" aria-hidden="true">02</span>
@@ -113,18 +114,23 @@
   </div>
 </section>
 
-<!-- ============ INDEPENDENTLY CERTIFIED BAND ============ -->
+<!-- ============ THE EVIDENCE (residency + verified controls) ============ -->
 <section class="sec">
   <div class="wrap">
-    <div class="reassure">
-      <div class="seal" data-ic="shield" data-s="30"></div>
-      <div>
-        <span class="eyebrow">Independent review</span>
-        <h2>Independently <span class="accent">certified.</span></h2>
-        <!-- TODO: replace with the actual certified-entity names when provided -->
-        <p>Mannjal's deployment, access and logging model is reviewed and certified by independent auditors. (Certifying entities listed on request.)</p>
-      </div>
+    <div class="sec-head">
+      <span class="eyebrow">The evidence</span>
+      <h2>Verified, <span class="accent">not self-declared.</span></h2>
+      <p>The Mannjal platform stores and processes data in India only, Mumbai primary with Delhi as DR, and blocks cross-border transfer at the platform layer. It is independently audited by a CERT-In empanelled assessor against the RBI data-localisation framework, with no exceptions noted.</p>
     </div>
+    <div class="net-row" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(24px,3vw,36px);">
+      <span class="chip"><span class="ck">&#10003;</span>AES-256 at rest</span>
+      <span class="chip"><span class="ck">&#10003;</span>TLS 1.3 in transit</span>
+      <span class="chip"><span class="ck">&#10003;</span>WAF, OWASP-hardened</span>
+      <span class="chip"><span class="ck">&#10003;</span>IP-whitelisting</span>
+      <span class="chip"><span class="ck">&#10003;</span>2FA</span>
+      <span class="chip"><span class="ck">&#10003;</span>Role-based access</span>
+    </div>
+    <p style="margin-top:clamp(20px,2.5vw,28px);font-size:13.5px;color:var(--text-3);max-width:840px;line-height:1.65;">Each control was checked during the independent audit. Built and operated in alignment with ISO 27001:2022. Residency and audit statements describe the Mannjal platform; the production scope of a specific deployment may differ.</p>
   </div>
 </section>
 
