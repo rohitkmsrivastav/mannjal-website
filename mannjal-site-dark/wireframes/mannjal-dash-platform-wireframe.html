@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mannjal - Dash Platform (Wireframe)</title>
+<style>
+  :root{
+    --ink:#1f2328;
+    --mute:#6b7280;
+    --line:#c7ccd1;
+    --fill:#e9ebee;
+    --fill2:#f4f5f6;
+    --page:#fcfcfd;
+    --note:#b8651f;
+    --noteBg:#fdf3e8;
+    --cta:#9aa0a6;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:#dfe2e6;
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5;
+    padding:32px 16px 80px;
+  }
+  .frame{
+    max-width:960px;
+    margin:0 auto;
+    background:var(--page);
+    border:1px solid var(--line);
+    border-radius:6px;
+    overflow:hidden;
+    box-shadow:0 6px 24px rgba(0,0,0,.10);
+  }
+  .anno{
+    font-size:11.5px;
+    color:var(--note);
+    background:var(--noteBg);
+    border:1px dashed var(--note);
+    border-radius:4px;
+    padding:5px 9px;
+    display:inline-block;
+    letter-spacing:.2px;
+  }
+  .anno-row{padding:10px 28px 0;}
+  .label{
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:1.4px;
+    color:var(--mute);
+    font-weight:600;
+  }
+  .box{background:var(--fill);border:1px solid var(--line);border-radius:4px;}
+  .btn{
+    display:inline-block;
+    background:var(--cta);
+    color:#fff;
+    font-weight:600;
+    font-size:13px;
+    padding:11px 22px;
+    border-radius:4px;
+  }
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line);}
+  section{padding:34px 28px;border-top:1px solid var(--line);}
+  section:first-of-type{border-top:none;}
+  h1.wf{font-size:30px;line-height:1.2;margin:6px 0 12px;max-width:23ch;}
+  h2.wf{font-size:20px;margin:0 0 8px;}
+  h3.wf{font-size:15px;margin:0 0 6px;}
+  p.wf{margin:0 0 12px;max-width:64ch;color:#33383d;}
+  .sub{color:var(--mute);font-size:15px;max-width:58ch;}
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 28px;background:#fff;border-bottom:1px solid var(--line);
+  }
+  .nav .logo{width:108px;height:26px;}
+  .nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;font-size:13px;color:var(--mute);}
+  .nav .active{color:var(--ink);font-weight:600;border-bottom:2px solid var(--ink);padding-bottom:2px;}
+  .nav .dd{color:var(--ink);font-weight:600;}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:center;}
+  .screen{
+    min-height:248px;
+    padding:16px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:5px;
+  }
+  .screen-top{height:20px;margin-bottom:16px;display:flex;gap:7px;}
+  .dot{width:7px;height:7px;border-radius:99px;background:var(--line);margin-top:6px;}
+  .screen-grid{display:grid;grid-template-columns:98px 1fr;gap:14px;}
+  .side{display:grid;gap:8px;}
+  .side .box{height:22px;}
+  .main{display:grid;gap:10px;}
+  .main .box{height:28px;}
+  .main .wide{height:56px;}
+  .strip{display:flex;gap:0;background:var(--fill2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .strip div{flex:1;text-align:center;padding:18px 8px;border-right:1px solid var(--line);}
+  .strip div:last-child{border-right:none;}
+  .strip .big{font-size:20px;font-weight:700;}
+  .strip .cap{font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.8px;}
+  .band{background:var(--fill2);}
+  .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px;}
+  .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:18px;}
+  .card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:16px;
+  }
+  .card .tag{
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--note);
+    font-weight:700;
+    margin-bottom:7px;
+  }
+  .card p{font-size:13px;margin:0;color:#33383d;}
+  .callout{
+    border-left:3px solid var(--note);
+    background:var(--noteBg);
+    padding:16px 18px;
+    margin-top:18px;
+  }
+  .callout p{margin:0;font-size:13.5px;color:#33383d;}
+  .flow{display:grid;gap:12px;margin-top:18px;}
+  .flowrow{display:grid;grid-template-columns:38px 1fr;gap:12px;align-items:start;}
+  .num{
+    width:34px;height:34px;border-radius:4px;border:1px solid var(--note);
+    background:var(--noteBg);color:var(--note);font-weight:700;font-size:13px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .flowcard{background:#fff;border:1px solid var(--line);border-radius:4px;padding:14px 16px;}
+  .flowcard p{font-size:13px;margin:0;color:#33383d;}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px;}
+  .chip{border:1px solid var(--line);background:#fff;border-radius:4px;padding:8px 10px;font-size:12.5px;font-weight:600;color:#33383d;}
+  .stack{display:grid;gap:12px;margin-top:18px;}
+  .stackitem{border-left:3px solid var(--line);padding-left:14px;}
+  .stackitem p{font-size:13px;margin:0;color:#33383d;}
+  .table{margin-top:18px;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#fff;}
+  .tr{display:grid;grid-template-columns:190px 1fr;border-top:1px solid var(--line);}
+  .tr:first-child{border-top:none;}
+  .td{padding:13px 14px;font-size:13px;}
+  .td:first-child{background:var(--fill2);font-weight:700;}
+  .ctaWrap{text-align:center;background:var(--fill2);}
+  footer{background:#23272b;color:#c7ccd1;padding:26px 28px;font-size:12px;}
+  footer .frow{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+  @media(max-width:720px){
+    .nav ul{display:none;}
+    .hero-grid,.grid2,.grid3{grid-template-columns:1fr;}
+    .strip{flex-wrap:wrap;}
+    .strip div{flex:1 1 50%;border-bottom:1px solid var(--line);}
+    h1.wf{font-size:24px;}
+    .tr{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="frame">
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="box logo"></div>
+    <ul>
+      <li>Products</li>
+      <li>For Lenders</li>
+      <li>For Originators</li>
+      <li class="active">Platform</li>
+      <li>Company</li>
+    </ul>
+    <span class="btn">Schedule a walkthrough</span>
+  </div>
+  <div class="anno-row"><span class="anno">NAV - add this page under the Platform dropdown as "Dash Platform", between "How It Works" and "Platform & Security". This keeps lending arrangements under Products and the operating layer under Platform.</span></div>
+
+  <!-- HERO -->
+  <section>
+    <div class="hero-grid">
+      <div>
+        <span class="label">Hero</span>
+        <h1 class="wf">Dash turns partnership lending operations into configured digital workflows.</h1>
+        <p class="sub">Dash is Mannjal's workflow orchestration platform for co-lending, Business Correspondent, Direct Assignment, securitisation, and lender-controlled digital lending programs.</p>
+        <p class="wf">It helps lenders, originators, field teams, and operations users manage application intake, document exchange, policy validations, queries, approvals, reporting, and handoffs through controlled workflows.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;">
+          <span class="btn">Schedule a walkthrough</span>
+          <span class="btn ghost">View platform controls</span>
+        </div>
+      </div>
+      <div>
+        <div class="screen" aria-label="Product image placeholder">
+          <div class="screen-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="screen-grid">
+            <div class="side">
+              <div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div>
+            </div>
+            <div class="main">
+              <div class="box"></div>
+              <div class="box wide"></div>
+              <div class="box"></div>
+              <div class="box"></div>
+              <div class="box wide"></div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:10px;"><span class="anno">Hero visual - replace this with a real Dash screenshot when available. Use a case dashboard or application workspace, with sensitive data masked.</span></div>
+      </div>
+    </div>
+    <div style="margin-top:16px;"><span class="anno">Tone - concrete and operational. The page introduces Dash as the named product while keeping Mannjal's neutral role clear.</span></div>
+  </section>
+
+  <!-- PROOF STRIP -->
+  <div class="strip">
+    <div><div class="big">Configured</div><div class="cap">Workflows and roles</div></div>
+    <div><div class="big">Controlled</div><div class="cap">Access and maker-checker</div></div>
+    <div><div class="big">Traceable</div><div class="cap">Case actions and handoffs</div></div>
+    <div><div class="big">Lender-led</div><div class="cap">Credit decision stays outside Dash</div></div>
+  </div>
+
+  <!-- NEUTRALITY -->
+  <section>
+    <span class="label">Positioning guardrail</span>
+    <h2 class="wf" style="margin-top:6px;">Dash runs the process. The lender owns the credit decision.</h2>
+    <p class="wf">Dash mirrors the operating process agreed between participating entities. Workflows, stages, tasks, business rules, user roles, maker-checker controls, document requirements, dashboards, reports, integrations, and exports are configured for the program.</p>
+    <div class="callout">
+      <p><strong>Mannjal provides the technology, workflow configuration, integrations layer, and platform operations.</strong> Credit policy, underwriting, approvals, borrower relationship ownership, lending funds, and final lending outcomes remain with the regulated lender or the relevant contracted program participant, as applicable. Dash executes configured workflows and records process evidence; it is not a credit decision engine.</p>
+    </div>
+    <div style="margin-top:14px;"><span class="anno">This section should stay high on the page. It protects the regulatory posture and prevents Dash from reading like underwriting software.</span></div>
+  </section>
+
+  <!-- WHAT DASH REPLACES -->
+  <section class="band">
+    <span class="label">Before Dash</span>
+    <h2 class="wf" style="margin-top:6px;">Replace scattered handoffs with one operating trail.</h2>
+    <p class="wf">Partnership lending programs often run across emails, spreadsheets, manual follow-ups, and disconnected document movement. Dash gives teams one structured workflow for what was submitted, what was validated, what was flagged, who acted on it, what changed, and what remains pending.</p>
+    <div class="grid3">
+      <div class="card">
+        <div class="tag">Intake</div>
+        <h3 class="wf">Applications enter cleanly</h3>
+        <p>Structured data entry, document upload, and Excel or CAM ingestion help reduce repeated manual entry.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Review</div>
+        <h3 class="wf">Cases move by rule</h3>
+        <p>Stage-based workflows route tasks, exceptions, approvals, and handoffs based on the agreed program logic.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Evidence</div>
+        <h3 class="wf">Actions stay traceable</h3>
+        <p>User actions, document events, workflow movement, status changes, and API activity are recorded with timestamps.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKFLOW -->
+  <section>
+    <span class="label">Core workflow</span>
+    <h2 class="wf" style="margin-top:6px;">From application creation to lender handoff.</h2>
+    <p class="wf">Dash gives each program a controlled workflow for moving an application from intake to review, query resolution, approval handoff, reporting, and export.</p>
+    <div class="flow">
+      <div class="flowrow">
+        <div class="num">01</div>
+        <div class="flowcard">
+          <h3 class="wf">Create or ingest the application</h3>
+          <p>Partners and field teams create loan applications through structured data entry, document upload, and configured Excel or CAM ingestion.</p>
+        </div>
+      </div>
+      <div class="flowrow">
+        <div class="num">02</div>
+        <div class="flowcard">
+          <h3 class="wf">Validate data and document readiness</h3>
+          <p>Dash checks mandatory data, required documents, format errors, eligibility conditions, and configured policy or readiness rules.</p>
+        </div>
+      </div>
+      <div class="flowrow">
+        <div class="num">03</div>
+        <div class="flowcard">
+          <h3 class="wf">Route tasks, queries, and exceptions</h3>
+          <p>Teams assign queries, track task ownership, manage dependencies, close clarifications, and move cases through program-specific routes.</p>
+        </div>
+      </div>
+      <div class="flowrow">
+        <div class="num">04</div>
+        <div class="flowcard">
+          <h3 class="wf">Review with role-based controls</h3>
+          <p>Users see, update, review, or approve only the parts of the case permitted by their assigned role, section visibility, and maker-checker steps.</p>
+        </div>
+      </div>
+      <div class="flowrow">
+        <div class="num">05</div>
+        <div class="flowcard">
+          <h3 class="wf">Report, generate, and export</h3>
+          <p>Dashboards, MIS, scheduled reports, reminders, Word and Excel generation, and configured exports support downstream processing and audit review.</p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:14px;"><span class="anno">This replaces a dense feature table with a readable operating journey. Buyers can still see the breadth of capabilities.</span></div>
+  </section>
+
+  <!-- CAPABILITY GRID -->
+  <section class="band">
+    <span class="label">Capabilities</span>
+    <h2 class="wf" style="margin-top:6px;">The operating modules inside Dash.</h2>
+    <div class="grid2">
+      <div class="card">
+        <div class="tag">Application intake</div>
+        <h3 class="wf">Structured creation and bulk ingestion</h3>
+        <p>Create applications digitally, ingest structured or semi-structured data, validate uploads, and handle errors where configured.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Document workspace</div>
+        <h3 class="wf">Controlled document management</h3>
+        <p>Organize PDF, Excel, Word, image, zip, and large-file uploads by application and document section, with role-governed visibility.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Workflow routing</div>
+        <h3 class="wf">Configurable stages and conditions</h3>
+        <p>Set stage-based workflows, task dependencies, process controls, and conditional paths based on rules, validation results, and API responses.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Policy support</div>
+        <h3 class="wf">BRE and readiness checks</h3>
+        <p>Support lender-configured checks such as FOIR, LTV, mandatory documents, eligibility conditions, deviation flags, and document availability.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Queries and tasks</div>
+        <h3 class="wf">Case-linked follow-up</h3>
+        <p>Keep clarifications, responsibilities, dependencies, closure tracking, and discussions inside the case workflow.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Reporting</div>
+        <h3 class="wf">Dashboards, MIS, and reminders</h3>
+        <p>Track pending cases, bottlenecks, user actions, unresolved queries, and operational follow-ups through configurable views and reports.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIELD AND INTEGRATIONS -->
+  <section>
+    <span class="label">Field teams and integrations</span>
+    <h2 class="wf" style="margin-top:6px;">Built for branch, field, operations, and third-party checks.</h2>
+    <div class="grid2">
+      <div class="card">
+        <div class="tag">Field users</div>
+        <h3 class="wf">Mobile-friendly case capture</h3>
+        <p>Support application initiation, document upload, consent capture, case updates, field-led data collection, personal discussion inputs, and on-ground credit support activities.</p>
+      </div>
+      <div class="card">
+        <div class="tag">API readiness</div>
+        <h3 class="wf">Third-party services in the workflow</h3>
+        <p>Route integrations for eKYC, bureau, NACH, bank statement analysis, GST, cheque verification, e-sign, and lender-system handoffs based on program scope.</p>
+      </div>
+    </div>
+    <div class="chips">
+      <span class="chip">eKYC</span>
+      <span class="chip">Bureau</span>
+      <span class="chip">NACH</span>
+      <span class="chip">Bank statement analysis</span>
+      <span class="chip">GST</span>
+      <span class="chip">Cheque verification</span>
+      <span class="chip">e-sign</span>
+      <span class="chip">Lender-system handoff</span>
+    </div>
+    <div style="margin-top:14px;"><span class="anno">Use generic integration categories here. Named partners can stay on Platform & Security until commercial approvals are confirmed.</span></div>
+  </section>
+
+  <!-- CONTROLS -->
+  <section class="band">
+    <span class="label">Control layer</span>
+    <h2 class="wf" style="margin-top:6px;">Designed for controlled multi-party lending workflows.</h2>
+    <div class="table">
+      <div class="tr">
+        <div class="td">Access control</div>
+        <div class="td">Role-based access, section-level visibility, user-specific permissions, maker-checker workflow steps, and segregation of duties.</div>
+      </div>
+      <div class="tr">
+        <div class="td">Traceability</div>
+        <div class="td">User actions, workflow movement, document events, API activity, and status changes are recorded with timestamps and user attribution.</div>
+      </div>
+      <div class="tr">
+        <div class="td">Data boundaries</div>
+        <div class="td">Supports logically segregated portals or instances and role-based access boundaries for participating entities.</div>
+      </div>
+      <div class="tr">
+        <div class="td">Hosting posture</div>
+        <div class="td">Supports India-hosted infrastructure based on deployment and program scope.</div>
+      </div>
+    </div>
+    <div style="margin-top:14px;"><span class="anno">Careful wording - "supports" and "based on deployment and program scope" avoid over-claiming until every compliance assertion is substantiated.</span></div>
+  </section>
+
+  <!-- USE CASES -->
+  <section>
+    <span class="label">Program fit</span>
+    <h2 class="wf" style="margin-top:6px;">Use Dash wherever multiple parties work the same case.</h2>
+    <p class="wf">Dash is useful when a lending program needs clear roles, controlled access, document movement, validation, queries, approvals, reporting, and a reliable operating trail across more than one team or entity.</p>
+    <div class="stack">
+      <div class="stackitem">
+        <h3 class="wf">Co-lending operations</h3>
+        <p>Coordinate lender and originator workflows while preserving each party's role, access boundary, and decision responsibility.</p>
+      </div>
+      <div class="stackitem">
+        <h3 class="wf">Business Correspondent operating models</h3>
+        <p>Support field-led sourcing, document collection, case updates, and lender review workflows.</p>
+      </div>
+      <div class="stackitem">
+        <h3 class="wf">Direct Assignment and securitisation workflows</h3>
+        <p>Organize pool data, documents, checks, approvals, reporting, and handoffs through a controlled operating trail.</p>
+      </div>
+      <div class="stackitem">
+        <h3 class="wf">Lender-controlled digital lending</h3>
+        <p>Run configured digital journeys while keeping credit policy, approvals, funds, and borrower ownership with the regulated lender.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="ctaWrap">
+    <span class="label">Schedule a walkthrough</span>
+    <h2 class="wf" style="margin:6px auto 6px;">See Dash configured for one of your programs.</h2>
+    <p class="sub" style="margin:0 auto 18px;">Walk through intake, document readiness, routing, queries, controls, MIS, exports, and audit evidence with a founder.</p>
+    <span class="btn">Schedule a walkthrough</span>
+    <div style="margin-top:14px;"><span class="anno">CTA stays practical. The page sells a system walkthrough, not a generic meeting.</span></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="frow">
+      <div class="box logo" style="background:#3a3f44;border-color:#4a4f54;"></div>
+      <div style="display:flex;gap:24px;">
+        <span>Products</span><span>Platform</span><span>Company</span><span>Privacy</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
