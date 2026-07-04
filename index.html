@@ -237,6 +237,29 @@
   </div>
 </section>
 
+<!-- ============ POWERED BY DASH ============ -->
+<section class="band sec">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Powered by Dash</span>
+      <h2>One case file, from intake to audit evidence.</h2>
+      <p>Dash is the workflow layer behind that console. Every application, check, query and report for a program moves through one case file, with role-based handoffs between every partner as the file moves.</p>
+    </div>
+    <div class="dash-chip-row" style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:clamp(24px,3vw,36px);">
+      <span class="chip">One case file</span>
+      <span class="chip">Role-based handoffs</span>
+      <span class="chip">Intake</span>
+      <span class="chip">Readiness checks</span>
+      <span class="chip">Query tracking</span>
+      <span class="chip">MIS</span>
+      <span class="chip accent">Audit evidence</span>
+    </div>
+    <div style="text-align:center;margin-top:clamp(22px,2.8vw,32px);">
+      <a class="link-arrow" href="dash-platform.html">See Dash in detail <span data-ic="arrow" data-s="16"></span></a>
+    </div>
+  </div>
+</section>
+
 <!-- ============ TRUST ============ -->
 <section class="sec" id="product">
   <div class="wrap">
@@ -330,6 +353,7 @@ document.getElementById('trustList').innerHTML = PILLARS.map((p,i) => `
 
 const FAQS = [
   {q:'What is Mannjal?',a:'Mannjal is partnership lending infrastructure. It runs co-lending, business correspondent, direct assignment, securitization, and digital-lending programs end to end, giving each partner their own secure instance and orchestrating the workflow between them.'},
+  {q:'What is Dash?',a:'Dash is Mannjal\'s workflow layer. It carries every case from intake through checks, queries and reporting in one case file, configured to how your program already runs. The lender makes the credit decision.'},
   {q:'Where does the data live?',a:'Mannjal runs as a dedicated instance in your own environment. We don\'t hold your data centrally; it stays inside your instance, with role-based access and maker-checker controls.'},
   {q:'Who makes the credit decision?',a:'The lender, always. Mannjal validates each application against the lender\'s own rules and routes it to their desk. The credit decision stays with the lender.'},
   {q:'Is Mannjal built for the RBI co-lending and digital-lending rules?',a:'Yes. Mannjal supports the documentation and controls the RBI Co-Lending Arrangements Directions and Digital Lending Guidelines call for (KFS, a single blended rate, FLDG handling, audit trails, and partner-level reporting), and personal data is handled under the DPDP Act, 2023, with data-localization controls. Mannjal provides the infrastructure; your team holds the data and makes every credit decision.'},
