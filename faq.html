@@ -159,10 +159,13 @@
 <script>
 const FAQ_GENERAL = [
   {q:'What is Mannjal?',a:'Mannjal is partnership lending infrastructure. It runs co-lending, business correspondent, direct assignment, securitisation and digital-lending programs end to end, giving each partner their own secure instance and orchestrating the workflow between them.'},
+  {q:'What is Dash?',a:'Dash is Mannjal\'s workflow layer. It carries every case from intake through checks, queries and reporting in one case file, configured to how your program already runs.'},
+  {q:'Does Dash make credit decisions?',a:'No. Dash runs the process, checks and routing. The credit decision, underwriting and every approval stay with the lender.'},
   {q:'What do co-lending, Business Correspondent, Direct Assignment and digital lending mean here?',a:'They are the partnership structures Mannjal supports: co-lending (shared risk between a senior and junior lender), Business Correspondent networks, Direct Assignment and securitisation (loan portfolio transactions), and digital lending programs. All managed through one system.'},
   {q:'Who makes the credit decision?',a:'The lender, always. Mannjal validates each application against the lender\'s own rules and routes it to their desk. The credit decision stays with the lender.'},
   {q:'How fast can a program go live?',a:'A new program can be live in 1–2 weeks, with real-time sync, compliant documentation and pipeline visibility from day one.'},
-  {q:'How is Mannjal different from building in-house?',a:'In-house builds solve one program at a time. Mannjal is shared infrastructure across co-lending, Business Correspondent, Direct Assignment, securitisation and digital lending. The tenth program runs at the same effort as the first. You get live integrations, regulatory-aligned documentation and a curated partner network on day one.'}
+  {q:'How is Mannjal different from building in-house?',a:'In-house builds solve one program at a time. Mannjal is shared infrastructure across co-lending, Business Correspondent, Direct Assignment, securitisation and digital lending. The tenth program runs at the same effort as the first. You get live integrations, regulatory-aligned documentation and a curated partner network on day one.'},
+  {q:'What does a Dash walkthrough show?',a:'A founder walks Dash through one of your own programs: intake, the checks and deviation flags it runs, task and query routing, and the audit export at the end. Thirty minutes, on your data.'}
 ];
 const FAQ_LENDERS = [
   {q:'What kinds of lenders use Mannjal?',a:'Banks, small finance banks and NBFCs running partnership lending programs. The typical user is an ops team managing multiple lending partnerships across co-lending, Business Correspondent or digital-lending structures.'},
@@ -180,7 +183,10 @@ const FAQ_SECURITY = [
   {q:'Where does the data live?',a:'Mannjal runs as a dedicated instance in your own environment. We don\'t hold your data centrally; it stays inside your instance, with role-based access and maker-checker controls.'},
   {q:'Is Mannjal built for the RBI co-lending and digital-lending rules?',a:'Yes. Mannjal supports the documentation and controls the RBI Co-Lending Arrangements Directions and Digital Lending Guidelines call for (KFS, a single blended rate, FLDG handling, audit trails and partner-level reporting). Personal data is handled under the DPDP Act, 2023, with data-localisation controls.'},
   {q:'Has the platform been independently audited?',a:'The Mannjal platform has been independently audited by a CERT-In empanelled assessor against the RBI data-localisation framework, with no exceptions noted. Built and operated in alignment with ISO 27001:2022. Residency and audit statements describe the platform; the production scope of a specific deployment may differ.'},
-  {q:'Can my IT team audit the system?',a:'Every action, API call and document event is timestamped, attributed, immutable and exportable on demand. A full audit of any single loan is one export. Security documentation is available to partners on request.'}
+  {q:'Can my IT team audit the system?',a:'Every action, API call and document event is timestamped, attributed, immutable and exportable on demand. A full audit of any single loan is one export. Security documentation is available to partners on request.'},
+  {q:'What integrations can Dash route?',a:'eKYC, bureau pulls, NACH, bank-statement analysis, GST verification, cheque verification and e-sign, plus handoffs into your own lending systems, all through your own credentials and contracts.'},
+  {q:'How does Dash capture audit evidence?',a:'As work happens, not after the fact. Every task, document event, query and status change is timestamped and attributed the moment it occurs, so an audit of any single case is one export.'},
+  {q:'Can one partner see another partner\'s data?',a:'No. Dash runs logically segregated portals or instances for each participating entity, with role-based access boundaries between them.'}
 ];
 
 function renderFaq(id, items) {
