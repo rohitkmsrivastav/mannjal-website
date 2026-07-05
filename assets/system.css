@@ -314,11 +314,12 @@
     .fm-canvas { display:none; }
     .fm-stack { display:flex; flex-direction:column; align-items:stretch; gap:0; max-width:440px; margin:0 auto; }
     .fm-srow { display:flex; gap:14px; }
-    .fm-srail { width:34px; flex:none; display:flex; flex-direction:column; align-items:center; }
-    .fm-srail .dot { width:11px; height:11px; border-radius:50%; border:2px solid var(--accent-line); margin-top:20px; }
+    .fm-srail { width:34px; flex:none; position:relative; display:flex; align-items:center; justify-content:center; }
+    .fm-srail .ln { position:absolute; top:0; bottom:0; width:2px; background: var(--accent-line); }
+    .fm-srow:first-child .fm-srail .ln { top:50%; }
+    .fm-srow:last-child .fm-srail .ln { bottom:50%; }
+    .fm-srail .dot { position:relative; z-index:1; width:11px; height:11px; border-radius:50%; border:2px solid var(--accent-line); background: var(--band); }
     .fm-srow.is-brain .fm-srail .dot { background: var(--accent); border-color: var(--accent-ink); }
-    .fm-srail .ln { flex:1; width:2px; background: var(--accent-line); margin:6px 0; }
-    .fm-srow:last-child .fm-srail .ln { display:none; }
     .fm-scard { flex:1; background: var(--surface); border:1px solid var(--line); border-radius:14px; padding:15px 16px; margin-bottom:10px; display:flex; flex-direction:column; gap:6px; }
     .fm-srow.is-brain .fm-scard { border-color: var(--accent-ink); }
     .fm-scard .who { font-family: var(--font-mono); font-size:10px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color: var(--accent-ink); }
