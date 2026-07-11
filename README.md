@@ -1,11 +1,20 @@
-# Mannjal site
+# Mannjal website
 
-Light-themed, single-design-system rebuild of the Mannjal website.
+Static marketing site for Mannjal, served by GitHub Pages from the root of the `Mannjal-dark` branch. What you see in this repo is exactly what deploys — there is no build step.
 
-- `index.html` — finished homepage (reference implementation)
-- `assets/system.css` — shared design system, linked by every page
-- `assets/app.js` — shared JS (icons, product mock, nav, accordions)
-- `wireframes/` — source wireframes (content + IA per page)
-- `CLAUDE.md` — build brief: read this first, then build the remaining pages to match `index.html`
+## Layout
 
-Static site, no build step. Open `index.html` or run `python3 -m http.server`.
+- `*.html` — the site pages, one file per page, all at the repo root (Pages serves them at `/<name>.html`; keep them here so URLs don't change)
+- `assets/system.css` — the shared design system; every page links it
+- `assets/app.js` — shared JS (icons, nav, accordions)
+- `assets/img/` — founder photos and investor logos
+- `assets/mannjal-logo.png`, favicons — brand assets
+- `wireframes/` — annotated wireframes; the content and IA source of truth per page
+- `CLAUDE.md` — the build brief; read it before changing or adding pages
+- `_private/` — local-only business documents (gitignored, never committed)
+
+## Working on it
+
+Open any `.html` file in a browser, or run `python3 -m http.server` from the repo root.
+
+Branch off `Mannjal-dark`, open a PR back into it; merging deploys to Pages.

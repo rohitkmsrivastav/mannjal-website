@@ -8,14 +8,18 @@ Mannjal is B2B partnership-lending infrastructure (co-lending, Business Correspo
 
 ```
 index.html, for-banks.html, for-originators.html, how-it-works.html,
-dash-platform.html, platform-security.html, co-lending.html,
+platform.html, security.html, co-lending.html,
 business-correspondent.html, direct-assignment.html, securitisation.html,
 digital-lending.html, our-story.html, careers.html, faq.html, contact.html,
 book-a-walkthrough.html, privacy.html, terms.html   ← the built pages
 assets/system.css       ← the whole design system. Every page links this. Do not fork it.
 assets/app.js           ← shared JS: ic(), appFrame(), hydrateIcons(), initNav(), wireAccordion(), miniChart()
+assets/img/             ← founder photos + investor logos used by Our Story / homepage
 wireframes/             ← low-fi annotated wireframes = the content + IA source of truth for each page
+_private/               ← local-only business docs (audit PDFs, questionnaires, spare logo exports); gitignored, never commit
 ```
+
+"Dash" is an internal name only — the public site says "the platform" and the pages are `platform.html` ("The Platform") and `security.html` ("Security & trust").
 
 The wireframes are grey-box layouts with dashed amber annotation notes explaining intent. They are **content and structure specs, not visual targets**. Build the real page in the `system.css` look and drop all placeholder/annotation styling.
 
