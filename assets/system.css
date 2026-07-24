@@ -5,6 +5,7 @@
     --accent-soft: #FFF4D6;       /* light gold tint */
     --accent-line: rgba(255,190,0,0.35);
     --accent-ink: #FFBE00;        /* logo yellow — accent text/icons/lines (matches --accent by request) */
+    --label-ink: #765000;         /* deeper turmeric for small text labels on light surfaces */
 
     --page: #FCFCFD;
     --band: #F4F5F6;
@@ -51,7 +52,7 @@
   .foot-brand .logo-img { height: 32px; margin-bottom: 2px; }
 
   /* eyebrow — Inter, uppercase, tracked, amber */
-  .eyebrow { font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-ink); }
+  .eyebrow { font-family: var(--font-mono); font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--label-ink); }
 
   /* buttons */
   .btn { display:inline-flex; align-items:center; gap:0.5em; cursor:pointer; font-family: var(--font-body); font-weight:600; font-size:15px; letter-spacing:-0.005em; border-radius:8px; padding:12px 20px; border:1px solid transparent; transition: transform .14s ease, background .2s, border-color .2s, color .2s; white-space:nowrap; }
@@ -278,7 +279,7 @@
   .aud-head { display:flex; align-items:center; gap:13px; margin-bottom:24px; position:relative; z-index:1; }
   .aud-ico { width:46px; height:46px; border-radius:13px; background: var(--accent-soft); display:flex; align-items:center; justify-content:center; flex:none; transition: transform .25s; }
   .aud-card:hover .aud-ico { transform: scale(1.06); }
-  .aud-card .tag { font-family: var(--font-mono); font-size:12px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color: var(--accent-ink); white-space:nowrap; }
+  .aud-card .tag { font-family: var(--font-mono); font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color: var(--label-ink); white-space:nowrap; }
   .aud-card h3 { font-size: clamp(21px, 2.5vw, 29px); margin-bottom:14px; position:relative; z-index:1; max-width: 460px; }
   .aud-card p { color: var(--text-2); font-size:16px; line-height:1.6; margin-bottom:26px; position:relative; z-index:1; max-width: 440px; }
   .aud-card .aud-cta { margin-top:auto; position:relative; z-index:1; }
@@ -476,7 +477,7 @@
   .tl .mile { position:relative; padding:0 0 clamp(22px,3vw,34px) clamp(24px,3vw,34px); }
   .tl .mile:last-child { padding-bottom:0; }
   .tl .mile::before { content:""; position:absolute; left:-7px; top:4px; width:12px; height:12px; border-radius:50%; background: var(--surface); border:2px solid var(--accent-ink); }
-  .tl .yr { font-family: var(--font-mono); font-size:12px; font-weight:600; letter-spacing:0.06em; color: var(--accent-ink); }
+  .tl .yr { font-family: var(--font-mono); font-size:12px; font-weight:700; letter-spacing:0.06em; color: var(--label-ink); }
   .tl .mile p { margin-top:6px; font-size:15.5px; color: var(--text-2); line-height:1.55; max-width:62ch; }
 
   /* ---- founder / team cards (Our Story) ---- */
@@ -488,7 +489,7 @@
   .member .m-body { padding: clamp(20px,2.4vw,26px); }
   .member .m-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
   .member .nm { font-family: var(--font-head); font-weight:700; font-size:19px; letter-spacing:-0.01em; color: var(--ink); }
-  .member .ro { font-family: var(--font-mono); font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color: var(--accent-ink); margin:5px 0 0; }
+  .member .ro { font-family: var(--font-mono); font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color: var(--label-ink); margin:5px 0 0; }
   .member .li { flex:none; color: var(--accent-ink); display:inline-flex; padding:6px; margin:-5px -5px 0 0; border-radius:9px; transition: background .2s; }
   .member .li:hover { background: var(--accent-soft); }
   .member p { font-size:14.5px; color: var(--text-2); line-height:1.55; margin-top:14px; }
@@ -528,7 +529,7 @@
   textarea.ctrl { min-height:104px; resize:vertical; line-height:1.5; }
   select.ctrl { appearance:none; -webkit-appearance:none; cursor:pointer; padding-right:38px; background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238B92A0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>"); background-repeat:no-repeat; background-position:right 14px center; }
   .meet { background: var(--surface); border:1px solid var(--line); border-radius:18px; padding: clamp(20px,2.4vw,28px); }
-  .meet .meet-h { font-family: var(--font-mono); font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color: var(--accent-ink); margin-bottom:6px; }
+  .meet .meet-h { font-family: var(--font-mono); font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color: var(--label-ink); margin-bottom:6px; }
   .person { display:flex; gap:14px; align-items:flex-start; padding:16px 0; border-top:1px solid var(--line); }
   .person:first-of-type { border-top:none; padding-top:8px; }
   .person:last-child { padding-bottom:0; }
@@ -613,7 +614,7 @@
   @media (max-width: 560px){ .modelgrid { grid-template-columns: 1fr; } .mg-cell { min-height:0; } }
 
   /* ---- investor tiers + angel links (our-story) ---- */
-  .inv-lab { font-family: var(--font-mono); font-size:12px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color: var(--accent-ink); margin: clamp(30px,3.6vw,46px) 0 14px; }
+  .inv-lab { font-family: var(--font-mono); font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color: var(--label-ink); margin: clamp(30px,3.6vw,46px) 0 14px; }
   a.intg { text-decoration:none; color:inherit; display:block; }
   a.intg:hover .nm { color: var(--accent-ink); }
   .intg .li-ic { display:inline-flex; vertical-align:-2px; margin-left:5px; }
