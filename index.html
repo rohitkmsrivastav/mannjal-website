@@ -187,7 +187,7 @@
 <section class="sec" id="platform">
   <div class="wrap">
     <div class="sec-head center">
-      <span class="eyebrow">The platform</span>
+      <span class="eyebrow">Inside a case</span>
       <h2>One place for multiple partnership programs</h2>
       <p>Supported programs can run through one workspace: eligibility checks, pipeline views, escrow and partner-level reporting, in your own environment.</p>
     </div>
@@ -267,6 +267,24 @@
   </div>
 </section>
 
+<!-- ============ INVESTORS ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Our investors</span>
+      <h2>Backed by</h2>
+    </div>
+    <div class="intg-grid vc-grid" style="margin-top:clamp(28px,3.5vw,40px);">
+      <div class="intg"><img class="intg-logo" src="assets/img/b-capital.png" alt="B Capital"><div class="nm">B Capital</div></div>
+      <div class="intg"><img class="intg-logo" src="assets/img/arali.png" alt="Arali Ventures"><div class="nm">Arali Ventures</div></div>
+      <div class="intg"><img class="intg-logo" src="assets/img/sparrow-capital.png" alt="Sparrow Capital"><div class="nm">Sparrow Capital</div></div>
+      <div class="intg"><img class="intg-logo" src="assets/img/gemba.png" alt="Gemba Capital"><div class="nm">Gemba Capital</div></div>
+      <div class="intg"><img class="intg-logo" src="assets/img/all-in-capital.png" alt="All In Capital"><div class="nm">All In Capital</div></div>
+      <div class="intg"><div class="intg-wordmark" aria-label="Stanford Angels and Entrepreneurs"><span>Stanford</span> Angels &amp; Entrepreneurs</div><div class="nm">Stanford Angels &amp; Entrepreneurs</div></div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ CLOSE: CTA ============ -->
 <section class="band sec" id="contact">
   <div class="wrap">
@@ -316,8 +334,9 @@
 <script>
 /* ---- Homepage-specific data + wiring (shared helpers live in assets/app.js) ---- */
 const PILLARS = [
-  {ico:'branch',h:'Consistent execution across partners',pts:['Every partnership program runs through a defined operating pattern','Standardised intake from field apps, files or APIs, mapped into the format each lender needs','Approved program patterns can be reused for similar partners','Low-code configuration to launch and adapt products without re-engineering']},
-  {ico:'chart',h:'Files prepared for first-pass review',pts:['Eligibility and policy rules run up front, with deviations flagged and explained','Bureau, KYC and document checks routed through the providers you already use','An auditable rules engine and management reports to support credit and ops']},
+  {ico:'branch',h:'Consistent execution across partners',pts:['Every partnership program runs through a defined operating pattern','Queries and document uploads stay within the same case file, not scattered across emails and calls','Case status updates in real time, visible to both partners the moment it changes']},
+  {ico:'chart',h:'Files prepared for first-pass review',pts:['Eligibility and policy rules run up front, with deviations flagged and explained','Bureau and KYC checks completed before the file reaches review, not requested after','Document checklists applied at capture, so nothing is missing by the time the file is reviewed']},
+  {ico:'settings',h:'Faster program setup and adaptable configuration',pts:['Standardised intake from field apps, files or APIs, mapped into the format each lender needs','Approved program patterns can be reused for similar partners','Low-code configuration to launch and adapt products without re-engineering']},
   {ico:'shield',h:'Audit-ready, access-controlled, in your environment',pts:['Role-based access with maker-checker controls at program, stage and data-field level','File creation, eligibility checks, query tracking, partner handoffs, approvals, reporting and the audit trail are all time-stamped, tied to the user who performed them and exportable on demand','Runs in your own cloud or on Mannjal\'s India-hosted infrastructure, with security evidence available for review, data-localization support and DPDP-aware controls based on deployment scope']}
 ];
 document.getElementById('trustList').innerHTML = PILLARS.map((p,i) => `
