@@ -511,7 +511,7 @@
   .intg:hover { border-color: var(--line-strong); transform: translateY(-2px); }
   .intg .logo-ph { margin:0 auto 12px; }
   .intg .intg-logo { height:32px; width:auto; max-width:130px; object-fit:contain; display:block; margin:0 auto 14px; }
-  .intg .intg-logo--stanford { height:42px; max-width:156px; }
+  .intg .intg-logo--stanford { height:84px; max-width:140px; }
   /* single-row logo wall (e.g. all VCs together) */
   .intg-grid.vc-grid { grid-template-columns: repeat(3,1fr); }
   @media (max-width: 860px){ .intg-grid.vc-grid { grid-template-columns: repeat(3,1fr); } }
