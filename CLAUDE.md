@@ -15,6 +15,10 @@ book-a-walkthrough.html, privacy.html, terms.html   ← the built pages
 assets/system.css       ← the whole design system. Every page links this. Do not fork it.
 assets/app.js           ← shared JS: ic(), appFrame(), hydrateIcons(), initNav(), wireAccordion(), miniChart()
 assets/img/             ← founder photos + investor logos used by Our Story / homepage
+assets/product/         ← approved product workflow and dashboard visuals used by product pages
+assets/photographs/     ← source photographs kept with the site assets
+assets/comic_strips/    ← illustration assets
+assets/reference/       ← local reference artwork and source exports
 wireframes/             ← low-fi annotated wireframes = the content + IA source of truth for each page
 _private/               ← local-only business docs (audit PDFs, questionnaires, spare logo exports); gitignored, never commit
 ```
@@ -25,7 +29,7 @@ The wireframes are grey-box layouts with dashed amber annotation notes explainin
 
 Still not built (no source wireframe/IA exists yet): `traction.html`, `blog.html`.
 
-Each page is a standalone HTML file in the repo root, same `<head>` as `index.html` (fonts + `assets/system.css`), shared nav + footer (`<img class="logo-img" src="assets/mannjal-logo.png">`, not a text wordmark), `<script src="assets/app.js"></script>`, then a small inline script calling `hydrateIcons()` and `initNav()` (plus `wireAccordion(...)` if the page has accordions). Hero visuals use a single `.img-ph` "Product image placeholder" directly under the hero content — no live product mocks or bespoke UI screenshots elsewhere on a page; real screenshots get dropped into that placeholder later.
+Each page is a standalone HTML file in the repo root, same `<head>` as `index.html` (fonts + `assets/system.css`), shared nav + footer (`<img class="logo-img" src="assets/mannjal-logo.png">`, not a text wordmark), `<script src="assets/app.js"></script>`, then a small inline script calling `hydrateIcons()` and `initNav()` (plus `wireAccordion(...)` if the page has accordions). Product visuals live in `assets/product/` and are placed with the shared `.product-visual` treatment; keep their source files together there rather than adding page-local media folders.
 
 ## Design tokens (defined in `assets/system.css` `:root` — never hard-code hex)
 

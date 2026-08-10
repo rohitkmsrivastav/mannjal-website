@@ -8,6 +8,10 @@ Static marketing site for Mannjal, served by GitHub Pages from the root of the `
 - `assets/system.css` — the shared design system; every page links it
 - `assets/app.js` — shared JS (icons, nav, accordions)
 - `assets/img/` — founder photos and investor logos
+- `assets/product/` — approved product workflow and dashboard visuals used by the product pages
+- `assets/photographs/` — source photographs kept with the site assets
+- `assets/comic_strips/` — illustration assets
+- `assets/reference/` — local reference artwork and source exports
 - `assets/mannjal-logo.png`, favicons — brand assets
 - `wireframes/` — annotated wireframes; the content and IA source of truth per page
 - `CLAUDE.md` — the build brief; read it before changing or adding pages
