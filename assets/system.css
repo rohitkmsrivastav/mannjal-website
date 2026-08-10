@@ -644,7 +644,7 @@
     padding:clamp(64px,8vw,112px) 0 clamp(46px,6vw,76px);
     border-bottom:1px solid var(--line);
     background:
-      linear-gradient(90deg, transparent 0 49.94%, var(--line) 49.94% 50.06%, transparent 50.06%),
+      linear-gradient(90deg, transparent 0 49.94%, color-mix(in srgb, var(--line) 38%, transparent) 49.94% 50.06%, transparent 50.06%),
       radial-gradient(circle at 80% 28%, var(--accent-soft) 0 7%, transparent 7.2%),
       var(--page);
   }
