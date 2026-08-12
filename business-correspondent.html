@@ -141,13 +141,27 @@
       <h2>Checks and documents stay connected</h2>
       <p>Configured checks surface deviations and next steps while the document checklist makes missing evidence visible to the team.</p>
     </div>
-    <div class="product-support-stack">
-      <figure class="product-visual">
+    <div class="product-carousel" data-product-carousel>
+      <div class="product-support-stack" id="productSupportTrack" tabindex="0" role="region" aria-label="Platform control views">
+      <figure class="product-visual" data-carousel-slide>
         <img src="assets/product/automated-checks.png" alt="Mannjal automated checks and policy summary showing pass, deviation, and action-required outcomes">
       </figure>
-      <figure class="product-visual">
+      <figure class="product-visual" data-carousel-slide>
         <img src="assets/product/document-checklist.png" alt="Mannjal document checklist showing credit, legal, and operations documents with availability statuses">
       </figure>
+      </div>
+      <div class="product-carousel-footer">
+        <button class="product-carousel-nav" type="button" data-carousel-prev aria-label="Show previous view" aria-controls="productSupportTrack">
+          <span aria-hidden="true">←</span>
+        </button>
+        <div class="product-carousel-dots" role="tablist" aria-label="Choose a control view">
+          <button class="product-carousel-dot is-active" type="button" role="tab" aria-label="Show automated checks" aria-current="true" aria-controls="productSupportTrack" data-carousel-dot="0"></button>
+          <button class="product-carousel-dot" type="button" role="tab" aria-label="Show document checklist" aria-current="false" aria-controls="productSupportTrack" data-carousel-dot="1"></button>
+        </div>
+        <button class="product-carousel-nav" type="button" data-carousel-next aria-label="Show next view" aria-controls="productSupportTrack">
+          <span aria-hidden="true">→</span>
+        </button>
+      </div>
     </div>
   </div>
 </section>
@@ -234,6 +248,7 @@
 <script>
 hydrateIcons();
 initNav();
+initProductCarousel();
 </script>
 </body>
 </html>

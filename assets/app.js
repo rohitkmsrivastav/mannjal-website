@@ -75,6 +75,106 @@ function initNav() {
   document.addEventListener('click', (e) => { if (!e.target.closest('.nav-dd')) nav.querySelectorAll('.nav-dd.open').forEach(d => { d.classList.remove('open'); d.querySelector('.nav-dd-btn').setAttribute('aria-expanded','false'); }); });
 }
 
+/* Circular horizontal product carousel with native touch/trackpad scrolling. */
+function initProductCarousel(rootSel = '[data-product-carousel]') {
+  document.querySelectorAll(rootSel).forEach(root => {
+    const track = root.querySelector('.product-support-stack');
+    const slides = [...root.querySelectorAll('[data-carousel-slide]')];
+    const dots = [...root.querySelectorAll('[data-carousel-dot]')];
+    const prev = root.querySelector('[data-carousel-prev]');
+    const next = root.querySelector('[data-carousel-next]');
+    if (!track || slides.length < 2 || dots.length !== slides.length) return;
+
+    let active = 0;
+    let raf = 0;
+    let settleTimer = 0;
+    const cloneSlide = (slide) => {
+      const clone = slide.cloneNode(true);
+      clone.removeAttribute('data-carousel-slide');
+      clone.dataset.carouselClone = 'true';
+      clone.setAttribute('aria-hidden', 'true');
+      return clone;
+    };
+    const beforeClone = cloneSlide(slides[slides.length - 1]);
+    const afterClone = cloneSlide(slides[0]);
+    track.prepend(beforeClone);
+    track.append(afterClone);
+    const renderedSlides = [beforeClone, ...slides, afterClone];
+
+    const nearestRenderedSlide = () => {
+      const left = track.getBoundingClientRect().left;
+      return renderedSlides.reduce((best, slide, i) => {
+        const distance = Math.abs(slide.getBoundingClientRect().left - left);
+        return distance < best.distance ? { index:i, distance } : best;
+      }, { index:0, distance:Infinity }).index;
+    };
+    const logicalIndex = renderedIndex => {
+      if (renderedIndex === 0) return slides.length - 1;
+      if (renderedIndex === renderedSlides.length - 1) return 0;
+      return renderedIndex - 1;
+    };
+    const scrollToRendered = (renderedIndex, behavior = 'smooth') => {
+      const slide = renderedSlides[renderedIndex];
+      if (!slide) return;
+      const delta = slide.getBoundingClientRect().left - track.getBoundingClientRect().left;
+      track.scrollTo({ left: track.scrollLeft + delta, behavior });
+    };
+    const setActive = index => {
+      active = (index + slides.length) % slides.length;
+      dots.forEach((dot, i) => {
+        const selected = i === active;
+        dot.classList.toggle('is-active', selected);
+        dot.setAttribute('aria-current', selected ? 'true' : 'false');
+      });
+    };
+    const normalizeLoop = () => {
+      const renderedIndex = nearestRenderedSlide();
+      if (renderedIndex === 0) {
+        scrollToRendered(slides.length, 'auto');
+        setActive(slides.length - 1);
+      } else if (renderedIndex === renderedSlides.length - 1) {
+        scrollToRendered(1, 'auto');
+        setActive(0);
+      }
+    };
+    const scheduleLoopNormalization = () => {
+      window.clearTimeout(settleTimer);
+      settleTimer = window.setTimeout(normalizeLoop, 120);
+    };
+    const goTo = (index, direction = 0) => {
+      const target = (index + slides.length) % slides.length;
+      const movingForward = direction > 0 || (!direction && target < active && active === slides.length - 1);
+      const movingBackward = direction < 0 || (!direction && target > active && active === 0);
+      const renderedIndex = movingForward && active === slides.length - 1
+        ? renderedSlides.length - 1
+        : movingBackward && active === 0
+          ? 0
+          : target + 1;
+      setActive(target);
+      scrollToRendered(renderedIndex);
+    };
+    const sync = () => {
+      raf = 0;
+      setActive(logicalIndex(nearestRenderedSlide()));
+      scheduleLoopNormalization();
+    };
+    track.addEventListener('scroll', () => {
+      if (!raf) raf = requestAnimationFrame(sync);
+    }, { passive:true });
+    track.addEventListener('keydown', e => {
+      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+      e.preventDefault();
+      const direction = e.key === 'ArrowRight' ? 1 : -1;
+      goTo(active + direction, direction);
+    });
+    dots.forEach(dot => dot.addEventListener('click', () => goTo(Number(dot.dataset.carouselDot))));
+    prev?.addEventListener('click', () => goTo(active - 1, -1));
+    next?.addEventListener('click', () => goTo(active + 1, 1));
+    setActive(0);
+    requestAnimationFrame(() => scrollToRendered(1, 'auto'));
+  });
+}
+
 /* Generic single-open accordion. Works for .trust-acc and .faq lists.
    wireAccordion('#trustAcc', '.trust-row', '.trust-q'); */
 function wireAccordion(rootSel, rowSel, btnSel, openClass = 'open') {

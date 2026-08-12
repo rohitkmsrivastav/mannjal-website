@@ -557,11 +557,36 @@
   /* product visuals */
   .product-visual { width:100%; box-sizing:border-box; margin:clamp(34px,4.5vw,60px) auto 0; padding:clamp(8px,1.2vw,16px); background:var(--band); border:1px solid var(--line); border-radius:18px; overflow:hidden; box-shadow:0 16px 42px rgba(24,27,77,.08); }
   .product-visual img { display:block; width:100%; height:auto; border-radius:12px; }
-  .product-support-stack { display:grid; gap:clamp(28px,4vw,48px); margin-top:clamp(32px,4vw,52px); }
+  .product-carousel { position:relative; }
+  .product-support-stack {
+    display:flex;
+    gap:clamp(20px,3vw,36px);
+    margin-top:clamp(32px,4vw,52px);
+    overflow-x:auto;
+    overscroll-behavior-x:contain;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+    padding:0 0 4px;
+  }
+  .product-support-stack::-webkit-scrollbar { display:none; }
+  .product-support-stack .product-visual {
+    flex:0 0 min(78vw, 760px);
+    scroll-snap-align:start;
+  }
   .product-support-stack .product-visual { margin-top:0; }
+  .product-carousel-footer { display:flex; align-items:center; justify-content:space-between; margin-top:18px; }
+  .product-carousel-nav { display:grid; place-items:center; width:34px; height:34px; padding:0; border:1px solid var(--line-strong); border-radius:50%; background:var(--surface); color:var(--text-2); font:600 16px/1 var(--font-sans); cursor:pointer; transition:color .18s, border-color .18s, background .18s, transform .18s; }
+  .product-carousel-nav:hover:not(:disabled) { border-color:var(--accent-ink); background:var(--accent-soft); color:var(--accent-ink); transform:translateY(-1px); }
+  .product-carousel-nav:focus-visible, .product-carousel-dot:focus-visible, .product-support-stack:focus-visible { outline:3px solid var(--accent-line); outline-offset:3px; }
+  .product-carousel-nav:disabled { cursor:default; opacity:.34; }
+  .product-carousel-dots { display:flex; align-items:center; gap:9px; }
+  .product-carousel-dot { width:7px; height:7px; padding:0; border:0; border-radius:50%; background:var(--line-strong); cursor:pointer; transition:background .18s, transform .18s, box-shadow .18s; }
+  .product-carousel-dot:hover { background:var(--accent-ink); transform:scale(1.18); }
+  .product-carousel-dot.is-active { background:var(--accent-ink); box-shadow:0 0 0 4px var(--accent-soft); transform:scale(1.1); }
   @media (max-width:640px) {
     .product-visual { padding:6px; border-radius:14px; }
     .product-visual img { border-radius:9px; }
+    .product-carousel-footer { margin-top:15px; }
   }
 
   /* ---- signal/token chip row inside an .aud-card (Dash Platform) ---- */
