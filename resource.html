@@ -3,34 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mannjal — Connect with Mannjal</title>
+<title>Resource | Mannjal</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/system.css">
-<meta name="description" content="Connect with Mannjal about partnership lending, joining the network, security documentation, or a product walkthrough.">
+<meta name="description" content="Perspectives and evidence for partnership lending teams from Mannjal.">
 <meta name="theme-color" content="#FCFCFD">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:site_name" content="Mannjal">
-<meta property="og:title" content="Mannjal — Connect with Mannjal">
-<meta property="og:description" content="Connect with Mannjal about partnership lending, joining the network, security documentation, or a product walkthrough.">
+<meta property="og:title" content="Mannjal resource">
+<meta property="og:description" content="Perspectives and evidence for partnership lending teams from Mannjal.">
+<meta property="og:image" content="assets/resources-og.png">
+<meta property="article:published_time" content="">
 </head>
-<body id="top">
+<body id="top" data-sanity-resource>
 
-<!-- ============ NAV ============ -->
 <nav class="nav" id="nav">
   <div class="wrap nav-inner">
     <div class="nav-left">
       <a href="index.html" aria-label="Mannjal home"><img class="logo-img" src="assets/mannjal-logo.png" alt="Mannjal"></a>
-            <div class="nav-links" id="navLinks">
+      <div class="nav-links" id="navLinks">
         <div class="nav-dd">
           <button class="nav-dd-btn" aria-expanded="false">Products <svg class="chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
           <div class="nav-drop">
-          <a href="co-lending.html">Co-lending</a>
-          <a href="business-correspondent.html">Business Correspondent</a>
-          <a href="digital-lending.html">Digital Lending</a>
+            <a href="co-lending.html">Co-lending</a>
+            <a href="business-correspondent.html">Business Correspondent</a>
+            <a href="digital-lending.html">Digital Lending</a>
           </div>
         </div>
         <a class="nav-link" href="for-banks.html">For Banks &amp; Senior Lenders</a>
@@ -38,18 +39,18 @@
         <div class="nav-dd">
           <button class="nav-dd-btn" aria-expanded="false">Platform <svg class="chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
           <div class="nav-drop">
-          <a href="how-it-works.html">How It Works</a>
-          <a href="platform.html">Inside the platform</a>
-          <a href="security.html">Security &amp; Trust</a>
+            <a href="how-it-works.html">How It Works</a>
+            <a href="platform.html">Inside the platform</a>
+            <a href="security.html">Security &amp; Trust</a>
           </div>
         </div>
-        <a class="nav-link" href="resources.html">Resources</a>
+        <a class="nav-link active" aria-current="page" href="resources.html">Resources</a>
         <div class="nav-dd">
           <button class="nav-dd-btn" aria-expanded="false">Company <svg class="chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
           <div class="nav-drop">
-          <a href="our-story.html">Our Story</a>
-          <a href="careers.html">Careers</a>
-          <a href="faq.html">FAQ</a>
+            <a href="our-story.html">Our Story</a>
+            <a href="careers.html">Careers</a>
+            <a href="faq.html">FAQ</a>
           </div>
         </div>
         <a class="btn btn-primary nav-menu-cta" href="contact.html">Schedule a walkthrough</a>
@@ -62,49 +63,50 @@
   </div>
 </nav>
 
-<!-- ============ HERO ============ -->
-<section class="hero wrap-wide">
-  <div class="hero-center">
-    <div class="hero-eyebrow"><span class="pip"></span><span class="eyebrow">Connect with Mannjal</span></div>
-    <h1>Connect with Mannjal</h1>
-    <p class="hero-sub">Tell us what you're exploring—partnership lending, joining the network, security documentation, or a product walkthrough—and we'll connect you with the right person.</p>
-  </div>
-</section>
+<main>
+  <header class="article-hero">
+    <div class="wrap">
+      <a class="article-back" href="resources.html"><span aria-hidden="true">←</span> All resources</a>
+      <div class="article-labels" id="articleLabels"><span>Resource</span></div>
+      <h1 id="articleTitle">Loading the resource…</h1>
+      <p class="article-dek" id="articleDek">Published articles and case studies are loaded from the Mannjal content studio.</p>
+      <div class="article-meta" id="articleMeta"><span>By Mannjal</span></div>
+      <p class="article-missing" id="articleMissing" hidden>This resource is not available. It may still be a draft.</p>
+    </div>
+  </header>
 
-<!-- ============ FORM + WHO YOU'LL MEET ============ -->
-<section class="sec">
-  <div class="wrap">
-    <div class="contact-grid">
-
-      <!-- LEFT: request form -->
-      <div>
-        <span class="eyebrow" style="display:block;margin-bottom:20px;">Request a walkthrough</span>
-        <form onsubmit="event.preventDefault()">
-          <div class="field"><label>I'm a…</label><select class="ctrl"><option value="" disabled selected>Select one</option><option>A bank or senior lender</option><option>An originator or junior lender</option></select></div>
-          <div class="field"><label>Name</label><input class="ctrl" type="text" placeholder="Full name"></div>
-          <div class="field"><label>Work email</label><input class="ctrl" type="email" placeholder="name@company.com"></div>
-          <div class="field"><label>Organisation</label><input class="ctrl" type="text" placeholder="Organization name"></div>
-          <div class="field"><label>What would you like to cover? <span class="opt">(optional)</span></label><textarea class="ctrl" placeholder="Tell us what you'd like to cover."></textarea></div>
-          <div class="field-consent"><input type="checkbox" id="consent" required><label for="consent">By submitting, you agree to our <a href="privacy.html">Privacy Policy</a> and consent to Mannjal contacting you about your enquiry, in line with India's DPDP Act, 2023.</label></div>
-          <button class="btn btn-primary" type="submit">Schedule a walkthrough</button>
-        </form>
-      </div>
-
-      <!-- RIGHT: who you'll meet -->
-      <div>
-        <div class="meet">
-          <div class="meet-h">Who you'll meet</div>
-          <div class="person"><img class="photo" src="assets/img/prashant-founder.jpeg" alt="Prashant Adurty"><div><div class="nm">Prashant Adurty</div><div class="ro">Co-founder &amp; CEO</div></div></div>
-          <div class="person"><img class="photo" src="assets/img/aman-founder.jpeg" alt="Aman Bhargava"><div><div class="nm">Aman Bhargava</div><div class="ro">Co-founder &amp; CBO</div></div></div>
-        </div>
-        <p style="margin-top:16px;color:var(--text-2);font-size:14px;">We’ll pair you with the right person for the conversation.</p>
-      </div>
-
+  <div class="article-cover">
+    <div class="wrap">
+      <figure>
+        <img id="articleCoverImage" src="assets/resources-og.png" width="1731" height="909" alt="">
+      </figure>
     </div>
   </div>
-</section>
 
-<!-- ============ FOOTER ============ -->
+  <section class="article-section">
+    <div class="wrap article-layout">
+      <aside class="article-rail" id="articleContents" aria-label="Article contents">
+        <span class="article-rail-title">In this article</span>
+      </aside>
+      <article class="article-body">
+        <div id="articleContent">
+          <p class="article-lead">Loading the published article…</p>
+        </div>
+        <div class="article-end">
+          <div>
+            <span class="eyebrow">Continue exploring</span>
+            <h3>See how Mannjal keeps the case, controls, and partner hand-offs in one operating rhythm.</h3>
+          </div>
+          <div class="article-end-actions">
+            <a class="btn btn-primary" href="how-it-works.html">See how it works</a>
+            <a class="btn btn-ghost" href="resources.html">Back to resources</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
 <footer class="site">
   <div class="wrap">
     <div class="foot-grid">
@@ -122,7 +124,6 @@
       <div class="foot-col"><h5>Use cases</h5><a href="for-banks.html">For lenders</a><a href="for-originators.html">For originators</a></div>
       <div class="foot-col"><h5>Company</h5><a href="our-story.html">Our story</a><a href="careers.html">Careers</a><a href="resources.html">Resources</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
     </div>
-    <!-- TODO: replace bracketed placeholders with the registered legal-entity details before launch -->
     <div class="foot-legal">
       <p class="foot-entity"><b>Mannjal Technologies Pvt. Ltd.</b> · CIN U62013KA2023PTC171651 · Registered office: Bubblespace Coworking, Level 3, 824, HRBR Layout, Block I Extension, Kalyan Nagar, Bengaluru, Karnataka - 560 043 · Grievance Officer: Vivekanandan Kalimuthu · <a href="mailto:email-grievance@mannjal.com">email-grievance@mannjal.com</a></p>
       <p class="foot-compliance">Mannjal supports partnership-lending workflows aligned with applicable RBI guidance and client policies. Personal data is handled with DPDP-aware controls where applicable. Mannjal provides technology infrastructure; it does not make credit decisions or lend on its own account.</p>
@@ -135,6 +136,7 @@
 </footer>
 
 <script src="assets/app.js"></script>
+<script src="assets/sanity-content.js?v=2"></script>
 <script>
 hydrateIcons();
 initNav();
