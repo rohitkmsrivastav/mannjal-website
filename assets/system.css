@@ -920,10 +920,19 @@
   .art-tape i:nth-of-type(3) { left:52%; height:56%; top:auto; }
   .art-tape i:nth-of-type(4) { left:68%; height:68%; top:auto; }
 
-  .resource-card-body { display:flex; flex-direction:column; flex:1; padding:clamp(20px,2.3vw,27px); }
-  .resource-card-body h3 { margin-top:15px; font-size:clamp(20px,2vw,24px); line-height:1.2; transition:color .18s; }
+  .resource-card-body { display:flex; flex-direction:column; flex:1; min-height:330px; padding:clamp(24px,2.8vw,34px); }
+  .resource-card-kicker { display:flex; align-items:center; flex-wrap:wrap; gap:8px; color:var(--text-3); font-size:11px; font-weight:700; letter-spacing:.055em; text-transform:uppercase; }
+  .resource-card-kicker .resource-type { color:var(--label-ink); }
+  .resource-card-kicker > * + *::before { content:"/"; margin-right:8px; color:var(--line-strong); }
+  .resource-card-body h3 { margin-top:22px; font-size:clamp(22px,2.25vw,28px); line-height:1.16; transition:color .18s; }
   .resource-card > a:hover h3 { color:var(--label-ink); }
-  .resource-card-body p { margin-top:13px; color:var(--text-2); font-size:14.5px; line-height:1.6; }
+  .resource-card-body p { margin-top:16px; color:var(--text-2); font-size:14.5px; line-height:1.65; }
+  .resource-card-meta { display:flex; align-items:center; flex-wrap:wrap; gap:0; margin-top:auto; padding-top:28px; color:var(--text-3); font-size:12.5px; font-weight:600; }
+  .resource-card-meta span { display:inline-flex; align-items:center; }
+  .resource-card-meta span + span::before { content:""; width:3px; height:3px; margin:0 10px; border-radius:50%; background:var(--line-strong); }
+  .resource-card-meta span:last-child { margin-left:auto; color:var(--label-ink); font-size:18px; transition:transform .18s ease; }
+  .resource-card-meta span:last-child::before { display:none; }
+  .resource-card > a:hover .resource-card-meta span:last-child { transform:translateX(4px); }
   .resource-tags { display:flex; flex-wrap:wrap; gap:7px; margin-top:auto; padding-top:22px; }
   .resource-tags span { border-radius:999px; background:var(--band); color:var(--text-3); padding:6px 9px; font-size:10.5px; font-weight:600; }
 
@@ -969,7 +978,7 @@
     border-bottom:1px solid var(--line);
     background:
       radial-gradient(circle at 83% 18%, var(--accent-soft) 0 8%, transparent 8.2%),
-      linear-gradient(90deg, transparent 0 68%, var(--line) 68% 68.08%, transparent 68.08%),
+      linear-gradient(90deg, transparent 0 68%, color-mix(in srgb, var(--line) 32%, transparent) 68% 68.08%, transparent 68.08%),
       var(--page);
   }
   .article-hero::after {

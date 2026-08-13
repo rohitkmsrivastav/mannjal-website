@@ -5,7 +5,7 @@
   const DATASET = 'production';
   const API_VERSION = '2026-07-30';
   // Use the live API for this static site so a newly published article is
-  // visible immediately in the Resources page and article template.
+  // visible immediately on the Insights page and article template.
   const API_URL = `https://${PROJECT_ID}.api.sanity.io/v${API_VERSION}/data/query/${DATASET}`;
 
   const resourceFields = `{
@@ -13,6 +13,7 @@
     title,
     "slug": slug.current,
     contentType,
+    category,
     excerpt,
     publishedAt,
     readingTime,
@@ -81,7 +82,20 @@
   }
 
   function formatType(value) {
-    return value === 'caseStudy' ? 'Case study' : 'Blog';
+    if (value === 'caseStudy') return 'Case study';
+    if (value === 'update') return 'Update';
+    return 'Article';
+  }
+
+  const CATEGORY_LABELS = {
+    regulatory: 'Regulatory',
+    marketInsights: 'Market Insights',
+    operationalInsights: 'Operational Insights',
+    eventsUpdates: 'Events & Updates',
+  };
+
+  function categoryLabel(value) {
+    return CATEGORY_LABELS[value] || 'Insights';
   }
 
   function resourceVisualLabel(resource) {
@@ -127,18 +141,20 @@
 
     const copy = element('div', 'resource-feature-copy');
     const kicker = element('div', 'resource-kicker');
-    const primaryTag = resource.tags?.[0]?.title || formatType(resource.contentType);
-    kicker.append(
-      element('span', 'resource-type', `Featured ${primaryTag.toLowerCase()}`),
-      element('span', '', `${resource.readingTime || 1} min read`),
-    );
+    const primaryTag = resource.tags?.[0]?.title;
+    kicker.append(element('span', 'resource-type', categoryLabel(resource.category)));
+    if (primaryTag) kicker.append(element('span', '', primaryTag));
     copy.append(
       kicker,
       element('h2', '', resource.title),
       element('p', '', resource.excerpt),
     );
 
-    const read = element('span', 'link-arrow', 'Read the article ');
+    const read = element(
+      'span',
+      'link-arrow',
+      `${formatDate(resource.publishedAt)} · ${resource.readingTime || 1} min read `,
+    );
     const icon = element('span');
     icon.dataset.ic = 'arrow';
     icon.dataset.s = '16';
@@ -150,53 +166,37 @@
 
   function renderCard(resource) {
     const card = element('article', 'resource-card');
-    card.dataset.tags = (resource.tags || []).map((tag) => tag.slug).join(' ');
+    card.dataset.category = resource.category || '';
 
     const link = element('a');
     link.href = articleHref(resource);
 
-    const art = element('div', 'resource-card-art');
-    const image = coverImage(resource, 'resource-card-image');
-    if (image) {
-      art.classList.add('has-image');
-      art.append(image);
-    } else {
-      art.classList.add('resource-card-art--fallback');
-      art.setAttribute('aria-hidden', 'true');
-      art.append(
-        element('span', 'art-label', resourceVisualLabel(resource)),
-        element('span', 'resource-card-art-title', resource.title),
-      );
-    }
-
     const body = element('div', 'resource-card-body');
-    const kicker = element('div', 'resource-kicker');
-    kicker.append(
-      element('span', 'resource-type', formatType(resource.contentType)),
-      element('span', '', `${resource.readingTime || 1} min read`),
-    );
+    const kicker = element('div', 'resource-card-kicker');
+    kicker.append(element('span', 'resource-type', categoryLabel(resource.category)));
+    if (resource.tags?.[0]?.title) kicker.append(element('span', '', resource.tags[0].title));
     body.append(kicker, element('h3', '', resource.title), element('p', '', resource.excerpt));
 
-    const tags = element('div', 'resource-tags');
-    (resource.tags || []).forEach((tag) => tags.append(element('span', '', tag.title)));
-    body.append(tags);
-    link.append(art, body);
+    const meta = element('div', 'resource-card-meta');
+    meta.append(
+      element('span', '', formatDate(resource.publishedAt)),
+      element('span', '', `${resource.readingTime || 1} min read`),
+      element('span', '', '→'),
+    );
+    meta.lastElementChild.setAttribute('aria-hidden', 'true');
+    body.append(meta);
+    link.append(body);
     card.append(link);
     return card;
   }
 
-  function setupFilters(resources) {
+  function setupFilters() {
     const buttonWrap = document.querySelector('.resource-filter-buttons');
     const grid = document.getElementById('resourceGrid');
     const status = document.getElementById('filterStatus');
     const empty = document.getElementById('resourceEmpty');
     const clear = document.getElementById('clearFilters');
     if (!buttonWrap || !grid || !status || !empty || !clear) return;
-
-    const tagMap = new Map();
-    resources.forEach((resource) => {
-      (resource.tags || []).forEach((tag) => tagMap.set(tag.slug, tag.title));
-    });
 
     buttonWrap.replaceChildren();
     const allButton = element('button', 'resource-filter-btn is-active', 'All');
@@ -205,8 +205,7 @@
     allButton.setAttribute('aria-pressed', 'true');
     buttonWrap.append(allButton);
 
-    [...tagMap.entries()]
-      .sort((a, b) => a[1].localeCompare(b[1]))
+    Object.entries(CATEGORY_LABELS)
       .forEach(([slug, title]) => {
         const button = element('button', 'resource-filter-btn', title);
         button.type = 'button';
@@ -215,40 +214,34 @@
         buttonWrap.append(button);
       });
 
-    const selectedTags = new Set();
-    const initialTags = new URLSearchParams(window.location.search).get('tags');
-    if (initialTags) {
-      initialTags.split(',').forEach((tag) => {
-        if (tagMap.has(tag)) selectedTags.add(tag);
-      });
-    }
+    let selectedCategory = new URLSearchParams(window.location.search).get('category') || 'all';
+    if (selectedCategory !== 'all' && !CATEGORY_LABELS[selectedCategory]) selectedCategory = 'all';
 
     function update() {
       const cards = Array.from(grid.querySelectorAll('.resource-card'));
       let visible = 0;
       cards.forEach((card) => {
-        const tags = new Set((card.dataset.tags || '').split(' ').filter(Boolean));
-        const matches = [...selectedTags].every((tag) => tags.has(tag));
+        const matches = selectedCategory === 'all' || card.dataset.category === selectedCategory;
         card.hidden = !matches;
         if (matches) visible += 1;
       });
 
       buttonWrap.querySelectorAll('.resource-filter-btn').forEach((button) => {
         const tag = button.dataset.filter;
-        const active = tag === 'all' ? selectedTags.size === 0 : selectedTags.has(tag);
+        const active = tag === selectedCategory;
         button.classList.toggle('is-active', active);
         button.setAttribute('aria-pressed', String(active));
       });
 
       status.textContent =
-        selectedTags.size === 0
-          ? `Showing all ${visible} resource${visible === 1 ? '' : 's'}`
-          : `Showing ${visible} resource${visible === 1 ? '' : 's'} across ${selectedTags.size} selected tag${selectedTags.size === 1 ? '' : 's'}`;
+        selectedCategory === 'all'
+          ? `Showing all ${visible} insight${visible === 1 ? '' : 's'}`
+          : `Showing ${visible} ${categoryLabel(selectedCategory)} insight${visible === 1 ? '' : 's'}`;
       empty.hidden = visible !== 0;
 
       const params = new URLSearchParams(window.location.search);
-      if (selectedTags.size) params.set('tags', [...selectedTags].join(','));
-      else params.delete('tags');
+      if (selectedCategory !== 'all') params.set('category', selectedCategory);
+      else params.delete('category');
       const search = params.toString();
       window.history.replaceState(
         {},
@@ -261,18 +254,12 @@
       const button = event.target.closest('.resource-filter-btn');
       if (!button) return;
       const tag = button.dataset.filter;
-      if (tag === 'all') {
-        selectedTags.clear();
-      } else if (selectedTags.has(tag)) {
-        selectedTags.delete(tag);
-      } else {
-        selectedTags.add(tag);
-      }
+      selectedCategory = tag;
       update();
     });
 
     clear.addEventListener('click', () => {
-      selectedTags.clear();
+      selectedCategory = 'all';
       update();
       allButton.focus();
     });
@@ -288,7 +275,6 @@
       "page": *[_type == "resourcesPage"][0]{
         eyebrow,
         headingLine,
-        headingAccent,
         introduction,
         closingHeading,
         featuredResource->${resourceFields}
@@ -298,7 +284,7 @@
         defined(slug.current) &&
         defined(publishedAt) &&
         publishedAt <= now()
-      ] | order(publishedAt desc) ${resourceFields}
+      ] | order(publishedAt desc, _createdAt desc) ${resourceFields}
     }`;
 
     try {
@@ -308,12 +294,10 @@
       if (data.page) {
         const eyebrow = document.getElementById('resourcesEyebrow');
         const headingLine = document.getElementById('resourcesHeadingLine');
-        const headingAccent = document.getElementById('resourcesHeadingAccent');
         const introduction = document.getElementById('resourcesIntroduction');
         const closingHeading = document.getElementById('resourcesClosingHeading');
         if (eyebrow && data.page.eyebrow) eyebrow.textContent = data.page.eyebrow;
         if (headingLine && data.page.headingLine) headingLine.textContent = data.page.headingLine;
-        if (headingAccent && data.page.headingAccent) headingAccent.textContent = data.page.headingAccent;
         if (introduction && data.page.introduction) introduction.textContent = data.page.introduction;
         if (closingHeading && data.page.closingHeading) closingHeading.textContent = data.page.closingHeading;
       }
@@ -323,11 +307,11 @@
       if (featureSlot && featured) featureSlot.replaceChildren(renderFeatured(featured));
 
       grid.replaceChildren(...data.resources.map(renderCard));
-      setupFilters(data.resources);
+      setupFilters();
       if (typeof window.hydrateIcons === 'function') window.hydrateIcons();
       document.documentElement.dataset.cmsReady = 'true';
     } catch (error) {
-      console.warn('Published resources could not be loaded; showing the local fallback.', error);
+      console.warn('Published insights could not be loaded; showing the local fallback.', error);
     }
   }
 
@@ -451,6 +435,7 @@
     if (!labels || !title || !dek || !meta || !content || !rail) return;
 
     labels.replaceChildren(
+      element('span', '', categoryLabel(resource.category)),
       ...(resource.tags || []).map((tag) => element('span', '', tag.title)),
     );
     const titleParts = resource.title.split(/:\s+/, 2);
