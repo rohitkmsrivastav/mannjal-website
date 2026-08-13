@@ -1,0 +1,24 @@
+{
+  "name": "mannjal-content-studio",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "sanity dev",
+    "start": "sanity start",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "seed:resources": "sanity exec scripts/seed-resources.ts --with-user-token",
+    "migrate:insights": "sanity exec scripts/migrate-insights-direction.ts --with-user-token"
+  },
+  "dependencies": {
+    "@sanity/vision": "6.7.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "sanity": "6.7.0",
+    "styled-components": "^6.1.19"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "typescript": "^5.9.3"
+  }
+}
