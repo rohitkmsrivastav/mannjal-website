@@ -40,6 +40,7 @@
           <div class="nav-drop">
           <a href="how-it-works.html">How It Works</a>
           <a href="platform.html">Inside the platform</a>
+          <a href="ai.html">AI Intelligence &amp; Automation</a>
           <a href="security.html">Security &amp; Trust</a>
           </div>
         </div>
@@ -81,8 +82,18 @@
   </div>
 </section>
 
-<!-- ============ FOR LENDERS ============ -->
+<!-- ============ AI & AUTOMATION ============ -->
 <section class="band sec">
+  <div class="wrap" style="max-width:860px;">
+    <div class="faq">
+      <div class="faq-h"><h3>AI &amp; automation</h3></div>
+      <div id="faqAi"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOR LENDERS ============ -->
+<section class="sec">
   <div class="wrap" style="max-width:860px;">
     <div class="faq">
       <div class="faq-h"><h3>For lenders</h3></div>
@@ -92,7 +103,7 @@
 </section>
 
 <!-- ============ FOR ORIGINATORS ============ -->
-<section class="sec">
+<section class="band sec">
   <div class="wrap" style="max-width:860px;">
     <div class="faq">
       <div class="faq-h"><h3>For originators</h3></div>
@@ -102,7 +113,7 @@
 </section>
 
 <!-- ============ SECURITY & COMPLIANCE ============ -->
-<section class="band sec">
+<section class="sec">
   <div class="wrap" style="max-width:860px;">
     <div class="faq">
       <div class="faq-h"><h3>Security &amp; compliance</h3></div>
@@ -139,7 +150,7 @@
         </div>
       </div>
       <div class="foot-col"><h5>Products</h5><a href="co-lending.html">Co-lending</a><a href="business-correspondent.html">Business Correspondent</a><a href="digital-lending.html">Digital lending</a></div>
-      <div class="foot-col"><h5>Platform</h5><a href="how-it-works.html">How it works</a><a href="platform.html">Inside the platform</a><a href="security.html">Security &amp; trust</a></div>
+      <div class="foot-col"><h5>Platform</h5><a href="how-it-works.html">How it works</a><a href="platform.html">Inside the platform</a><a href="ai.html">AI Intelligence &amp; Automation</a><a href="security.html">Security &amp; trust</a></div>
       <div class="foot-col"><h5>Use cases</h5><a href="for-banks.html">For lenders</a><a href="for-originators.html">For originators</a></div>
       <div class="foot-col"><h5>Company</h5><a href="our-story.html">Our story</a><a href="careers.html">Careers</a><a href="resources.html">Insights</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
     </div>
@@ -172,6 +183,15 @@ const FAQ_LENDERS = [
   {q:'Does Mannjal handle regulatory reporting?',a:'Mannjal supports documentation and controls aligned with RBI Co-Lending Arrangements guidance and Digital Lending Guidelines, including Key Fact Statement support, single blended rate workflows, First Loss Default Guarantee tracking, partner-level reporting and audit trails. Your team holds the data and makes credit decisions.'},
   {q:'What about the originators in the network?',a:'Originators on the network are reviewed for financial profile, credit focus and operating track record before they join. Matching is by product, geography and lending appetite, so both sides meet partners that fit.'}
 ];
+const FAQ_AI = [
+  {q:'What information can Mannjal read?',a:'Mannjal can read configured PDF, Word and Excel documents, as well as document bundles supplied for a case. It prepares clear matches for the relevant application fields and surfaces information that appears to be missing.'},
+  {q:'What case work can AI support?',a:'Within the configured programme and the user\'s role, AI can help prepare application information, evidence, credit checks, queries, deviations, sanction or disbursal readiness, post-disbursal follow-ups and permitted stage actions. The applicable workflow determines which actions are available.'},
+  {q:'Can AI change a case without approval?',a:'Proposed field changes, queries and deviations are presented to an authorized user for review. The user can accept, revise or decline them before they are applied to the workflow.'},
+  {q:'Does a passing check approve the application?',a:'No. Checks report their configured outcome and supporting context. A passing check is not an approval, and the case moves only after the required roles, evidence and stage gates are satisfied.'},
+  {q:'Does Mannjal make credit decisions?',a:'No. AI can prepare case information, policy context and review material. Credit policy, underwriting, approvals and every final lending decision remain with the lender or agreed regulated participant.'},
+  {q:'Can portfolio answers cross lender or originator boundaries?',a:'No. Portfolio answers are read-only and limited to the programs and connected originators the logged-in organization is authorized to access. They do not search a universal borrower or partner database.'},
+  {q:'Where is AI processing performed?',a:'AI processing is configured within the deployment and data-residency boundaries agreed for each program. The exact processing scope depends on whether the engagement runs in Mannjal-hosted infrastructure or inside the deploying entity\'s environment.'}
+];
 const FAQ_ORIGINATORS = [
   {q:'How do originators join the network?',a:'Reach out through the contact form or email. We vet on financials, credit quality and track record. Once approved, you\'re matched with senior lenders building programs that fit your product and geography.'},
   {q:'What does "aligned incentives" mean?',a:'Our pricing is tied to outcomes. Mannjal earns when our partners grow, so our incentives line up with yours from the start.'},
@@ -195,11 +215,13 @@ function renderFaq(id, items) {
   ).join('');
 }
 renderFaq('faqGeneral', FAQ_GENERAL);
+renderFaq('faqAi', FAQ_AI);
 renderFaq('faqLenders', FAQ_LENDERS);
 renderFaq('faqOriginators', FAQ_ORIGINATORS);
 renderFaq('faqSecurity', FAQ_SECURITY);
 
 wireAccordion('#faqGeneral', '.faq-item', '.faq-q');
+wireAccordion('#faqAi', '.faq-item', '.faq-q');
 wireAccordion('#faqLenders', '.faq-item', '.faq-q');
 wireAccordion('#faqOriginators', '.faq-item', '.faq-q');
 wireAccordion('#faqSecurity', '.faq-item', '.faq-q');
